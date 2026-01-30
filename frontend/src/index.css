@@ -863,3 +863,30 @@ p {
   border-radius: 14px;
   margin-bottom: 2.2rem;
 }
+/* =========================
+   MODULE DETAIL – BACKGROUND IMAGE
+   ========================= */
+
+.step-with-background {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("./assets/modules/postbearbeitung-intro.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* dunkle, ruhige Überlagerung für Lesbarkeit */
+.step-with-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 48, 107, 0.55); /* Artemis-Blau, transparent */
+  z-index: 0;
+}
+
+/* Step-Block liegt über dem Hintergrund */
+.step-with-background .step-card-full {
+  position: relative;
+  z-index: 1;
+}

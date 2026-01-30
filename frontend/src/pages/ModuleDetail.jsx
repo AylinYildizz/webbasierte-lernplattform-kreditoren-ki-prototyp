@@ -1,9 +1,10 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import introImage from "../assets/modules/postbearbeitung-intro.jpg";
 
 function ModuleDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const isPostbearbeitung = id === "postbearbeitung";
 
   const steps = [
@@ -113,51 +114,55 @@ function ModuleDetail() {
       </div>
     );
   }
+
+  /* ================= INTRO SCREEN ================= */
   if (showIntro) {
-  return (
-    <div className="module-detail-page">
-      <div className="step-screen pop-in">
-        <div className="module-card step-card-full">
-          <img
-            src={introImage}
-            alt="Postbearbeitung"
-            className="module-intro-image"
-          />
+    return (
+      <div className="module-detail-page">
+        <div className="step-screen step-with-background pop-in">
+          <div className="module-card step-card-full">
+            <img
+              src={introImage}
+              alt="Postbearbeitung"
+              className="module-intro-image"
+            />
 
-          <h2>Postbearbeitung</h2>
+            <h2>Postbearbeitung</h2>
 
-          <p className="step-task">
-            In diesem Modul lernst du Schritt für Schritt, wie eingehende Post
-            korrekt gesichtet, sortiert und für die weitere Verarbeitung vorbereitet wird.
-          </p>
+            <p className="step-task">
+              In diesem Modul lernst du Schritt für Schritt, wie eingehende Post
+              korrekt gesichtet, sortiert und für die weitere Verarbeitung
+              vorbereitet wird.
+            </p>
 
-          <div className="step-actions" style={{ justifyContent: "center" }}>
-            <button
-              className="primary-button"
-              onClick={() => setShowIntro(false)}
-            >
-              Modul starten
-            </button>
+            <div className="step-actions center">
+              <button
+                className="primary-button"
+                onClick={() => setShowIntro(false)}
+              >
+                Modul starten
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="module-exit">
-        <Link to="/module">
-          <button className="secondary-button">
-            Zurück zu den Modulen
-          </button>
-        </Link>
+        <div className="module-exit">
+          <Link to="/module">
+            <button className="secondary-button">
+              Zurück zu den Modulen
+            </button>
+          </Link>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
+  /* ================= STEP SCREEN ================= */
   const step = steps[current];
 
   return (
     <div className="module-detail-page">
-      <div className="step-screen pop-in">
+      <div className="step-screen step-with-background pop-in">
         <div className={`module-card step-card-full ${understood ? "completed" : ""}`}>
           <h2>{step.title}</h2>
 
@@ -175,7 +180,6 @@ function ModuleDetail() {
             <strong>Ergebnis:</strong> {step.result}
           </div>
 
-          {/* Navigation */}
           <div className="step-actions">
             <button
               className="secondary-button"
@@ -199,19 +203,24 @@ function ModuleDetail() {
 
             <button
               className="primary-button"
-              disabled={!understood || current === steps.length - 1}
+              disabled={!understood}
               onClick={() => {
-                setCurrent((c) => c + 1);
-                setUnderstood(false);
+                if (current === steps.length - 1) {
+                  navigate("/module");
+                } else {
+                  setCurrent((c) => c + 1);
+                  setUnderstood(false);
+                }
               }}
             >
-              Weiter
+              {current === steps.length - 1
+                ? "Zurück zu den Modulen"
+                : "Weiter"}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Exit immer unten */}
       <div className="module-exit">
         <Link to="/module">
           <button className="secondary-button">
