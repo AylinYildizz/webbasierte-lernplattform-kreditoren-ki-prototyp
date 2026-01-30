@@ -1,68 +1,322 @@
+/* =========================
+   DESIGN SYSTEM
+   ========================= */
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --primary: #08306b;
+  --primary-dark: #062654;
+  --primary-light: #e6edf6;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --text: #1f2d3d;
+  --text-muted: #4a5a6a;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: #f4f9fd;
+  --card: #ffffff;
+  --border: #e8eef6;
+
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+* {
+  box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
-}
+
+/* =========================
+   GLOBAL
+   ========================= */
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--primary);
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  color: var(--primary);
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 0.9rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left a {
+  color: white;
+  text-decoration: none;
+  margin-right: 2.5rem;
+  font-size: 1.05rem;   /* größer */
+  font-weight: 600;     /* klarer */
+}
+.navbar-left a:hover {
+  opacity: 0.9;
+}
+
+.search-icon {
+  color: white;
+  font-size: 1.4rem;        /* größer */
+  stroke-width: 2.2;       /* dicker (wichtig!) */
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.search-icon:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+
+/* =========================
+   INTRO CARD (STARTSEITE)
+   ========================= */
+
+.intro-card-section {
+  padding: 3rem 2rem 2rem;
+}
+
+.intro-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    var(--primary-light)
+  );
+  border-radius: 18px;
+  padding: 3.5rem 4rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.intro-card h1 {
+  margin-bottom: 0.8rem;
+}
+
+.intro-card p {
+  max-width: 650px;
+  font-size: 1rem;
+}
+
+/* =========================
+   IMAGE GRID
+   ========================= */
+
+.image-grid-section {
+  padding: 4rem 2rem 1rem; /* oben mehr Abstand */
+}
+/* =========================
+   IMAGE GRID – 2 PRO REIHE
+   ========================= */
+
+.image-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 240px;
+  gap: 2rem;
+}
+
+.image-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.image-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+.image-tile.large {
+  grid-row: span 2;
+}
+
+.image-tile.wide {
+  grid-column: span 2;
+}
+
+.image-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.6)
+  );
+  color: #e6edf6; /* helles Blau-Grau */
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.image-overlay h3 {
+  color: #ffffff; /* Überschrift bleibt klar weiß */
+}
+
+.image-overlay p {
+  color: #cfdcf2; /* gut lesbares, kühles Blau */
+}
+
+/* =========================
+   MODULE GRID (VIERECKE)
+   ========================= */
+
+.module-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.module-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 2.3rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.module-card.full-width {
+  grid-column: 1 / -1;
+}
+
+/* =========================
+   CTA
+   ========================= */
+
+.cta-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .image-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
   }
-  a:hover {
-    color: #747bff;
+
+  .image-tile.large,
+  .image-tile.wide {
+    grid-column: auto;
+    grid-row: auto;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-card.full-width {
+    grid-column: auto;
   }
 }
+/* =========================
+   INTRO CARD – SPLIT (TEXT | LOGO)
+   ========================= */
+
+.intro-card-split {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.intro-card-text p {
+  max-width: 600px;
+}
+
+.intro-card-logo {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.intro-card-logo img {
+  max-width: 180px;
+  width: 100%;
+  opacity: 0.95;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .intro-card-split {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-card-logo {
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+
+  .intro-card-logo img {
+    max-width: 150px;
+  }
+}
+/* =========================
+   MODULES TITLE
+   ========================= */
+
+   .modules-title {
+    text-align: center;
+    margin-bottom: 1rem;
+   }

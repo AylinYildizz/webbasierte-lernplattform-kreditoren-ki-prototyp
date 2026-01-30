@@ -9,13 +9,28 @@ function Modules() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Module</h1>
-      <ul>
-        {modules.map((module) => (
-          <li key={module.id}>{module.title}</li>
+    <div className="container">
+      <h1 className="modules-title">Lernmodule</h1>
+
+      <div className="module-grid">
+        {modules.map((module, index) => (
+          <div
+            key={module.id}
+            className={`module-card ${
+              index === modules.length - 1 ? "full-width" : ""
+            }`}
+          >
+            <h2>{module.title}</h2>
+            <p>
+              Einführung und praxisnahe Erläuterung der relevanten Aufgaben
+              innerhalb dieses Prozessschritts.
+            </p>
+            <button className="primary-button">
+              Modul starten
+            </button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
