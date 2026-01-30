@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getModules } from "../services/api";
 
 function Modules() {
   const [modules, setModules] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getModules().then(setModules);
@@ -10,7 +12,12 @@ function Modules() {
 
   return (
     <div className="container">
-      <h1 className="modules-title">Lernmodule</h1>
+      <h1
+        className="modules-title"
+        style={{ textAlign: "center", marginBottom: "1.5rem" }}
+      >
+        Lernmodule
+      </h1>
 
       <div className="module-grid">
         {modules.map((module, index) => (
@@ -21,11 +28,16 @@ function Modules() {
             }`}
           >
             <h2>{module.title}</h2>
+
             <p>
               Einführung und praxisnahe Erläuterung der relevanten Aufgaben
               innerhalb dieses Prozessschritts.
             </p>
-            <button className="primary-button">
+
+            <button
+              className="primary-button"
+              onClick={() => navigate(`/module/${module.id}`)}
+            >
               Modul starten
             </button>
           </div>

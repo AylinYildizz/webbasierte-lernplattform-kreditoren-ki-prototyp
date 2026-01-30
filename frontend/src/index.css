@@ -319,4 +319,547 @@ p {
    .modules-title {
     text-align: center;
     margin-bottom: 1rem;
-   }
+   }/* =========================
+   LEARNING STEPS
+   ========================= */
+
+.learning-steps {
+  margin-top: 2.5rem;
+}
+
+.learning-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
+}
+
+.learning-step label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.learning-step input {
+  margin-top: 0.2rem;
+}
+
+.learning-step.completed {
+  background: #f1f6fc;
+  border-color: #cdddf3;
+}
+
+.learning-step.completed .step-text {
+  text-decoration: line-through;
+  color: #5a6b7c;
+}
+
+/* Intro Text */
+.module-intro {
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.module-footer {
+  margin-top: 3rem;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   ACCORDION – LERNMODUL
+   ========================= */
+
+.accordion {
+  margin-top: 2.5rem;
+}
+
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  background: #f7fafd;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.accordion-header:hover {
+  background: #eef4fc;
+}
+
+.accordion-content {
+  padding: 1.4rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.accordion-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: var(--primary);
+}
+
+.accordion-content ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.accordion-content li {
+  margin-bottom: 0.4rem;
+}
+
+.module-footer {
+  margin-top: 3rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   MODULE DETAIL – STEP FLOW
+   ========================= */
+
+.module-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.module-intro {
+  max-width: 780px;
+  margin-bottom: 0.5rem;
+}
+
+.module-progress {
+  min-width: 280px;
+  text-align: right;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.progress-track {
+  height: 10px;
+  background: #e8eef6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.step-card {
+  margin-top: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 2rem 2.2rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.step-badge {
+  background: #eef4fc;
+  color: var(--primary);
+  border: 1px solid #cdddf3;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+
+.step-title {
+  margin: 0;
+}
+
+.step-block h4 {
+  margin: 1.2rem 0 0.5rem;
+  color: var(--primary);
+}
+
+.step-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.step-block li {
+  margin-bottom: 0.4rem;
+}
+
+.step-callout {
+  margin-top: 1.2rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid #e3ebf7;
+  background: #f7fafd;
+  color: var(--text);
+}
+
+.step-callout.success {
+  background: #f1f6fc;
+  border-color: #cdddf3;
+}
+
+.step-callout.tip {
+  background: #f4f7ff;
+  border-color: #d7e3ff;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Secondary Button */
+.secondary-button {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pop-in Animation */
+.pop-in {
+  animation: popIn 0.22s ease both;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.checklist {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .module-topbar {
+    flex-direction: column;
+  }
+
+  .module-progress {
+    text-align: left;
+    min-width: auto;
+  }
+}
+/* =========================
+   FOCUS STEP (LERNPLATTFORM)
+   ========================= */
+
+.focus-step {
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, #ffffff, #f3f7fd);
+  border-radius: 18px;
+  padding: 2.5rem 2.8rem;
+  box-shadow: 0 24px 60px rgba(8, 48, 107, 0.15);
+  border: 1px solid #dbe7f7;
+}
+
+.focus-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.focus-badge {
+  background: var(--primary);
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.focus-task {
+  background: #eef4fc;
+  border-left: 5px solid var(--primary);
+  padding: 1.2rem 1.4rem;
+  border-radius: 12px;
+  margin-bottom: 1.4rem;
+}
+
+.focus-details ul {
+  padding-left: 1.2rem;
+}
+
+.focus-details li {
+  margin-bottom: 0.4rem;
+}
+
+.focus-callout {
+  margin-top: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: #f7fafd;
+}
+
+.focus-callout.success {
+  background: #eaf2ff;
+}
+
+.focus-callout.tip {
+  background: #fff7e6;
+}
+
+.focus-check {
+  margin-top: 1.8rem;
+  font-weight: 600;
+}
+
+.focus-actions {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+/* Animation */
+.pop-in {
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   MODULE DETAIL – STEP CARD
+   ========================= */
+
+.step-card {
+  margin-top: 1.5rem;
+}
+
+.step-task {
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+}
+
+.step-points {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.step-points li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.step-callout {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: #f7fafd;
+  border: 1px solid var(--border);
+}
+
+.step-callout.success {
+  background: #f1f6fc;
+  border-color: #cdddf3;
+}
+
+.step-callout.tip {
+  background: #fff7e6;
+  border-color: #ffe3a3;
+}
+
+.step-confirm {
+  margin-top: 1.4rem;
+  font-weight: 600;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+/* Pop-in Animation (ruhig) */
+.pop-in {
+  animation: popIn 0.22s ease both;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   MODULE DETAIL – FULL STEP
+   ========================= */
+
+.module-detail-page {
+  min-height: calc(100vh - 80px); /* Navbar-Höhe grob */
+  display: flex;
+  flex-direction: column;
+}
+
+.step-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card-full {
+  width: 100%;
+  max-width: 1100px;     /* deutlich breiter */
+  min-height: 70vh;     /* nimmt Großteil des Screens ein */
+  padding: 4.5rem 5rem; /* mehr Luft */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.step-card-full h2 {
+  font-size: 2.2rem;
+  line-height: 1.25;
+  margin-bottom: 2.2rem;
+}
+
+.step-card-full .step-task {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 2.4rem;
+}
+
+.step-card-full .step-points li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+/* Exit unten */
+.module-exit {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+/* =========================
+   MODULE DETAIL – COMPLETED STEP
+   ========================= */
+
+/* =========================
+   MODULE DETAIL – COMPLETED STEP
+   ========================= */
+
+/* =========================
+   MODULE DETAIL – COMPLETED STEP (GRÜN, TEXT SCHWARZ)
+   ========================= */
+
+.step-card-full.completed {
+  background: linear-gradient(135deg, #f2fbf5, #eaf7ef);
+  border-color: #8fd1a6;
+  color: var(--text); /* 🔥 Text bleibt schwarz */
+}
+
+/* Sicherheit: Text-Elemente explizit schwarz halten */
+.step-card-full.completed h2,
+.step-card-full.completed p,
+.step-card-full.completed li,
+.step-card-full.completed strong {
+  color: var(--text);
+}
+/* Bestätigungsbereich ganz unten */
+.step-confirm-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.step-confirm-inline {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);     /* 🔥 schwarz */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.step-confirm-inline input {
+  transform: scale(1.2);
+  accent-color: #2e9e5b;
+}
+
+.module-intro-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 2.2rem;
+}

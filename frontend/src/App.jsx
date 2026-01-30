@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Modules from "./pages/Modules";
-import Navbar from "./components/Navbar";
+import ModuleDetail from "./pages/ModuleDetail";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/module" element={<Modules />} />
+        <Route path="/module/:id" element={<ModuleDetail />} />
       </Routes>
     </BrowserRouter>
   );
