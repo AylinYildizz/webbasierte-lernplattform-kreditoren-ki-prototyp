@@ -1,7 +1,13 @@
+import Navbar from "./components/Navbar";
 import Modules from "./pages/Modules";
 
 function App() {
-  return <Modules />;
+  return (
+    <>
+      <Navbar />
+      <Modules />
+    </>
+  );
 }
 
 export default App;
