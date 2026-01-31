@@ -1,7 +1,18 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 import introImage from "../assets/modules/postbearbeitung-intro.jpg";
 import artemisLogo from "../assets/artemis-logo.png";
+
+// Rechnungsprüfung Bilder
+import img01Gesamtseite from "../assets/modules/rechnungspruefung/01-gesamtseite.png";
+import img03BlaueFelder from "../assets/modules/rechnungspruefung/03-blaue-felder.png";
+import img04RoteFelder from "../assets/modules/rechnungspruefung/04-rote-felder.png";
+import img05VorgangFortsetzen from "../assets/modules/rechnungspruefung/05-vorgang-fortsetzen.png";
+import img06Mahnstufe from "../assets/modules/rechnungspruefung/06-mahnstufe.png";
+import img07Rechnungskorrektur from "../assets/modules/rechnungspruefung/07-rechnungskorrektur.png";
+import img08WeitereFelder from "../assets/modules/rechnungspruefung/08-weitere-felder.png";
+import img09Aussteuern from "../assets/modules/rechnungspruefung/09-aussteuern.png";
 
 function ModuleDetail() {
   const { id } = useParams();
@@ -97,7 +108,6 @@ function ModuleDetail() {
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
-
 const quiz = [
   {
     question: "Welche Dokumente müssen besonders priorisiert bearbeitet werden?",
@@ -106,18 +116,74 @@ const quiz = [
   },
   {
     question: "Was kann eine Folge sein, wenn Mahnungen zu spät weitergeleitet werden?",
-    options: ["Keine Auswirkungen", "Verzugszinsen oder Inkasso", "Automatische Gutschrift"],
+    options: [
+      "Keine Auswirkungen",
+      "Verzugszinsen oder Inkasso",
+      "Automatische Gutschrift"
+    ],
     correctAnswer: "Verzugszinsen oder Inkasso"
   },
   {
     question: "An wen müssen Kontoauszüge und Bescheide weitergegeben werden?",
-    options: ["Personalabteilung", "Hauptbuchhaltung", "Externe Dienstleister"],
+    options: [
+      "Personalabteilung",
+      "Hauptbuchhaltung",
+      "Externe Dienstleister"
+    ],
     correctAnswer: "Hauptbuchhaltung"
+  },
+  {
+    question: "Was ist der erste Schritt bei der Postbearbeitung?",
+    options: [
+      "Dokumente einscannen",
+      "Posteingang prüfen",
+      "Rechnungen buchen"
+    ],
+    correctAnswer: "Posteingang prüfen"
+  },
+  {
+    question: "Wie sollen eingehende Dokumente zunächst sortiert werden?",
+    options: [
+      "Nach Datum",
+      "Nach Zuständigkeit",
+      "Nach Seitenanzahl"
+    ],
+    correctAnswer: "Nach Zuständigkeit"
+  },
+  {
+    question: "Was gehört zu den Sonderfällen in der Postbearbeitung?",
+    options: [
+      "Werbebriefe",
+      "Bankverbindungsänderungen",
+      "Interne Notizen"
+    ],
+    correctAnswer: "Bankverbindungsänderungen"
+  },
+  {
+    question: "Was ist bei Kreditkartenabrechnungen erforderlich?",
+    options: [
+      "Sofortige Löschung",
+      "Einscannen und Weiterleiten",
+      "Archivierung ohne Prüfung"
+    ],
+    correctAnswer: "Einscannen und Weiterleiten"
+  },
+  {
+    question: "Warum ist eine korrekte Postbearbeitung wichtig?",
+    options: [
+      "Zur optischen Ordnung",
+      "Zur Vermeidung von Kosten und Risiken",
+      "Für statistische Zwecke"
+    ],
+    correctAnswer: "Zur Vermeidung von Kosten und Risiken"
   }
 ];
 const [shuffledOptions, setShuffledOptions] = useState(
     shuffleArray(quiz[0].options)
   );
+  const [wrongQuestions, setWrongQuestions] = useState([]);
+  const [isRetry, setIsRetry] = useState(false);  
+  const activeQuiz = isRetry ? wrongQuestions : quiz;
   const [quizStep, setQuizStep] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
   const [quizAnswer, setQuizAnswer] = useState(null);
@@ -230,12 +296,11 @@ const [shuffledOptions, setShuffledOptions] = useState(
       <h2>Selbstüberprüfung</h2>
 
       <p className="step-task">
-        Frage {quizStep + 1} von {quiz.length}:
+        Frage {quizStep + 1} von {activeQuiz.length}:
       </p>
 
       <div className="step-callout tip">
-        <strong>{quiz[quizStep].question}</strong>
-
+        <strong>{activeQuiz[quizStep].question}</strong>
         <ul className="step-points">
           {shuffledOptions.map((opt, i) => (
             <li key={i}>
@@ -254,8 +319,16 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
         <button
           className="secondary-button"
-          onClick={() => setQuizChecked(true)}
-          disabled={quizAnswer === null}
+          onClick={() => {
+            if (quizAnswer !== activeQuiz[quizStep].correctAnswer) {
+                setWrongQuestions(prev =>
+  prev.some(q => q.question === activeQuiz[quizStep].question)
+    ? prev
+    : [...prev, activeQuiz[quizStep]]
+);
+              }
+            setQuizChecked(true);
+          }}
         >
           Antwort prüfen
         </button>
@@ -263,11 +336,11 @@ const [shuffledOptions, setShuffledOptions] = useState(
         {quizChecked && (
           <div
             className={`step-callout ${
-              quizAnswer === quiz[quizStep].correctAnswer ? "success" : "danger"
+              quizAnswer === activeQuiz[quizStep].correctAnswer ? "success" : "danger"
             }`}
             style={{ marginTop: "1rem" }}
           >
-            {quizAnswer === quiz[quizStep].correctAnswer
+            {quizAnswer === activeQuiz[quizStep].correctAnswer
               ? " Richtig! Mahnungen müssen immer priorisiert bearbeitet werden."
               : " Nicht ganz. Mahnungen haben höchste Priorität."}
           </div>
@@ -277,22 +350,34 @@ const [shuffledOptions, setShuffledOptions] = useState(
       <div className="step-actions center">
        <button
   className="primary-button"
-  disabled={!quizChecked || quizAnswer !== quiz[quizStep].correctAnswer}
+  disabled={!quizChecked || quizAnswer !== activeQuiz[quizStep].correctAnswer}
   onClick={() => {
-  if (quizStep < quiz.length - 1) {
+  if (quizStep < activeQuiz.length - 1) {
     const nextStep = quizStep + 1;
     setQuizStep(nextStep);
-    setShuffledOptions(shuffleArray(quiz[nextStep].options));
+    setShuffledOptions(shuffleArray(activeQuiz[nextStep].options));
     setQuizAnswer(null);
     setQuizChecked(false);
   } else {
-    setShowQuiz(false);
-    setFinished(true);
+    // 🔁 Wiederholungsrunde starten
+    if (!isRetry && wrongQuestions.length > 0) {
+      setIsRetry(true);
+      setQuizStep(0);
+      setShuffledOptions(shuffleArray(wrongQuestions[0].options));
+      setQuizAnswer(null);
+      setQuizChecked(false);
+    } else {
+      // ✅ Alles richtig → Modul fertig
+      setShowQuiz(false);
+      setFinished(true);
+    }
   }
 }}
 >
-  {quizStep < quiz.length - 1
-    ? "Nächste Frage"
+  {quizStep < activeQuiz.length - 1
+  ? "Nächste Frage"
+  : isRetry
+    ? "Wiederholung abschließen"
     : "Modul abschließen"}
 </button>
       </div>
