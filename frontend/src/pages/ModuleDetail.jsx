@@ -4,15 +4,6 @@ import { useState } from "react";
 import introImage from "../assets/modules/postbearbeitung-intro.jpg";
 import artemisLogo from "../assets/artemis-logo.png";
 
-// Rechnungsprüfung Bilder
-import img01Gesamtseite from "../assets/modules/rechnungspruefung/01-gesamtseite.png";
-import img03BlaueFelder from "../assets/modules/rechnungspruefung/03-blaue-felder.png";
-import img04RoteFelder from "../assets/modules/rechnungspruefung/04-rote-felder.png";
-import img05VorgangFortsetzen from "../assets/modules/rechnungspruefung/05-vorgang-fortsetzen.png";
-import img06Mahnstufe from "../assets/modules/rechnungspruefung/06-mahnstufe.png";
-import img07Rechnungskorrektur from "../assets/modules/rechnungspruefung/07-rechnungskorrektur.png";
-import img08WeitereFelder from "../assets/modules/rechnungspruefung/08-weitere-felder.png";
-import img09Aussteuern from "../assets/modules/rechnungspruefung/09-aussteuern.png";
 
 function ModuleDetail() {
   const { id } = useParams();
