@@ -447,26 +447,7 @@ p {
     transform: translateY(0);
   }
 }
-/* =========================
-   MODULE DETAIL – STEP FLOW
-   ========================= */
 
-.module-topbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.module-intro {
-  max-width: 780px;
-  margin-bottom: 0.5rem;
-}
-
-.module-progress {
-  min-width: 280px;
-  text-align: right;
-}
 
 .progress-label {
   font-size: 0.9rem;
@@ -549,6 +530,15 @@ p {
 .step-callout.tip {
   background: #f4f7ff;
   border-color: #d7e3ff;
+}
+.step-callout.warning {
+  background: #fff1f0;        /* sanftes Rosa */
+  border-color: #f1b0b7;      /* gedämpftes Rot */
+}
+
+.step-callout.danger {
+  background: #ffeaea;        /* stärkeres Rot */
+  border-color: #e57373;
 }
 
 .step-actions {
@@ -889,4 +879,106 @@ p {
 .step-with-background .step-card-full {
   position: relative;
   z-index: 1;
+}
+/* =========================
+   MODULE PROGRESS – FREE FLOAT
+   ========================= */
+
+.module-progress-free {
+  position: fixed;
+  top: 96px;          /* 🔥 unter der Navbar → keine Lupe-Kollision */
+  right: 2.5rem;
+  width: 220px;
+  z-index: 30;
+  text-align: right;
+}
+
+/* Text */
+.progress-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.2px;
+}
+
+/* Linie */
+.progress-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Fortschritt */
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff, #dbe7ff);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+/* =========================
+   STEP TRANSITIONS
+   ========================= */
+
+.step-animate {
+  animation: stepFade 0.35s ease both;
+}
+
+.step-animate.next {
+  animation: stepNext 0.35s ease both;
+}
+
+.step-animate.prev {
+  animation: stepPrev 0.35s ease both;
+}
+
+@keyframes stepNext {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes stepPrev {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* =========================
+   STEP BOTTOM EXIST
+   ========================= */
+
+   .step-bottom-exit {
+    margin-top: auto;
+    padding-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+   }
+   .module-card{
+    position: relative;
+   }
+    .module-card-logo {
+    position: absolute;
+    top: 23px;
+    right: 23px;
+    width: 190px;
+    height: auto;
+    opacity: 0.95;
+   }
+   @media (max-width: 900px) {
+  .module-card-logo {
+    width: 130px;
+    top: 14px;
+    right: 14px;
+  }
 }
