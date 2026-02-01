@@ -1,176 +1,187 @@
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
-import introImage from "../assets/modules/postbearbeitung-intro.jpg";
+import introImage from "../assets/modules/rechnungspruefung/rechnungspruefung-intro.jpg";
 import artemisLogo from "../assets/artemis-logo.png";
 
+// Bilder
+import imgLogin from "../assets/modules/rechnungspruefung/einloggen.png";
+import imgUebersicht from "../assets/modules/rechnungspruefung/uebersicht.png";
+import img01 from "../assets/modules/rechnungspruefung/01-gesamtseite.png";
+import img03 from "../assets/modules/rechnungspruefung/03-blaue-felder.png";
+import img04 from "../assets/modules/rechnungspruefung/04-rote-felder.png";
+import img05 from "../assets/modules/rechnungspruefung/05-vorgang-fortsetzen.png";
+import img06 from "../assets/modules/rechnungspruefung/06-mahnstufe.png";
+import img07 from "../assets/modules/rechnungspruefung/07-rechnungskorrektur.png";
+import img08 from "../assets/modules/rechnungspruefung/08-weitere-felder.png";
+import img09 from "../assets/modules/rechnungspruefung/09-aussteuern.png";
 
-function ModuleDetail() {
+
+
+
+function Rechnungspruefung() {
   const navigate = useNavigate();
 
 
+  /* ---------------- STEPS ---------------- */
   const steps = [
     {
-      title: "Schritt 1: Posteingang prüfen",
-      task: "Post aus dem vorgesehenen Ablagefach der Buchhaltung entnehmen und einen vollständigen Überblick über alle eingegangenen Dokumente verschaffen.",
+      title: "Schritt 1: Im Verifier einloggen",
+      task: "Melde dich im Verifier-System an.",
+      image: imgLogin,
       points: [
-        "Post trifft täglich gegen Mittag im Fach der Buchhaltung ein",
-        "Alle eingegangenen Dokumente vollständig entnehmen",
-        "Sichprüfung durchführen (Vollständigkeit, offensichtliche Dringlichkeit)"
+        "Verifier im Browser öffnen",
+        "Weitere Optionen wählen",
+        "Benutzername eingeben",
+        "Passwort eingeben"
       ],
-      result: "Alle eingegangenen Dokumente liegen vollständig vor und sind bereit für die weitere Sortierung.",
-      example:
-        "Im Posteingang befinden sich mehrere Lieferantenrechnungen, ein Kontoauszug sowie interne Schreiben. Alle Unterlagen werden vollständig entnommen und grob gesichtet, um sicherzustellen, dass kein zeitkritisches Dokument (z. B. eine Mahnung) übersehen wird."
+      result: "Du bist erfolgreich eingeloggt."
     },
     {
-      title: "Schritt 2: Grobsortierung nach Zuständigkeit",
-      task: "Die eingegangene Post nach fachlicher Zuständigkeit vorsortieren, um eine effiziente Weiterverarbeitung zu ermöglichen.",
-      points: ["Buchhaltung / Kreditoren", "	Unterlagen für die Hauptbuchhaltung separieren", "Dokumente für andere Abteilungen identifizieren"],
-      result: "Die Post ist übersichtlich vorsortiert."
-    },
-    {
-      title: "Schritt 3: Dokumentart erkennen",
-      task: "Jedes Dokument eindeutig einer Dokumentart zuordnen, um den weiteren Bearbeitungsprozess korrekt festzulegen.",
+      title: "Schritt 2: Übersicht korrekt einstellen",
+      task: "Konfiguriere die Übersicht korrekt.",
+      image: imgUebersicht,
       points: [
-        "Rechnungen, Mahnungen, Kreditkartenabrechnungen",
-        "Kontoauszüge oder debitorische Unterlagen",
-        "Sonderfälle (z. B. Bankverbindungsänderungen) vormerken"
+        "Buchungskreis: Alle",
+        "Anzahl: 2000",
+        "Priorität auswählen & übernehmen"
       ],
-      result: "Die weitere Bearbeitung ist eindeutig festgelegt."
+      result: "Alle relevanten Vorgänge sind sichtbar.",
+      consequence:
+        "Falsche Einstellungen können dazu führen, dass wichtige Rechnungen fehlen."
     },
     {
-  title: "Schritt 4:  Eingangsrechnungen bearbeiten",
-  task: "Eingangsrechnungen korrekt vorbereiten, damit sie fristgerecht und fehlerfrei in der Kreditorenbuchhaltung weiterverarbeitet werden können.",
-  points: [
-    "Bereits digital vorliegende Rechnungen korrekt ablegen",
-    "	Papierrechnungen vollständig und gut lesbar einscannen",
-    "Sicherstellen, dass alle relevanten Angaben enthalten sind (z. B. Rechnungsdatum, Betrag, Lieferant)"
-  ],
-  result: "Rechnungen sind korrekt vorbereitet.",
-  example:
-    "Eine Papierrechnung eines Lieferanten mit einem kurzen Zahlungsziel von zehn Tagen wird eingescannt, digital abgelegt und unmittelbar an die Kreditorenbuchhaltung weitergeleitet, um den fristgerechten Zahlungslauf sicherzustellen.",
-  consequence:
-    "Werden Rechnungen verspätet oder fehlerhaft weitergeleitet, können Skontofristen verfallen, Zahlungsziele überschritten werden oder Mahngebühren entstehen. Dies führt zu unnötigen Zusatzkosten und kann die Beziehung zum Lieferanten negativ beeinflussen."
- },
-   {
-  title: "Schritt 5: Mahnungen gesondert behandeln",
-  task: "Mahnungen aufgrund ihrer Dringlichkeit priorisiert bearbeiten und unverzüglich weiterleiten.",
-  points: ["Einscannen", "Unverzüglich weiterleiten", "Korrekt ablegen"],
-  result: "Zahlungsfristen können eingehalten werden.",
-  example:
-    "Eine zweite Mahnung eines Lieferanten wird unmittelbar nach Eingang digitalisiert und noch am selben Tag an die zuständige Sachbearbeiterin weitergegeben, um weitere Kosten zu vermeiden.",
-  consequence:
-    "Bei verspäteter Bearbeitung von Mahnungen können Verzugszinsen, zusätzliche Mahngebühren oder die Übergabe der Forderung an ein Inkassounternehmen erfolgen. Darüber hinaus kann das Vertrauen des Lieferanten in die Zuverlässigkeit des Unternehmens nachhaltig geschädigt werden."
-},
-    {
-      title: "Schritt 6: Kreditkartenabrechnungen bearbeiten",
-      task: "Kreditkartenabrechnungen korrekt erfassen und zur weiteren buchhalterischen Verarbeitung weiterleiten.",
-      points: ["	Kreditkartenabrechnungen vollständig einscannen", "Weiterleitung an die zuständige Buchhaltung","Sicherstellen, dass Belege eindeutig zuordenbar sind"],
-      result: "Kreditkartenumsätze sind erfasst."
+      title: "Schritt 3: Überblick verschaffen",
+      task: "Vorgang öffnen und prüfen.",
+      image: img01,
+      points: [
+        "Rechnungsnummer prüfen",
+        "Lieferant prüfen",
+        "Kopf- und Positionsdaten sichten"
+      ],
+      result: "Der Vorgang ist vollständig erfasst."
     },
     {
-      title: "Schritt 7: Debitorische Unterlagen ablegen",
-      task: "Debitorische Unterlagen korrekt zuordnen.",
-      points: ["Kassenunterlagen", "Ausgangsrechnungen", "Nordhessen-Boxen"],
-      result: "Debitorische Unterlagen sind eindeutig zugeordnet und auffindbar."
+      title: "Schritt 4: Blaue Felder prüfen",
+      task: "Pflichtfelder kontrollieren.",
+      image: img03,
+      points: [
+        "Blaue Felder prüfen",
+        "Grüne Felder gegenlesen",
+        "Rechnungsnummer & Betrag besonders prüfen"
+      ],
+      result: "Pflichtfelder sind korrekt.",
+      consequence:
+        "Automatisch erkannte Daten können fehlerhaft sein."
     },
     {
-      title: "Schritt 8: Hauptbuch-Unterlagen weitergeben",
-      task: "Unterlagen an die Hauptbuchhaltung übergeben.",
-      points: ["Kontoauszüge", "Bescheide"],
-      result: "Hauptbuch-Unterlagen sind weitergegeben."
+      title: "Schritt 5: Rote Felder korrigieren",
+      task: "Alle Fehler beheben.",
+      image: img04,
+      points: [
+        "Rote Felder korrigieren",
+        "Ohne Korrektur kein Abschluss"
+      ],
+      result: "Alle Fehler wurden korrigiert."
     },
     {
-      title: "Schritt 9: Post für andere Abteilungen",
-      task: "Nicht buchhalterische Post intern verteilen.",
-      points: ["Zuständige Abteilung bestimmen", "Internen Verteiler nutzen","Keine Verzögerungen verursachen"],
-      result: "Post erreicht die zuständigen Abteilungen.",
-      example:
-        "Ein Schreiben für die Personalabteilung wird direkt an HR weitergeleitet."
+      title: "Schritt 6: Vorgang fortsetzen",
+      task: "Vorgang bestätigen.",
+      image: img05,
+      points: [
+        "Hinweis lesen",
+        "STRG + ENTER bei Pflichtfehlern"
+      ],
+      result: "Der Vorgang wurde fortgesetzt."
     },
-   {
-  title: "Schritt 10: Sonderfälle weitergeben",
-  task: "Sonderfälle an zuständige Personen übergeben.",
-  points: ["Bankverbindungsänderungen", "Zugangsdaten oder sicherheitsrelevante Inhalte gesondert behandeln", "Direkte Übergabe an berechtigte Personen"],
-  result: "Sonderfälle sind korrekt übergeben.",
-  consequence:
-    "Werden Sonderfälle nicht korrekt oder rechtzeitig weitergegeben, kann es zu Fehlüberweisungen, Sicherheitsrisiken oder erheblichen Verzögerungen im Zahlungsverkehr kommen."
-}
+    {
+      title: "Schritt 7: Mahnstufe prüfen",
+      task: "Dringlichkeit bewerten.",
+      image: img06,
+      points: [
+        "Mahnstufe erkennen",
+        "Priorität festlegen"
+      ],
+      result: "Die Dringlichkeit ist korrekt eingeschätzt."
+    },
+    {
+      title: "Schritt 8: Rechnung korrigieren",
+      task: "Korrekturen durchführen.",
+      image: img07,
+      points: [
+        "Rechnungskorrektur aktivieren",
+        "Betrag positiv darstellen",
+        "Minuszeichen entfernen"
+      ],
+      result: "Rechnung wurde korrekt angepasst."
+    },
+    {
+      title: "Schritt 9: Zusätzliche Felder prüfen",
+      task: "Zusatzinformationen prüfen.",
+      image: img08,
+      points: [
+        "Zusatzfelder öffnen",
+        "Pflichtangaben prüfen"
+      ],
+      result: "Zusatzfelder sind geprüft."
+    },
+    {
+      title: "Schritt 10: Dokumente aussteuern",
+      task: "Nicht-Rechnungen aussteuern.",
+      image: img09,
+      points: [
+        "Angebote",
+        "Bestellbestätigungen",
+        "Nutzungsbedingungen"
+      ],
+      result: "Nicht relevante Dokumente sind ausgesteuert."
+    }
   ];
+
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
-const quiz = [
-  {
-    question: "Welche Dokumente müssen besonders priorisiert bearbeitet werden?",
-    options: ["Werbepost", "Mahnungen", "Interne Notizen"],
-    correctAnswer: "Mahnungen"
-  },
-  {
-    question: "Was kann eine Folge sein, wenn Mahnungen zu spät weitergeleitet werden?",
-    options: [
-      "Keine Auswirkungen",
-      "Verzugszinsen oder Inkasso",
-      "Automatische Gutschrift"
-    ],
-    correctAnswer: "Verzugszinsen oder Inkasso"
-  },
-  {
-    question: "An wen müssen Kontoauszüge und Bescheide weitergegeben werden?",
-    options: [
-      "Personalabteilung",
-      "Hauptbuchhaltung",
-      "Externe Dienstleister"
-    ],
-    correctAnswer: "Hauptbuchhaltung"
-  },
-  {
-    question: "Was ist der erste Schritt bei der Postbearbeitung?",
-    options: [
-      "Dokumente einscannen",
-      "Posteingang prüfen",
-      "Rechnungen buchen"
-    ],
-    correctAnswer: "Posteingang prüfen"
-  },
-  {
-    question: "Wie sollen eingehende Dokumente zunächst sortiert werden?",
-    options: [
-      "Nach Datum",
-      "Nach Zuständigkeit",
-      "Nach Seitenanzahl"
-    ],
-    correctAnswer: "Nach Zuständigkeit"
-  },
-  {
-    question: "Was gehört zu den Sonderfällen in der Postbearbeitung?",
-    options: [
-      "Werbebriefe",
-      "Bankverbindungsänderungen",
-      "Interne Notizen"
-    ],
-    correctAnswer: "Bankverbindungsänderungen"
-  },
-  {
-    question: "Was ist bei Kreditkartenabrechnungen erforderlich?",
-    options: [
-      "Sofortige Löschung",
-      "Einscannen und Weiterleiten",
-      "Archivierung ohne Prüfung"
-    ],
-    correctAnswer: "Einscannen und Weiterleiten"
-  },
-  {
-    question: "Warum ist eine korrekte Postbearbeitung wichtig?",
-    options: [
-      "Zur optischen Ordnung",
-      "Zur Vermeidung von Kosten und Risiken",
-      "Für statistische Zwecke"
-    ],
-    correctAnswer: "Zur Vermeidung von Kosten und Risiken"
-  }
-];
+ const quiz = [
+    {
+      question: "Was ist der erste Schritt im Prozess?",
+      options: [
+        "Rechnung öffnen",
+        "Im Verifier einloggen",
+        "Mahnstufe prüfen"
+      ],
+      correctAnswer: "Im Verifier einloggen"
+    },
+    {
+      question: "Welche Übersichtseinstellungen sind korrekt?",
+      options: [
+        "Buchungskreis einzeln, Anzahl 100",
+        "Buchungskreis alle, Anzahl 2000, Priorität übernehmen",
+        "Nur Priorität auswählen"
+      ],
+      correctAnswer: "Buchungskreis alle, Anzahl 2000, Priorität übernehmen"
+    },
+    {
+      question: "Was bedeuten blaue Felder?",
+      options: [
+        "Optionale Felder",
+        "Pflichtfelder",
+        "Bereits geprüfte Daten"
+      ],
+      correctAnswer: "Pflichtfelder"
+    },
+    {
+      question: "Welche Dokumente müssen ausgesteuert werden?",
+      options: [
+        "Rechnungen mit Fehlern",
+        "Angebote & Bestellbestätigungen",
+        "Mahnungen"
+      ],
+      correctAnswer: "Angebote & Bestellbestätigungen"
+    }
+  ];
+
 const [shuffledOptions, setShuffledOptions] = useState(
     shuffleArray(quiz[0].options)
   );
@@ -213,16 +224,14 @@ const [shuffledOptions, setShuffledOptions] = useState(
           <div className="module-card step-card-full">
             <img
               src={introImage}
-              alt="Postbearbeitung"
-              className="module-intro-image"
+              alt="Rechnungsprüfung"
+              className="rechnungspruefung"
             />
-            <h2>Postbearbeitung</h2>
+            <h2>Rechnungsprüfung</h2>
 
             <p className="step-task">
               <strong>Ziel des Moduls:</strong>{" "}
-              Du beherrschst nach Abschluss dieses Moduls den vollständigen Prozess
-              der Postbearbeitung in der Buchhaltung, von der Sichtung des
-              Posteingangs bis zur ordnungsgemäßen Weiterleitung.
+                Nach Abschluss dieses Moduls bist du in der Lage, Eingangsrechnungen im Verifier systematisch und regelkonform zu prüfen. Du erkennst fehlerhafte oder unvollständige Angaben, nimmst notwendige Korrekturen vor, bewertest Mahnstufen korrekt und stellst sicher, dass nur prüffähige Rechnungen ordnungsgemäß an das Buchhaltungssystem weitergegeben werden.
             </p>
 
             <div className="step-actions center">
@@ -253,7 +262,7 @@ const [shuffledOptions, setShuffledOptions] = useState(
             <h2>Modul abgeschlossen</h2>
 
             <p className="step-task">
-              Du hast alle Schritte der Postbearbeitung erfolgreich abgeschlossen.
+              Du hast alle Schritte der Rechnungspruefung erfolgreich abgeschlossen.
             </p>
 
             <div className="step-actions center">
@@ -325,8 +334,8 @@ const [shuffledOptions, setShuffledOptions] = useState(
             style={{ marginTop: "1rem" }}
           >
             {quizAnswer === activeQuiz[quizStep].correctAnswer
-              ? " Richtig! Mahnungen müssen immer priorisiert bearbeitet werden."
-              : " Nicht ganz. Mahnungen haben höchste Priorität."}
+              ? " Richtig! Gut gemacht."
+              : " Nicht ganz. Versuche es beim nächsten Mal noch einmal."}
           </div>
         )}
       </div>
@@ -383,11 +392,21 @@ const [shuffledOptions, setShuffledOptions] = useState(
               alt="Artemis"
               className="module-card-logo"
             /> 
-              <h2>{steps[current].title}</h2>
+           <h2>{steps[current].title}</h2>
 
-              <p className="step-task">
-                <strong>Aufgabe:</strong> {steps[current].task}
-              </p>
+{steps[current].image && (
+  <img
+    src={steps[current].image}
+    alt={steps[current].title}
+    className="step-image"
+  />
+)}
+
+<p className="step-task">
+  <strong>Aufgabe:</strong> {steps[current].task}
+</p>
+
+
 
               <ul className="step-points">
                 {steps[current].points.map((p, i) => (
@@ -471,4 +490,4 @@ const [shuffledOptions, setShuffledOptions] = useState(
   );
 }
 
-export default ModuleDetail;
+export default Rechnungspruefung;
