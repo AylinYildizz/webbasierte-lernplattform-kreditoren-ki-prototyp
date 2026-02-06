@@ -12,8 +12,6 @@ function Home() {
       {/* INTRO CARD */}
       <section className="intro-card-section">
         <div className="intro-card intro-card-split">
-
-          {/* TEXT LINKS */}
           <div className="intro-card-text">
             <h1>Lernplattform Kreditorenbuchhaltung</h1>
             <p>
@@ -23,14 +21,9 @@ function Home() {
             </p>
           </div>
 
-          {/* LOGO RECHTS */}
           <div className="intro-card-logo">
-            <img
-              src={artemisLogo}
-              alt="ARTEMIS Augenkliniken"
-            />
+            <img src={artemisLogo} alt="ARTEMIS Augenkliniken" />
           </div>
-
         </div>
       </section>
 
@@ -38,37 +31,45 @@ function Home() {
       <section className="image-grid-section">
         <div className="image-grid">
 
-          <div className="image-tile">
-            <img src={img1} alt="Praxisstandorte" />
-            <div className="image-overlay">
-              <h3>Praxisstandorte</h3>
-              <p>Einheitliche Abläufe</p>
+          <Link to="/praxisstandorte" className="image-link">
+            <div className="image-tile">
+              <img src={img1} alt="Praxisstandorte" />
+              <div className="image-overlay">
+                <h3>Praxisstandorte</h3>
+                <p>Einheitliche Abläufe</p>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="image-tile">
-            <img src={img2} alt="Kreditorenprozesse" />
-            <div className="image-overlay">
-              <h3>Kreditorenprozesse</h3>
-              <p>Strukturiert & nachvollziehbar</p>
+          <Link to="/kreditorenprozesse" className="image-link">
+            <div className="image-tile">
+              <img src={img2} alt="Kreditorenprozesse" />
+              <div className="image-overlay">
+                <h3>Kreditorenprozesse</h3>
+                <p>Strukturiert & nachvollziehbar</p>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="image-tile">
-            <img src={img3} alt="Einarbeitung" />
-            <div className="image-overlay">
-              <h3>Einarbeitung</h3>
-              <p>Modular & praxisnah</p>
+          <Link to="/einarbeitung" className="image-link">
+            <div className="image-tile">
+              <img src={img3} alt="Einarbeitung" />
+              <div className="image-overlay">
+                <h3>Einarbeitung</h3>
+                <p>Modular & praxisnah</p>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="image-tile">
-            <img src={img4} alt="Zusammenarbeit" />
-            <div className="image-overlay">
-              <h3>Zusammenarbeit</h3>
-              <p>Abgestimmt auf den Arbeitsalltag</p>
+          <Link to="/zusammenarbeit" className="image-link">
+            <div className="image-tile">
+              <img src={img4} alt="Zusammenarbeit" />
+              <div className="image-overlay">
+                <h3>Zusammenarbeit</h3>
+                <p>Abgestimmt auf den Arbeitsalltag</p>
+              </div>
             </div>
-          </div>
+          </Link>
 
         </div>
       </section>

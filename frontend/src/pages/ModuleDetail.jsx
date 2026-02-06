@@ -25,7 +25,7 @@ function ModuleDetail() {
     {
       title: "Schritt 2: Grobsortierung nach Zuständigkeit",
       task: "Die eingegangene Post nach fachlicher Zuständigkeit vorsortieren, um eine effiziente Weiterverarbeitung zu ermöglichen.",
-      points: ["Buchhaltung / Kreditoren", "	Unterlagen für die Hauptbuchhaltung separieren", "Dokumente für andere Abteilungen identifizieren"],
+      points: ["Buchhaltung / Kreditoren", "Buchhaltung / Debitoren", " Unterlagen für die Hauptbuchhaltung separieren", "Dokumente für andere Abteilungen identifizieren"],
       result: "Die Post ist übersichtlich vorsortiert."
     },
     {
@@ -43,7 +43,7 @@ function ModuleDetail() {
   task: "Eingangsrechnungen korrekt vorbereiten, damit sie fristgerecht und fehlerfrei in der Kreditorenbuchhaltung weiterverarbeitet werden können.",
   points: [
     "Bereits digital vorliegende Rechnungen korrekt ablegen",
-    "	Papierrechnungen vollständig und gut lesbar einscannen",
+    "Papierrechnungen vollständig und gut lesbar einscannen",
     "Sicherstellen, dass alle relevanten Angaben enthalten sind (z. B. Rechnungsdatum, Betrag, Lieferant)"
   ],
   result: "Rechnungen sind korrekt vorbereitet.",
@@ -65,7 +65,7 @@ function ModuleDetail() {
     {
       title: "Schritt 6: Kreditkartenabrechnungen bearbeiten",
       task: "Kreditkartenabrechnungen korrekt erfassen und zur weiteren buchhalterischen Verarbeitung weiterleiten.",
-      points: ["	Kreditkartenabrechnungen vollständig einscannen", "Weiterleitung an die zuständige Buchhaltung","Sicherstellen, dass Belege eindeutig zuordenbar sind"],
+      points: ["Kreditkartenabrechnungen vollständig einscannen", "Weiterleitung an die zuständige Buchhaltung","Sicherstellen, dass Belege eindeutig zugeordnet werden können"],
       result: "Kreditkartenumsätze sind erfasst."
     },
     {

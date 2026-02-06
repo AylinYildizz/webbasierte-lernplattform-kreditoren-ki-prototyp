@@ -4,16 +4,19 @@ import { useState } from "react";
 import introImage from "../assets/modules/kontierung/intro.png";
 import artemisLogo from "../assets/artemis-logo.png";
 
-import imgLogin from "../assets/modules/kontierung/login.png";
-import imgWorkload from "../assets/modules/kontierung/workload.png";
+import imgLogin from "../assets/modules/kontierung/intro.png";
+import imgB from "../assets/modules/kontierung/kontierung2.png";
+import imgKo3 from "../assets/modules/kontierung/kontierung3.png";
+import imgKo4 from "../assets/modules/kontierung/kontierung4.png";
+import imgKo5 from "../assets/modules/kontierung/kontierung5.png";
 import imgFilter from "../assets/modules/kontierung/filter.png";
 import imgWorkflow from "../assets/modules/kontierung/workflow.png";
-import imgInvoiceData from "../assets/modules/kontierung/invoicedata.png";
+import imgInvoiceData from "../assets/modules/kontierung/kontierung6.png";
 import imgComNumber from "../assets/modules/kontierung/comnumber.png";
-import imgPositions from "../assets/modules/kontierung/positions.png";
-import imgSachkonto from "../assets/modules/kontierung/sachkonto.png";
+import imgPositions from "../assets/modules/kontierung/kontierung7.png";
+import imgSachkonto from "../assets/modules/kontierung/kontierung8.png";
 import imgSachkontoEintragen from "../assets/modules/kontierung/sachkontoeintragen.png";
-import imgZahlungsziel from "../assets/modules/kontierung/zahlungsziel.png";
+import imgZahlungsziel from "../assets/modules/kontierung/sachkontoeintragen.png";
 
 function Kontierung() {
   const navigate = useNavigate();
@@ -22,58 +25,45 @@ const steps = [
   {
     title: "Schritt 1: ELO starten und anmelden",
     task:
-      "Starte den ELO Java Client und melde dich mit deinen persönlichen Zugangsdaten an.",
+      "ELO Java Client starten und mit den persönlichen Zugangsdaten anmelden.",
     image: imgLogin,
     points: [
       "ELO Java Client über das Desktop-Icon öffnen",
       "Benutzername und Passwort eingeben",
       "Richtiges Repository auswählen",
       "Sprache auf Deutsch einstellen",
-      "Mit Klick auf „Anmelden“ bestätigen"
+      "Mit Klick auf „ANMELDEN“ bestätigen"
     ],
     result:
-      "Du bist erfolgreich im System ELO angemeldet und hast Zugriff auf deine Aufgaben.",
-    consequence:
-      "Ein falsches Repository oder fehlerhafte Zugangsdaten führen dazu, dass keine oder falsche Rechnungen angezeigt werden."
+      "Du bist erfolgreich im ELO-System angemeldet.",
   },
 
   {
     title: "Schritt 2: Orientierung in ELO",
     task:
       "Verschaffe dir einen Überblick über die ELO-Startoberfläche und ordne dich im Prozess ein.",
+      image: imgB,
     points: [
-      "ELO ist ein Dokumenten- und Workflow-System",
-      "Hier findet keine Verbuchung, sondern die Vorbereitung statt",
-      "Die Kontierung entscheidet, wohin Kosten gehören"
+      "ELO ist ein Dokumenten- und Workflow-System, kein Buchhaltungssystem",
+      "In ELO findet keine Verbuchung, sondern die fachliche Vorbereitung der Rechnungen statt",
+      "Die Kontierung legt fest, welchen Kostenstellen und Sachkonten die Kosten zugeordnet werden"
     ],
     result:
-      "Du weißt, in welchem System du arbeitest und welche Aufgabe du im Kontierungsprozess hast."
+      "Du weißt, in welchem System du arbeitest und welche Aufgabe du im Kontierungsprozess übernimmst."
   },
 
   {
-    title: "Schritt 3: Aufgabenbereich (Kontierungsarbeitsplatz) öffnen",
-    task:
-      "Öffne deinen persönlichen Aufgabenbereich, in dem dir Rechnungen zur Kontierung zugewiesen sind.",
-    image: imgWorkload,
-    points: [
-      "In der oberen Symbolleiste auf „Aufgaben“ klicken",
-      "Der Aufgabenbereich zeigt deinen persönlichen Workload"
-    ],
-    result:
-      "Alle Rechnungen, die du aktuell bearbeiten darfst, werden angezeigt.",
-    consequence:
-      "Ohne den Aufgabenbereich können keine Rechnungen zur Kontierung geöffnet werden."
-  },
-
-  {
-    title: "Schritt 4: Aufgabenübersicht filtern und konfigurieren",
+    title: "Schritt 3: Aufgabenübersicht filtern und konfigurieren",
     task:
       "Stelle sicher, dass nur relevante Rechnungen für die Kontierung angezeigt werden.",
-    image: imgFilter,
+    images: [ imgKo3, imgKo4],
     points: [
       "Spalten wie Dokumentnummer, Kreditor, Firmencode und Arbeitsschritt einblenden",
+      "Ganz wichtig: Passe in der oberen Leiste den Firmencode auf deine Gesellschaft an",
+      "In der unteren Symbolleiste auf 'Aufgaben' klicken",
       "Filter auf Arbeitsschritt „Formelle Prüfung / Kontierung“ setzen",
-      "Nur die zuständige Gesellschaft anzeigen lassen"
+      
+      
     ],
     result:
       "Die Aufgabenliste zeigt nur Rechnungen, die tatsächlich kontiert werden müssen.",
@@ -82,43 +72,31 @@ const steps = [
   },
 
   {
-    title: "Schritt 5: Rechnung aus dem Workload öffnen",
+    title: "Schritt 4: Rechnung aus dem Workload öffnen und Workflow annehmen",
     task:
-      "Öffne eine Rechnung aus deinem Aufgabenbereich, um sie zu prüfen und zu kontieren.",
-    
+      "Öffne eine Rechnung aus deinem Aufgabenbereich, um sie zu prüfen und zu kontieren und nimm den Workflow an, damit die Rechnung bearbeite werden kann.",
+    images: [imgWorkflow, imgKo5],
+
     points: [
       "Rechnung in der Aufgabenliste auswählen",
       "Doppelklick öffnet die Rechnungsansicht",
-      "PDF-Dokument links, Metadaten rechts sichtbar"
+      "PDF-Dokument links, Metadaten rechts sichtbar",
+      "Rechtsklick auf die Rechnung und 'Workflow' annehmen auswählen",
+      "Erst danach sind Ändeungen möglich"
     ],
-    result:
-      "Die Rechnung ist geöffnet und kann eingesehen werden."
+    result: "Die Rechnung ist geöffnet und zur Bearbeitung freigegeben "
   },
 
-  {
-    title: "Schritt 6: Workflow annehmen",
-    task:
-      "Übernimm den Workflow, um die Rechnung bearbeiten zu können.",
-    image: imgWorkflow,
-    points: [
-      "Auf „Workflow annehmen“ klicken",
-      "Erst danach sind Änderungen möglich"
-    ],
-    result:
-      "Die Rechnung ist zur Bearbeitung freigegeben.",
-    consequence:
-      "Ohne Workflow-Annahme gehen alle Eingaben verloren."
-  },
 
   {
-    title: "Schritt 7: Überblick über die Rechnung verschaffen",
+    title: "Schritt 5: Überblick über die Rechnung verschaffen",
     task:
       "Prüfe die grundlegenden Rechnungsdaten, bevor du mit der Kontierung beginnst.",
     image: imgInvoiceData,
     points: [
       "Lieferant und Rechnungsempfänger prüfen",
       "Rechnungsnummer und Rechnungsdatum kontrollieren",
-      "Brutto-, Netto- und Steuerbeträge vergleichen",
+      "Brutto-, Netto- und Steuerbeträge miteinander vergleichen",
       "Gesellschaft und Zahlungsbedingungen prüfen"
     ],
     result:
@@ -126,22 +104,22 @@ const steps = [
   },
 
   {
-    title: "Schritt 8: Prüfen, ob eine Kontierung notwendig ist",
+    title: "Schritt 6: Prüfen, ob eine Kontierung notwendig ist",
     task:
       "Stelle fest, ob die Rechnung automatisch verarbeitet wird oder manuell kontiert werden muss.",
     image: imgComNumber,
     points: [
-      "Prüfen, ob eine COM-/KOM-Nummer vorhanden ist",
-      "Automatische Rechnungen erkennen"
+      "Prüfen, ob eine COM-Nummer vorhanden ist",
+      "Automatisch verarbeitete Rechnungen erkennen"
     ],
     result:
       "Du weißt, ob eine manuelle Kontierung erforderlich ist.",
     consequence:
-      "Eine unnötige Kontierung automatischer Rechnungen führt zu Prozessfehlern."
+      "Eine unnötige Kontierung automatisch verarbeiteter Rechnungen führt zu Prozessfehlern."
   },
 
   {
-    title: "Schritt 9: Reiter „Positionsdaten“ öffnen",
+    title: "Schritt 7: Reiter „Positionsdaten“ öffnen",
     task:
       "Wechsle in den Reiter, in dem die Kontierung durchgeführt wird.",
     image: imgPositions,
@@ -154,9 +132,9 @@ const steps = [
   },
 
   {
-    title: "Schritt 10: Sachanalyse der Rechnung durchführen",
+    title: "Schritt 8: Sachanalyse der Rechnung durchführen",
     task:
-      "Analysiere den Inhalt der Rechnung, um die Kostenart korrekt zu bestimmen.",
+      "Analysiere den Inhalt der Rechnung, um die Kostenart korrekt bestimmen zu können.",
     points: [
       "Welche Leistung wurde erbracht?",
       "Handelt es sich um eine einmalige oder laufende Leistung?",
@@ -167,13 +145,13 @@ const steps = [
   },
 
   {
-    title: "Schritt 11: Passendes Sachkonto ermitteln",
+    title: "Schritt 9: Passendes Sachkonto ermitteln",
     task:
       "Bestimme das fachlich richtige Sachkonto für die erbrachte Leistung.",
     image: imgSachkonto,
     points: [
       "Kontierungshandbuch verwenden",
-      "Vergleich mit früheren Rechnungen",
+      "Vergleich mit früheren Rechnungen heranziehen",
       "Kostenart eindeutig zuordnen"
     ],
     result:
@@ -183,33 +161,33 @@ const steps = [
   },
 
   {
-    title: "Schritt 12: Sachkonto eintragen",
+    title: "Schritt 10: Sachkonto eintragen",
     task:
       "Trage das ermittelte Sachkonto in den Positionsdaten ein.",
     image: imgSachkontoEintragen,
     points: [
-      "Sachkonto numerisch eintragen",
-      "Keine Texte im Sachkontenfeld verwenden"
+      "Sachkonto ausschließlich numerisch eintragen",
+      "Keine Texte oder Beschreibungen im Sachkontenfeld verwenden"
     ],
     result:
       "Das Sachkonto ist korrekt hinterlegt."
   },
 
   {
-    title: "Schritt 13: Buchungstext erfassen",
+    title: "Schritt 11: Buchungstext erfassen",
     task:
       "Erfasse einen aussagekräftigen Buchungstext zur Rechnung.",
     image: imgSachkontoEintragen,
     points: [
-      "Lieferant und Leistung nennen",
-      "Zeitraum oder Zweck ergänzen"
     ],
-    result:
-      "Der Buchungstext macht die Buchung nachvollziehbar."
+
+    result: "Der Buchungstext ist eindeutig, nachvollziehbar und revisionssicher."
+    
+  
   },
 
   {
-    title: "Schritt 14: Mehrere Leistungen aufteilen",
+    title: "Schritt 12: Mehrere Leistungen aufteilen",
     task:
       "Teile die Rechnung auf, wenn mehrere unterschiedliche Leistungen enthalten sind.",
     points: [
@@ -217,12 +195,13 @@ const steps = [
       "Je Position eigenes Sachkonto vergeben",
       "Beträge korrekt verteilen"
     ],
+    
     result:
       "Alle Leistungen sind sachlich korrekt kontiert."
   },
 
   {
-    title: "Schritt 15: Beträge / Zahlungsziel kontrollieren",
+    title: "Schritt 13: Beträge / Zahlungsziel kontrollieren",
     task:
       "Überprüfe alle Beträge auf Richtigkeit.",
     image: imgZahlungsziel,
@@ -237,12 +216,12 @@ const steps = [
   },
 
   {
-    title: "Schritt 16: Kontierung abschließen und weiterleiten bzw. freigeben",
+    title: "Schritt 14: Kontierung abschließen und weiterleiten bzw. freigeben",
     task:
       "Schließe die Kontierung ab und leite die Rechnung im Workflow zur Freigabe weiter.",
     
     points: [
-      "Eingaben speichern",
+      "Alle Eingaben speichern",
       "Rechnung an die nächste Workflow-Stufe weiterleiten",
       "Button 'Freigeben' klicken"
     ],
@@ -263,7 +242,7 @@ const steps = [
     "Prüfen, ob die Rechnung bereits im System vorhanden ist",
     "Kontrollieren, ob die Rechnung im COMED-Workflow festhängt",
     "Prüfen, ob die Rechnung vom Standort noch nicht freigegeben wurde",
-    "Falls Rechnung fehlt: Standort kontaktieren",
+    "Falls Rechnung fehlt: Standort oder Kreditor kontaktieren",
     "Gegebenenfalls Kreditor kontaktieren und Sachverhalt klären",
     "Originalrechnung anfordern, prüfen und ordnungsgemäß weiterverarbeiten"
   ],
@@ -444,8 +423,12 @@ const [shuffledOptions, setShuffledOptions] = useState(
           </div>
         </div>
       )}
-{showIntro && (
-  <div className="step-screen step-with-background kontierung pop-in">
+
+  {showIntro && (
+  <div
+    className="step-screen step-with-background kontierung pop-in intro-background"
+    style={{ backgroundImage: `url(${introImage})` }}
+  >
     <div className="module-card step-card-full">
       <img
         src={introImage}
@@ -456,7 +439,7 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
             <p className="step-task">
               <strong>Ziel des Moduls:</strong>{" "}
-                Nach Abschluss dieses Moduls bist du in der Lage, Eingangsrechnungen im System Elo fachlich korrekt zu kontieren. Du verstehst den vollständigen Ablauf, vom Öffnen der Rechnung über die Prüfung, die Ermittlung geeigneter Sachkonten bis hin zur korrekten Erfassung von Buchungstexten. Du kannst beurteilen, ob eine Kontierung notwendig ist, mehrere Leistungen sachgerecht aufteilen und die Rechnung ordnungsgemäß zur Weiterverarbeitung und späteren Verbuchung weiterleiten.
+                Nach Abschluss dieses Moduls kannst du Eingangsrechnungen im System ELO fachlich korrekt kontieren. Du beherrschst den gesamten Prozess von der Prüfung der Rechnung bis zur sachgerechten Kontierung und Weiterleitung zur Verbuchung.
             </p>
 
             <div className="step-actions center">
@@ -477,7 +460,10 @@ const [shuffledOptions, setShuffledOptions] = useState(
       )}
 
       {finished && (
-        <div className="step-screen step-with-background postbearbeitung pop-in">
+       <div
+  className="step-screen step-with-background kontierung pop-in intro-background"
+  style={{ backgroundImage: `url(${introImage})` }}
+>
           <div className="module-card step-card-full completed">
             <img
               src={artemisLogo}
@@ -504,7 +490,10 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
    
   {showQuiz && (
-  <div className="step-screen step-with-background postbearbeitung pop-in">
+  <div
+  className="step-screen step-with-background kontierung pop-in intro-background"
+  style={{ backgroundImage: `url(${introImage})` }}
+>
     <div className="module-card step-card-full">
         <img
               src={artemisLogo}
@@ -605,7 +594,10 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
       {!showIntro && !finished && !showQuiz && (
         <>
-          <div className="step-screen step-with-background postbearbeitung pop-in">
+          <div
+  className="step-screen step-with-background kontierung pop-in intro-background"
+  style={{ backgroundImage: `url(${introImage})` }}
+>
             <div
               key={current}
               className={`module-card step-card-full step-animate ${direction} ${
@@ -620,7 +612,22 @@ const [shuffledOptions, setShuffledOptions] = useState(
               <h2>{steps[current].title}</h2>
 
 
-{steps[current].image && (
+{/* Mehrere Bilder */}
+{steps[current].images && (
+  <div className="step-images">
+    {steps[current].images.map((img, i) => (
+      <img
+        key={i}
+        src={img}
+        alt={`${steps[current].title} – Ansicht ${i + 1}`}
+        className="step-image"
+      />
+    ))}
+  </div>
+)}
+
+{/* Einzelnes Bild */}
+{steps[current].image && !steps[current].images && (
   <img
     src={steps[current].image}
     alt={steps[current].title}

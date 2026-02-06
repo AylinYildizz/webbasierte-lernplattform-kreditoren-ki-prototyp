@@ -56,9 +56,11 @@ function Rechnungspruefung() {
       task: "Vorgang öffnen und prüfen.",
       image: img01,
       points: [
-        "Rechnungsnummer prüfen",
-        "Lieferant prüfen",
-        "Kopf- und Positionsdaten sichten"
+        "Rechnungsempfänger korrekt erfassen",
+        "Kreditor der Rechnung korrekt zuordnen",
+        "Rechnungsdatum und Rechnungsnummer prüfen",
+        "Leistungsdatum überprüfen",
+        "Rechnungsbetrag prüfen sowie ggf. Rechnungskorrekturen und Mahnstufe berücksichtigen "
       ],
       result: "Der Vorgang ist vollständig erfasst."
     },
@@ -67,9 +69,9 @@ function Rechnungspruefung() {
       task: "Pflichtfelder kontrollieren.",
       image: img03,
       points: [
-        "Blaue Felder prüfen",
-        "Grüne Felder gegenlesen",
-        "Rechnungsnummer & Betrag besonders prüfen"
+        "Blaue Felder prüfen sowie Daten ergänzen oder bestätigen ",
+        "Grüne Felder sorgfältig gegenlesen",
+        "Rechnungsnummer und Rechnungsbetrag besonders sorgfältig prüfen"
       ],
       result: "Pflichtfelder sind korrekt.",
       consequence:
@@ -80,34 +82,35 @@ function Rechnungspruefung() {
       task: "Alle Fehler beheben.",
       image: img04,
       points: [
-        "Rote Felder korrigieren",
-        "Ohne Korrektur kein Abschluss"
+        "Rote Felder prüfen und korrigieren",
+        "Ohne Korrektur ist kein Abschluss möglich"
       ],
-      result: "Alle Fehler wurden korrigiert."
+      result: "Alle Fehler wurden erfolgreich korrigiert."
     },
     {
       title: "Schritt 6: Vorgang fortsetzen",
       task: "Vorgang bestätigen.",
       image: img05,
       points: [
-        "Hinweis lesen",
-        "STRG + ENTER bei Pflichtfehlern"
+        "Systemhinweis lesen",
+        "Bei Pflichtfehlern den Vorgang mit STRG + ENTER bestätigen"
       ],
       result: "Der Vorgang wurde fortgesetzt."
     },
     {
       title: "Schritt 7: Mahnstufe prüfen",
-      task: "Dringlichkeit bewerten.",
+      task: "Dringlichkeit der Rechnung bewerten.",
       image: img06,
       points: [
         "Mahnstufe erkennen",
-        "Priorität festlegen"
+        "PBearbeitungspriorität festlegen",
+        "Es können nur Mahnstufen bis einschließlich Stufe 2 erfasst werden"
       ],
-      result: "Die Dringlichkeit ist korrekt eingeschätzt."
+      result: "Die Dringlichkeit wurde korrekt eingeschätzt."
     },
     {
       title: "Schritt 8: Rechnung korrigieren",
-      task: "Korrekturen durchführen.",
+      task: " Erforderliche Korrekturen durchführen.",
       image: img07,
       points: [
         "Rechnungskorrektur aktivieren",
@@ -118,24 +121,27 @@ function Rechnungspruefung() {
     },
     {
       title: "Schritt 9: Zusätzliche Felder prüfen",
-      task: "Zusatzinformationen prüfen.",
+      task: "Zusatzinformationen prüfen und ergänzen.",
       image: img08,
       points: [
         "Zusatzfelder öffnen",
+        "Liefermonat ggf. in Liefer-KW ändern ",
+        "Mehrwertsteuer anpassen (z.B. 7 % und 19 %",
+        "Rabatte prüfen und korrekt erfassen",
         "Pflichtangaben prüfen"
       ],
-      result: "Zusatzfelder sind geprüft."
+      result: "Zusatzfelder wurden korrekt geprüft und angepasst."
     },
     {
       title: "Schritt 10: Dokumente aussteuern",
-      task: "Nicht-Rechnungen aussteuern.",
+      task: "Nicht relevante Dokumente identifizieren und aussteuern.",
       image: img09,
       points: [
-        "Angebote",
-        "Bestellbestätigungen",
-        "Nutzungsbedingungen"
+        "Dokumente, die ausgesteuert werden: Angebote, Bestellbestätigungen, Nutzungsbedigungen",
+        "Vorgehen: oben rechts auf die drei Balken klicken und 'Aussteuern' auswählen und bestätigen"
+        
       ],
-      result: "Nicht relevante Dokumente sind ausgesteuert."
+      result: "Nicht relevante Dokumente wurden erfolgreich ausgesteuert."
     }
   ];
 
@@ -219,40 +225,51 @@ const [shuffledOptions, setShuffledOptions] = useState(
         </div>
       )}
 
-      {showIntro && (
-        <div className="step-screen step-with-background postbearbeitung pop-in">
-          <div className="module-card step-card-full">
-            <img
-              src={introImage}
-              alt="Rechnungsprüfung"
-              className="rechnungspruefung"
-            />
-            <h2>Rechnungsprüfung</h2>
+{showIntro && (
+  <div
+    className="step-screen step-with-background rechnungspruefung pop-in intro-background"
+    style={{ backgroundImage: `url(${introImage})` }}
+  >
+    <div className="module-card step-card-full">
+      <img
+        src={introImage}
+        alt="Rechnungsprüfung"
+        className="module-intro-image"
+      />
 
-            <p className="step-task">
-              <strong>Ziel des Moduls:</strong>{" "}
-                Nach Abschluss dieses Moduls bist du in der Lage, Eingangsrechnungen im Verifier systematisch und regelkonform zu prüfen. Du erkennst fehlerhafte oder unvollständige Angaben, nimmst notwendige Korrekturen vor, bewertest Mahnstufen korrekt und stellst sicher, dass nur prüffähige Rechnungen ordnungsgemäß an das Buchhaltungssystem weitergegeben werden.
-            </p>
+      <h2>Rechnungsprüfung</h2>
 
-            <div className="step-actions center">
-              <button
-                className="primary-button"
-                onClick={() => setShowIntro(false)}
-              >
-                Modul starten
-              </button>
-              <Link to="/module">
-                <button className="secondary-button">
-                  Zurück zu den Lernmodulen
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      <p className="step-task">
+        <strong>Ziel des Moduls:</strong>{" "}
+        Nach Abschluss dieses Moduls bist du in der Lage,
+        Eingangsrechnungen im Verifier systematisch und regelkonform zu prüfen.
+        Du erkennst fehlerhafte oder unvollständige Angaben, nimmst notwendige
+        Korrekturen vor, bewertest Mahnstufen korrekt und stellst sicher, dass
+        nur prüffähige Rechnungen ordnungsgemäß weiterverarbeitet werden.
+      </p>
+
+      <div className="step-actions center">
+        <button
+          className="primary-button"
+          onClick={() => setShowIntro(false)}
+        >
+          Modul starten
+        </button>
+        <Link to="/module">
+          <button className="secondary-button">
+            Zurück zu den Lernmodulen
+          </button>
+        </Link>
+      </div>
+    </div>
+  </div>
+)}
 
       {finished && (
-        <div className="step-screen step-with-background postbearbeitung pop-in">
+       <div
+    className="step-screen step-with-background rechnungspruefung pop-in intro-background"
+    style={{ backgroundImage: `url(${introImage})` }}
+  >
           <div className="module-card step-card-full completed">
             <img
               src={artemisLogo}
@@ -279,7 +296,10 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
    
   {showQuiz && (
-  <div className="step-screen step-with-background postbearbeitung pop-in">
+  <div
+  className="step-screen step-with-background rechnungspruefung pop-in intro-background"
+  style={{ backgroundImage: `url(${introImage})` }}
+>
     <div className="module-card step-card-full">
         <img
               src={artemisLogo}
@@ -380,7 +400,10 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
       {!showIntro && !finished && !showQuiz && (
         <>
-          <div className="step-screen step-with-background postbearbeitung pop-in">
+          <div
+  className="step-screen step-with-background rechnungspruefung pop-in intro-background"
+  style={{ backgroundImage: `url(${introImage})` }}
+>
             <div
               key={current}
               className={`module-card step-card-full step-animate ${direction} ${
