@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+
 /* =========================
    DESIGN SYSTEM
    ========================= */
@@ -27,9 +30,40 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-muted);
 }
 
 /* =========================
@@ -63,36 +97,44 @@ p {
 /* =========================
    NAVBAR
    ========================= */
-
 .navbar {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  padding: 0.9rem 2.5rem;
+  background: #ffffff;
+  padding: 1rem 2.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: 1px solid #eef2f7;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
 }
 
+/* Links: Start, Module, KI */
 .navbar-left a {
-  color: white;
+  color: var(--primary);     /* blau statt weiß */
   text-decoration: none;
   margin-right: 2.5rem;
-  font-size: 1.05rem;   /* größer */
-  font-weight: 600;     /* klarer */
-}
-.navbar-left a:hover {
-  opacity: 0.9;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
 }
 
+.navbar-left a:hover {
+  opacity: 0.65;
+}
+ 
+
+
+/* Lupe */
 .search-icon {
-  color: white;
-  font-size: 1.4rem;        /* größer */
-  stroke-width: 2.2;       /* dicker (wichtig!) */
+  color: var(--primary);   /* blau */
+  font-size: 1.4rem;
+  stroke-width: 2.2;
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .search-icon:hover {
-  opacity: 0.9;
+  opacity: 0.7;
   transform: scale(1.1);
 }
 
@@ -118,7 +160,9 @@ p {
 }
 
 .intro-card h1 {
-  margin-bottom: 0.8rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .intro-card p {
@@ -131,7 +175,7 @@ p {
    ========================= */
 
 .image-grid-section {
-  padding: 4rem 2rem 1rem; /* oben mehr Abstand */
+  padding: 5rem 2rem 2rem; /* oben mehr Abstand */
 }
 /* =========================
    IMAGE GRID – 2 PRO REIHE
@@ -1225,20 +1269,21 @@ p {
   gap: 2rem;
 }
 
-/* KI Button wie Menüpunkt */
+/* KI-Button */
 .navbar-ki-button {
   background: none;
   border: none;
-  color: white;
+  color: var(--primary);
   font-size: 1.05rem;
   font-weight: 600;
-  display: flex;
+  cursor: pointer;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  cursor: pointer;
-  padding: 0;
+  transition: opacity 0.2s ease;
 }
 
 .navbar-ki-button:hover {
-  opacity: 0.85;
+  opacity: 0.65;
+
 }

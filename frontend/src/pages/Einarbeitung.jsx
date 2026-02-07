@@ -99,7 +99,7 @@ function Einarbeitung() {
 
           <p className="step-task">
             <strong>Fazit:</strong>{" "}
-            Eine modulare Einarbeitung ermöglicht neuen Mitarbeitenden, die erforderliche Kompetenzen in einem strukturierten und verständlichen Lernprozess zu erwerben. Die Kombination aus standardisierten Abläufen, praxisnahen Beispielen und wiederholten Anwendungssituationen fördert die Prozesssicherheit und bildet eine verlässliche Grundlage für Eigenständiges Arbeiten. 
+            Eine modulare Einarbeitung ermöglicht neuen Mitarbeitenden, die erforderliche Kompetenzen in einem strukturierten und verständlichen Lernprozess zu erwerben. Die Kombination aus standardisierten Abläufen, praxisnahen Beispielen und wiederholten Anwendungssituationen fördert die Prozesssicherheit und bildet eine verlässliche Grundlage für eigenständiges Arbeiten. 
           </p>
 
           <div className="step-actions" style={{ marginTop: "28px" }}>

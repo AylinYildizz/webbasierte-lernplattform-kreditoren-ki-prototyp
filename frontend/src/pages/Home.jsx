@@ -15,9 +15,7 @@ function Home() {
           <div className="intro-card-text">
             <h1>Lernplattform Kreditorenbuchhaltung</h1>
             <p>
-              Interne Plattform zur strukturierten und praxisnahen
-              Einarbeitung in die Prozesse der Kreditorenbuchhaltung
-              im medizinischen Umfeld.
+              Diese Plattform richtet sich insbesondere an neue Mitarbeitende im Kreditorenbereich sowie an Quereinsteiger ohne Vorkenntnisse.
             </p>
           </div>
 
