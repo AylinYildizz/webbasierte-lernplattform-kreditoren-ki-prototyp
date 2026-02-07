@@ -25,20 +25,13 @@ function Kreditorenprozesse() {
 
   <div className="info-text">
     <p className="step-task">
-      <strong>Strukturiert & nachvollziehbar:</strong>{" "}
-      Die Kreditorenprozesse im Unternehmen sind so aufgebaut, dass sie für
-      alle Beteiligten transparent, einheitlich und jederzeit nachvollziehbar
-      sind. Ziel ist es, Eingangsrechnungen effizient, korrekt und
-      regelkonform zu bearbeiten – unabhängig davon, aus welcher Praxis
-      oder Klinik sie stammen.
+      <strong>Strukturiert und nachvollziehbar:</strong>{" "}
+     Die Kreditorenprozesse im Unternehmen sind so gestaltet, dass sie für alle Beteiligten transparent, einheitlich und jederzeit nachvollziehbar sind. Ziel ist es, Eingangsrechnungen effizient, fachlich korrekt und regelkonform zu bearbeiten, unabhängig davon, aus welcher Praxis oder Klinik sie stammen.
     </p>
 
     <p className="step-task">
       Durch klar definierte Prozessschritte wird sichergestellt, dass jede
-      Rechnung denselben Weg durchläuft: vom Eingang über die Prüfung und
-      Freigabe bis hin zur Verbuchung und Zahlung. Das reduziert Fehler,
-      vermeidet Rückfragen und sorgt für einen reibungslosen Ablauf im
-      gesamten Unternehmen.
+      Rechnung denselben Bearbeitungsweg durchläuft. Dieser reicht vom Rechnungseingang über die formale und inhaltliche Prüfung sowie die Freigabe bis hin zur Verbuchung und anschließenden Zahlung. Die standardisierte Vorgehensweise reduziert Fehlerquellen, vermeidet unnötige Rückfragen und unterstützt einen reibungslosen Ablauf innerhlab des gesamten Unternehmens.
     </p>
   </div>
 </div>
@@ -55,8 +48,8 @@ function Kreditorenprozesse() {
       <ul className="step-points" style={{ marginTop: "0.8rem" }}>
         <li>Einheitliche Prozesslogik für alle Standorte und Gesellschaften.</li>
         <li>Klare Trennung der einzelnen Bearbeitungsschritte.</li>
-        <li>Jeder Schritt baut logisch auf dem vorherigen auf.</li>
-        <li>Jeder Vorgang ist systemseitig dokumentiert und nachvollziehbar.</li>
+        <li>Jeder Schritt baut logisch auf dem vorhergehenden Schritt auf.</li>
+        <li>Jeder Vorgang ist im System dokumentiert und jederzeit nachvollziehbar.</li>
       </ul>
     </div>
 
@@ -65,9 +58,9 @@ function Kreditorenprozesse() {
       <ul className="step-points" style={{ marginTop: "0.8rem" }}>
         <li>Eingang der Rechnung über definierte Eingangskanäle.</li>
         <li>Formale und inhaltliche Prüfung der Rechnungsdaten.</li>
-        <li>Klärung von Abweichungen oder Rückfragen.</li>
-        <li>Freigabe gemäß interner Regeln.</li>
-        <li>Verbuchung und Vorbereitung der Zahlung.</li>
+        <li>Klärung von Abweichungen oder offenen Fragen.</li>
+        <li>Freigabe gemäß den internen Regelungen.</li>
+        <li>Verbuchung der Rechnung und Vorbereitung der Zahlung.</li>
       </ul>
     </div>
   </div>
@@ -83,20 +76,20 @@ function Kreditorenprozesse() {
     <div className="step-callout tip">
       <strong>Warum sind strukturierte Prozesse so wichtig?</strong>
       <ul className="step-points" style={{ marginTop: "0.8rem" }}>
-        <li>Vermeidung von Doppelbearbeitungen und Medienbrüchen.</li>
+        <li>Vermeidung von Doppelbearbeitungen und unnötigen Systemwechseln.</li>
         <li>Reduzierung von Fehlern bei Rechnungsprüfung und Buchung.</li>
-        <li>Einhaltung gesetzlicher und interner Vorgaben.</li>
-        <li>Transparente Nachvollziehbarkeit für Prüfungen.</li>
+        <li>Einhaltung gesetzlicher, sowie interner Vorgaben.</li>
+        <li>Transparente und prüfbare Abläufe für interne und externe Kontrollen.</li>
       </ul>
     </div>
 
     <div className="step-callout tip">
       <strong>Vorteile für neue Mitarbeitende</strong>
       <ul className="step-points" style={{ marginTop: "0.8rem" }}>
-        <li>Klare Orientierung durch definierte Abläufe.</li>
-        <li>Schnellere Einarbeitung durch wiederkehrende Logik.</li>
-        <li>Sicherheit im Umgang mit Rechnungen.</li>
-        <li>Nachvollziehbare Entscheidungen durch Dokumentation.</li>
+        <li>Klare Orientierung durch festgelegte Abläufe.</li>
+        <li>Schnellere Einarbeitung durch wiederkehrende Prozesslogik.</li>
+        <li>Mehr Sicherheit im Umgang mit Rechnungen und Buchungen.</li>
+        <li>Nachvollziehbare Entscheidungen durch vollständige Dokumentation.</li>
       </ul>
     </div>
   </div>
@@ -105,11 +98,7 @@ function Kreditorenprozesse() {
 {/* Abschluss */}
 <p className="step-task">
   <strong>Fazit:</strong>{" "}
-  Strukturierte und nachvollziehbare Kreditorenprozesse sind die Basis
-  für eine stabile, effiziente und revisionssichere Rechnungsbearbeitung.
-  Sie schaffen Transparenz, erleichtern die Zusammenarbeit zwischen
-  Abteilungen und geben allen Mitarbeitenden eine verlässliche Orientierung
-  im Arbeitsalltag.
+  Strukturierte und nachvollziehbare Kreditorenprozesse bilden die Grundlage für eine stabile, effiziente und revisionssichere Rechnungsbearbeitung. Sie schaffen Transparenz, erleichtern die Zusammenarbeit zwischen den beteiligten Abteilungen und geben allen Mitarbeitenden eine verlässliche Orientierung im Arbeitsalltag.
 </p>
           <div className="step-actions" style={{ marginTop: "28px" }}>
             <Link to="/">

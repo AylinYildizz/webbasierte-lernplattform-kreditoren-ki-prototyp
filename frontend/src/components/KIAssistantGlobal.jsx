@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useKIContext } from "../context/KIContext";
 import kiAssistent from "../assets/ki/ki-assistent.png";
 import { GLOBAL_CONTEXT } from "../search/globalContext";
@@ -9,6 +9,16 @@ function KIAssistantGlobal() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // 🔥 Öffnen über Navbar-Button
+  useEffect(() => {
+    function handleOpen() {
+      setOpen(true);
+    }
+
+    window.addEventListener("open-ki", handleOpen);
+    return () => window.removeEventListener("open-ki", handleOpen);
+  }, []);
 
   async function ask() {
     if (!question.trim()) return;

@@ -11,104 +11,95 @@ function Einarbeitung() {
           <h2>Einarbeitung</h2>
 
           <p className="step-task">
-            <strong>Modular & praxisnah:</strong>{" "}
-            Die Einarbeitung ist so aufgebaut, dass neue Mitarbeitende Schritt für Schritt
-            in Aufgaben, Abläufe und Verantwortlichkeiten hineinwachsen. Anstatt viele Themen
-            auf einmal zu lernen, erfolgt die Einarbeitung in klaren Modulen: übersichtlich,
-            wiederholbar und direkt an echten Praxisfällen orientiert.
+            <strong>Modular und praxisnah:</strong>{" "}
+            Die Einarbeitung neuer Mitarbeitender ist so gestaltet, dass sie schrittweise in Aufgaben, Abläufe und Verantwortlichkeiten eingeführt werden. Anstatt eine große Menge an Informationen gleichzeitig zu vermitteln, erfolgt die Einarbeitung in klar strukturierten Modulen. Diese sind übersichtlich aufgebaut, wiederholbar und an realen Praxisfällen orientiert.
           </p>
 
           <p className="step-task">
-            Ziel ist es, dass du nach und nach Sicherheit entwickelst: Du verstehst zuerst die
-            Grundlogik, lernst dann typische Vorgänge kennen und übernimmst anschließend
-            eigenständig Aufgaben. Dadurch wird die Einarbeitung nachvollziehbar, stressärmer
-            und deutlich nachhaltiger.
+            Ziel dieses Ansatzes ist es, dass neue Mitarbeitende nach und nach Sicherheit in den Arbeitsprozessen entwickeln. Zunächst wird die grundlegenden Logik der Abläufe vermittelt. Darauf aufbauend werden typische Vorgänge kennengelernt und schließlich eigenständig bearbeitet. Auf diese Weise wird die Einarbeitung nachvollziehbar, weniger belastend und langfristig wirksam gestaltet.
           </p>
 
           <div className="step-callout tip">
-            <strong>So ist die modulare Einarbeitung aufgebaut</strong>
+            <strong>Aufbau der modularen Einarbeitung</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
               <li>
-                <strong>1. Orientierung:</strong> Überblick über Organisation, Systeme, Rollen und Begriffe.
+                <strong>1. Orientierung:</strong> Überblick über Organisation, Systeme, Rollen und zentrale Begriffe.
               </li>
               <li>
-                <strong>2. Grundlagen:</strong> Verständnis der Standardabläufe und Qualitätsprinzipien.
+                <strong>2. Grundlagen:</strong> Verständnis der Standardabläufe und der zugrunde liegenden Qualitätsprinzipien.
               </li>
               <li>
-                <strong>3. Praxisfälle:</strong> Bearbeitung typischer Vorgänge mit Beispielen und Checklisten.
+                <strong>3. Praxisfälle:</strong> Bearbeitung typischer Vorgänge anhand konkreter Beispiele und strukturierter Checklisten.
               </li>
               <li>
-                <strong>4. Eigenständigkeit:</strong> Schrittweise Übernahme echter Aufgaben mit Feedback.
+                <strong>4. Eigenständigkeit:</strong> Schrittweise Übernahme realer Aufgaben unter begleitendem Feedback.
               </li>
               <li>
-                <strong>5. Vertiefung:</strong> Sonderfälle, häufige Fehlerquellen, Optimierung und Routine.
+                <strong>5. Vertiefung:</strong> Behandlung von Sonderfällen, häufigen Fehlerquellen sowie Aufbau von Routine und Prozesssicherheit.
               </li>
             </ul>
           </div>
 
           <div className="step-callout tip">
-            <strong>Warum „praxisnah“ so wichtig ist</strong>
+            <strong>Bedeutung der Praxisnähe</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
               <li>
-                Du lernst nicht nur Theorie, sondern erkennst sofort den Sinn hinter jedem Schritt.
+                Verknüpfung von theoretischem Wissen mit konkreten Arbeitssituationen.
               </li>
               <li>
-                Typische Fehlerquellen werden früh sichtbar, bevor sie im Alltag passieren.
+                Frühzeitige Erkennen typischer Fehlerquellen.
               </li>
               <li>
-                Du entwickelst Routine durch Wiederholung in realistischen Szenarien.
+                Aufbau von Routine durch wiederholte Bearbeitung realistischer Szenarien.
               </li>
               <li>
-                Du bekommst ein Gefühl dafür, welche Informationen wichtig sind und worauf man achten muss.
+                Entwicklung eines Verständnisses dafür, welche Informationen relevant sind und worauf besonders zu achten ist.
               </li>
             </ul>
           </div>
 
           <div className="step-callout tip">
-            <strong>Was du nach der Einarbeitung können sollst</strong>
+            <strong>Zielkompootenz nach Abschluss der Einarbeitung</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
               <li>
-                Arbeitsabläufe verstehen und sauber nach Prozess durchführen (statt „irgendwie“).
+                Verständnis der Arbeitsabläufe und sichere Durchführung der Prozesse nach festgelegten Standards.
               </li>
               <li>
-                Informationen korrekt prüfen, vergleichen und dokumentieren.
+                Korrekte Prüfung, Gegenüberstellung und Dokumentation relevanter Informationen
               </li>
               <li>
-                Auffälligkeiten erkennen und richtig eskalieren (statt fehlerhaft weiterzugeben).
+                Erkennen von Auffälligkeiten sowie Weiterleitung an die zuständige Stellen.
               </li>
               <li>
-                Mit Standards arbeiten, aber auch wissen, wann eine Ausnahme vorliegt.
+                Sicherer Umgang mit Standardfällen und Erkennen von Ausnahmesituationen.
               </li>
               <li>
-                Selbstständig arbeiten, ohne ständig nachfragen zu müssen – mit klarer Sicherheit.
+                Eigenständiges Arbeiten auf Grundlage der definierten Prozesse.
               </li>
             </ul>
           </div>
 
           <div className="step-callout warning">
-            <strong>Typische Stolpersteine in der Einarbeitung</strong>
+            <strong>Typische Herausforderungen in der Einarbeitung</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
               <li>
-                Zu schnell zu viel: lieber Module nacheinander sauber abschließen.
+                Zu schenlle Bearbeitung vieler Inhalte ohne ausreichendes Verständnis der einzelnen Module.
               </li>
               <li>
-                „Nur klicken“ statt verstehen: immer den Prozess dahinter nachvollziehen.
+                Reines Ausführen von Arbeitsschritten ohne Verständnis der dahinterliegenden Prozesslogik.
               </li>
               <li>
-                Fragen aufschieben: lieber sofort klären, bevor sich Fehler festsetzen.
+                Aufschieben von Rückfragen, wodurch sich Fehler verfestigen können.
               </li>
               <li>
-                Abkürzungen und Begriffe verwechseln: Begriffe konsequent mitlernen.
+                Verwechslung von Abkürzung und Fachbegriffen.
               </li>
             </ul>
           </div>
 
           <p className="step-task">
             <strong>Fazit:</strong>{" "}
-            Eine modulare Einarbeitung sorgt dafür, dass neue Mitarbeitende in einem stabilen,
-            verständlichen Tempo lernen. Die Kombination aus Standards, Praxisfällen und
-            Wiederholungen macht die Abläufe sicher und reproduzierbar – und schafft eine echte
-            Grundlage für eigenständiges Arbeiten.
+            Eine modulare Einarbeitung ermöglicht neuen Mitarbeitenden, die erforderliche Kompetenzen in einem strukturierten und verständlichen Lernprozess zu erwerben. Die Kombination aus standardisierten Abläufen, praxisnahen Beispielen und wiederholten Anwendungssituationen fördert die Prozesssicherheit und bildet eine verlässliche Grundlage für Eigenständiges Arbeiten. 
           </p>
 
           <div className="step-actions" style={{ marginTop: "28px" }}>
@@ -122,8 +113,7 @@ function Einarbeitung() {
           </div>
 
           <p style={{ marginTop: "18px", fontSize: "0.9rem", color: "#4a5a6a" }}>
-            Hinweis: Diese Seite erklärt die Logik der Einarbeitung. Die einzelnen Module
-            vertiefen die Inhalte Schritt für Schritt.
+            Hinweis: Diese Seite beschreibt die grundsätzliche Struktur der Einarbeitung. Die einzelnen Module vertiefen die Inhalte schrittweise.
           </p>
         </div>
       </div>

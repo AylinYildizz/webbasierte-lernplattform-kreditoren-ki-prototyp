@@ -125,14 +125,8 @@ function Praxisstandorte() {
 
   <div className="info-text">
     <p className="step-task">
-      <strong>Einheitliche Abläufe im ARTEMIS-Netzwerk:</strong>{" "}
-      Die ARTEMIS Augenkliniken und Medizinischen Versorgungszentren bilden ein
-      deutschlandweites Netzwerk spezialisierter Praxen und Kliniken. Trotz der
-      Vielzahl an Standorten arbeiten alle Einrichtungen nach klar definierten,
-      einheitlichen Abläufen. Diese Standardisierung stellt sicher, dass
-      Patientinnen und Patienten an jedem Standort eine vergleichbare,
-      qualitativ hochwertige Versorgung erhalten und Mitarbeitende sich
-      standortunabhängig sicher orientieren können.
+      <strong>Einheitliche Abläufe bei ARTEMIS:</strong>{" "}
+      Die ARTEMIS Augenkliniken und Medizinischen Versorgungszentren bilden ein bundesweites Netzwerk spezialisierter Praxen und Kliniken. Trotz der Vielzahl an Standorten arbeiten alle Einrichtungen nach klar definierten, standardisierten Abläufe. Diese Standardisierung gewährleistet, dass Patientinnen und Patienten an jedem Standort eine vergleichbare, qualitativ hochwertige Versorgung erhalten. Gleichzeitig ermöglicht sich den Mitarbeitenden eine standortunabhängige Orienteirung und unterstützt eine effiziente Zusammenarbeit innerhalb des Netzwerkes.
     </p>
   </div>
 </div>
@@ -145,12 +139,10 @@ function Praxisstandorte() {
 
   <div className="info-text">
     <p className="step-task">
-      Einheitliche Abläufe bedeuten, dass zentrale Prozesse – von der
-      Patientenaufnahme über die Terminorganisation, medizinische Dokumentation
-      und Nachsorge bis hin zu internen Abstimmungen – nach denselben
-      Grundprinzipien organisiert sind. Dadurch entstehen Transparenz,
-      Nachvollziehbarkeit und ein hohes Maß an Sicherheit im täglichen
-      Praxisbetrieb.
+      Einheitliche Abläufe bedeuten, dass zentrale organisatorische und medizinische Prozesse nach denselben Grundprinzipien gestaltet sind. 
+      Dazu zählen unter anderem die Patientenaufnahme, die Terminplanung, die medizinische Dokumentation, die Nachsorge sowie interne Abstimmungsprozesse.
+      Durch diese standardisierte Vorgehensweise entstehen klare Strukturen und transparente Arbeitsabläufe. Prozesse sind nachvollziehbar dokumentiert, Verantwortlichkeiten eindeutig geregelt und Arbeitsschritte logisch aufeinander abgestimmt. 
+      Dies erhöht die Prozesssicherheit, reduziert Fehlerquellen und unterstützt einen reibungslosen Ablauf im täglichen Praxis und Klinikbetrieb.
     </p>
   </div>
 </div>
@@ -171,11 +163,7 @@ function Praxisstandorte() {
         </li>
         <li>
           Klare Rollen- und Aufgabenverteilungen innerhalb der Teams, unabhängig
-          vom Standort.
-        </li>
-        <li>
-          Dokumentierte Prozesse, die neuen Mitarbeitenden eine schnelle und
-          sichere Einarbeitung ermöglichen.
+          vom jeweiligen Standort.
         </li>
         <li>
           Reibungslose Zusammenarbeit auch bei standortübergreifenden Einsätzen
@@ -201,15 +189,14 @@ function Praxisstandorte() {
           organisatorische Prozesse.
         </li>
         <li>
-          Einsatz moderner Medizintechnik und kontinuierliche Anpassung an neue
-          medizinische Standards.
+          Einsatz moderner Medizintechnik sowie kontinuierliche Anpassung an aktuelle medizinische und organisatorische Standards.
         </li>
         <li>
-          Qualitätsmanagementsysteme (z. B. nach DIN EN ISO 9001) an vielen
+          Implementierung von Qualitätsmanagementsystemen (z. B. nach DIN EN ISO 9001) an zahlreichen
           Standorten.
         </li>
         <li>
-          Regelmäßige Schulungen, Audits und Weiterbildungen für alle
+          Regelmäßige Schulungen, Audits und Weiterbildungsmaßnahmen für alle
           Mitarbeitenden.
         </li>
       </ul>
@@ -220,11 +207,9 @@ function Praxisstandorte() {
 {/* Abschluss-Text */}
 <p className="step-task">
   <strong>Orientierung für neue Mitarbeitende:</strong>{" "}
-  Die einheitlichen Abläufe im ARTEMIS-Netzwerk bieten neuen Mitarbeitenden
+  Die einheitlichen Abläufe bei ARTEMIS bieten neuen Mitarbeitenden
   eine klare Orientierung. Grundlegende Arbeitsweisen, Qualitätsanforderungen
-  und Organisationsstrukturen sind standortübergreifend vergleichbar. Das
-  erleichtert den Einstieg, reduziert Unsicherheiten und schafft Vertrauen in
-  die täglichen Arbeitsprozesse.
+  und Organisationsstrukturen sind standortübergreifend vergleichbar. Dies erleichtert den Einstieg, reduziert Unsicherheiten und fördert das Vertrauen in die täglichen Arbeitsprozesse sowie in die Zusammenarbeit innerhalb der Netzwerks.
 </p>
 
       <div className="step-actions" style={{ marginTop: "28px" }}>
@@ -238,8 +223,10 @@ function Praxisstandorte() {
       </div>
 
       <p style={{ marginTop: "18px", fontSize: "0.9rem", color: "#4a5a6a" }}>
-        Hinweis: Die dargestellten Inhalte beschreiben die allgemeinen
-        standortübergreifenden Abläufe und Qualitätsprinzipien im ARTEMIS-Netzwerk.
+        Hinweis: Die dargestellten Inhalte beschreiben die grundlegenden,
+standortübergreifenden Organisations- und Qualitätsprinzipien
+bei ARTEMIS und dienen der allgemeinen Orientierung
+für neue Mitarbeitende.
       </p>
       {/* 🔍 Suche */}
 <div className="step-callout">

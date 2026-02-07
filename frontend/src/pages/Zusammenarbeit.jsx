@@ -21,20 +21,12 @@ function Zusammenarbeit() {
             <div className="info-text">
               <p className="step-task">
                 <strong>Abgestimmt auf den Arbeitsalltag:</strong>{" "}
-                Gute Zusammenarbeit bedeutet, dass Informationen zuverlässig
-                weitergegeben werden, Zuständigkeiten klar geregelt sind und
-                Entscheidungen nachvollziehbar dokumentiert werden.
-                Gerade in einem Netzwerk mit vielen Standorten ist es
-                entscheidend, dass Abläufe nicht personenabhängig sind,
-                sondern strukturiert und einheitlich funktionieren.
+                Eine funktionierende Zusammenarbeit setzt voraus, dass Informationen zuverlässig weitergegeben werden, Zuständigkeiten eindeutig geregelt sind und Entscheidungen transparent dokumentiert werden. Besonders in einem Netzwerk mit zahlreichen Standorten ist es entscheidend, dass Abläufe nicht von einzelnen Personen abhängig sind, sondern auf klar definierten und einheitlichen Strukturen basieren.
+              
               </p>
 
               <p className="step-task">
-                Zusammenarbeit heißt dabei nicht nur Kommunikation,
-                sondern vor allem <strong>abgestimmte Prozesse</strong>.
-                Jede beteiligte Stelle weiß, wann sie was liefern muss,
-                welche Informationen benötigt werden und wie Rückfragen
-                sauber geklärt werden.
+                Zusammenarbeit beschränkt sich dabei nicht allein auf den Austausch von Informationen, sondern umfasst vor allem abgestimmte Prozesse. Jede beteiligte Stelle kennt ihre Aufgaben, weiß, welche Informationen benötigt werden, und erkennt, wie Rückfragen strukturiert und nachvollziehbar geklärt werden.
               </p>
             </div>
 
@@ -51,11 +43,10 @@ function Zusammenarbeit() {
 
             <div className="info-text">
               <div className="step-callout tip">
-                <strong>Was gute Zusammenarbeit ausmacht</strong>
+                <strong>Merkmale einer funktionierenden Zusammenarbeit</strong>
                 <ul className="step-points" style={{ marginTop: "0.8rem" }}>
                   <li>
-                    <strong>Klare Zuständigkeiten:</strong> Jeder weiß,
-                    wer entscheidet und wer welche Informationen liefert.
+                    <strong>Klare Zuständigkeiten:</strong> Alle Beteiligten wissen, wer Entscheidungen trifft und wer die erforderlichen Informationen bereitstellt.
                   </li>
                   <li>
                     <strong>Verlässliche Kommunikation:</strong>
@@ -64,39 +55,38 @@ function Zusammenarbeit() {
                   </li>
                   <li>
                     <strong>Einheitliche Standards:</strong>
-                    Gleiche Begriffe, gleiche Abläufe und gleiche Erwartungen
-                    an allen Standorten.
+                    Gleiche Begriffe, gleiche Abläufe und einheitliche Erwartungen an allen Standorten.
                   </li>
                   <li>
                     <strong>Dokumentation:</strong>
                     Entscheidungen und Absprachen werden festgehalten
-                    und sind jederzeit nachvollziehbar.
+                    und bleiben jederzeit nachvollziehbar.
                   </li>
                   <li>
                     <strong>Respektvolle Abstimmung:</strong>
-                    Lösungsorientiert arbeiten statt Schuldzuweisungen.
+                    Lösungsorientiert Arbeiten steht im Vordergrund, nicht die Suche nach Verantwortlichen für Fehler.
                   </li>
                 </ul>
               </div>
 
               <div className="step-callout warning">
-                <strong>Typische Probleme – und wie man sie vermeidet</strong>
+                <strong>Typische Probleme und deren Vermeidung</strong>
                 <ul className="step-points" style={{ marginTop: "0.8rem" }}>
                   <li>
                     <strong>Unklare Zuständigkeiten:</strong>
-                    Verantwortung immer klären – nicht vermuten.
+                    Verantwortlichkeiten werdem eindeutig geklärt und nicht vorausgesetzt.
                   </li>
                   <li>
                     <strong>Unvollständige Informationen:</strong>
-                    Lieber einmal vollständig als mehrere Rückfragen.
+                    Relevante Daten werden vollständig übermittelt, um unnötige Rückfragen zu vermeiden.
                   </li>
                   <li>
-                    <strong>„Nebenbei“-Entscheidungen:</strong>
-                    Wichtige Absprachen immer dokumentieren.
+                    <strong>Nicht dokumentierte Entscheidungen:</strong>
+                    Wichtige Absprachen werden stets festgehalten.
                   </li>
                   <li>
-                    <strong>Unterschiedliche Begriffe:</strong>
-                    Vereinbarte Standards konsequent einhalten.
+                    <strong>Unterschiedliche Begrifflichkeiten:</strong>
+                    Vereinbarte Standards werden konsequent angewendet.
                   </li>
                 </ul>
               </div>
@@ -106,13 +96,7 @@ function Zusammenarbeit() {
           {/* Abschluss */}
           <p className="step-task">
             <strong>Fazit:</strong>{" "}
-            Zusammenarbeit funktioniert dann am besten,
-            wenn sie nicht dem Zufall überlassen wird,
-            sondern klar strukturiert ist.
-            Klare Zuständigkeiten, verlässliche Kommunikation
-            und saubere Dokumentation sorgen dafür,
-            dass Prozesse stabil laufen – auch bei vielen
-            Standorten und Beteiligten.
+           Zusammenarbeit ist besonders dann effektiv, wenn sie nicht dem Zufall überlassen wird, sondern auf klaren Strukturen basiert. Eindeutige Zuständigkeiten, verlässliche Kommunikation und eine saubere Dokumentation schaffen stabile Abläufe und ermöglichen eine effiziente Zusammenarbeit, auch über mehrere Standorte hinweg.
           </p>
 
           <div className="step-actions" style={{ marginTop: "28px" }}>
@@ -130,10 +114,7 @@ function Zusammenarbeit() {
           </div>
 
           <p style={{ marginTop: "18px", fontSize: "0.9rem", color: "#4a5a6a" }}>
-            Hinweis: Diese Seite dient als Überblick,
-            damit neue Mitarbeitende schnell verstehen,
-            wie Abstimmung und Zusammenarbeit im Arbeitsalltag
-            funktionieren sollen.
+            Hinweis: Diese Seite bietet einen grundlegenden Überblick über die Prinzipien der Zusammenarbeit und dient als Orientierung für neue Mitarbeitende.
           </p>
         </div>
       </div>

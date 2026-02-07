@@ -1200,3 +1200,45 @@ p {
 .step-images .step-image {
   width: 45%;
 }
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-search {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  font-size: 0.9rem;
+  width: 200px;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* KI Button wie Menüpunkt */
+.navbar-ki-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar-ki-button:hover {
+  opacity: 0.85;
+}
