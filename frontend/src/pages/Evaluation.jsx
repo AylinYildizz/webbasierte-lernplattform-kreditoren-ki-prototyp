@@ -11,7 +11,7 @@ function Evaluation() {
 
   const handleSubmit = async () => {
   await fetch(
-    "https://webbasierte-lernplattform-kreditoren-ki-ucwn.onrender.com/api/evaluation",
+    "https://webbasierte-lernplattform-kreditoren-ki-4rdy.onrender.com/api/evaluation",
     {
       method: "POST",
       headers: {

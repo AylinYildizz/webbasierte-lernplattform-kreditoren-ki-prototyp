@@ -1,6 +1,6 @@
 export async function getModules() {
   const response = await fetch(
-    "https://webbasierte-lernplattform-kreditoren-ki-ucwn.onrender.com/modules"
+    "https://webbasierte-lernplattform-kreditoren-ki-4rdy.onrender.com/modules"
   );
   return response.json();
 }

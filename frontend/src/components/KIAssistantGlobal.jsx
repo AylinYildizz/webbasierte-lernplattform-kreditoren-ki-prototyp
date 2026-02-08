@@ -28,7 +28,7 @@ function KIAssistantGlobal() {
 
   try {
     const res = await fetch(
-      "https://webbasierte-lernplattform-kreditoren-ki-ucwn.onrender.com/api/assistant",
+      "https://webbasierte-lernplattform-kreditoren-ki-4rdy.onrender.com/api/assistant",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
