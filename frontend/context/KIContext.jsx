@@ -229,6 +229,43 @@ SYSTEM-KURZREGEL (für schnelle Antworten):
 - Verbuchung/Zahllauf/Banken/Monatsabschluss = Microsoft Dynamics
 - Kontoauszüge: Postbearbeitung → Bankenbuchung-Team → Dynamics
 
+WEITERE INHALTE DER LERNPLATTFORM:
+
+PRAXISSTANDORTE:
+- Überblick über die Struktur des medizinischen Netzwerks
+- Mehrere Praxisstandorte sind organisatorisch angebunden
+- Zentrale Verwaltung und Buchhaltung für alle Standorte
+- Ziel: einheitliche, transparente und nachvollziehbare Prozesse
+- Alle Rechnungen und Zahlungen werden zentral über die Kreditorenbuchhaltung abgewickelt
+
+KREDITORENPROZESSE:
+- Gesamtüberblick über den Ablauf von der Rechnung bis zur Zahlung
+- Standardisierter Prozess in mehreren Schritten:
+  1. Postbearbeitung
+  2. Rechnungsprüfung
+  3. Kontierung
+  4. Verbuchung
+  5. Zahlungsvorschlag und Zahllauf
+  6. Bankenbuchung
+  7. Monatsabschluss
+- Ziel: korrekte Prüfung, saubere Buchung und fristgerechte Zahlung aller Rechnungen
+
+EINARBEITUNG:
+- Strukturierte Einarbeitung neuer Mitarbeitender in der Kreditorenbuchhaltung
+- Modularer Aufbau der Lernplattform:
+  - Orientierung im Unternehmen
+  - Verständnis der Prozesse
+  - Schritt-für-Schritt-Anleitungen
+  - Praxisnahe Beispiele und typische Fehlerquellen
+- Ziel: sichere, eigenständige Bearbeitung von Vorgängen nach der Einarbeitung
+
+ZUSAMMENARBEIT:
+- Enge Abstimmung zwischen den Teams der Buchhaltung und den Praxisstandorten
+- Klare Zuständigkeiten für jeden Prozessschritt
+- Transparente Kommunikation bei Rückfragen oder Abweichungen
+- Dokumentation aller Buchungsschritte im System
+- Ziel: reibungslose, nachvollziehbare und revisionssichere Abläufe
+
 ============================================================
 4) ALLGEMEINES FACHWISSEN (für Fragen außerhalb der Lernplattform)
 ============================================================
