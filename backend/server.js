@@ -58,8 +58,8 @@ app.post("/api/evaluation", (req, res) => {
   res.json({ success: true });
 });
 
-// Server starten
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+
 app.listen(PORT, () => {
-  console.log(`✅ Server läuft auf http://localhost:${PORT}`);
+  console.log(` Server läuft auf Port ${PORT}`);
 });
