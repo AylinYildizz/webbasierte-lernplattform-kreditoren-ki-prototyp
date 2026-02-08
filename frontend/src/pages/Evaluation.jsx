@@ -10,16 +10,19 @@ function Evaluation() {
   };
 
   const handleSubmit = async () => {
-    await fetch("http://localhost:3001/api/evaluation", {
+  await fetch(
+    "https://webbasierte-lernplattform-kreditoren-ki-ucwn.onrender.com/api/evaluation",
+    {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ answers }),
-    });
+    }
+  );
 
-    setSubmitted(true);
-  };
+  setSubmitted(true);
+};
 
   const scale = [1, 2, 3, 4, 5];
   const totalPages = 6;
