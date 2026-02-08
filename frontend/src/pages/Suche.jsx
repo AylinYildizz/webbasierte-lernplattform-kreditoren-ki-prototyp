@@ -12,75 +12,117 @@ function Suche() {
 
   // Deine "Seiten-Treffer" (Buttons/Navigation)
   const inhalte = useMemo(
-    () => [
-      {
-        titel: "Postbearbeitung",
-        text: "Eingang, Zuordnung, digitale Verarbeitung und Dokumentation von Rechnungen.",
-        link: "/module/postbearbeitung",
-      },
-      {
-        titel: "Rechnungsprüfung",
-        text: "Formale und inhaltliche Prüfung von Eingangsrechnungen inkl. Klärung von Abweichungen.",
-        link: "/module/rechnungspruefung",
-      },
-      {
-        titel: "Kontierung",
-        text: "Zuordnung von Sachkonten, Kostenstellen, Kostenträgern und Buchungslogik.",
-        link: "/module/kontierung",
-      },
-      {
-        titel: "Bankenbuchung",
-        text: "Abgleich von Kontoauszügen, Zuordnung von Zahlungen und Klärung offener Posten.",
-        link: "/module/bankenbuchung",
-      },
-      {
-        titel: "Verbuchung",
-        text: "Saubere Buchungsschritte, Dokumentation und Nachvollziehbarkeit im System.",
-        link: "/module/verbuchung",
-      },
-      {
-        titel: "Zahlungsvorschlag",
-        text: "Zahlläufe erstellen, Fälligkeiten prüfen, Freigaben und Ausführung kontrollieren.",
-        link: "/module/zahlungsvorschlag",
-      },
-      {
-        titel: "Monatsabschluss",
-        text: "Kontrolle offener Posten, Abschlussprüfungen, Abgrenzungen und Dokumentation.",
-        link: "/module/monatsabschluss",
-      },
-      {
-        titel: "Praxisstandorte",
-        text: "Überblick über Standorte, einheitliche Abläufe und Qualitätsprinzipien.",
-        link: "/praxisstandorte",
-      },
-      {
-        titel: "Kreditorenprozesse",
-        text: "Strukturierte, nachvollziehbare Abläufe vom Rechnungseingang bis zur Zahlung.",
-        link: "/kreditorenprozesse",
-      },
-      {
-        titel: "Einarbeitung",
-        text: "Modularer Einstieg: Orientierung, Grundlagen, Praxisfälle, Eigenständigkeit.",
-        link: "/einarbeitung",
-      },
-      {
-        titel: "Zusammenarbeit",
-        text: "Abgestimmte Prozesse, klare Zuständigkeiten, Kommunikation und Dokumentation.",
-        link: "/zusammenarbeit",
-      },
-    ],
-    []
-  );
+  () => [
+    {
+      titel: "Postbearbeitung",
+      text: "Eingang, Zuordnung und digitale Verarbeitung von Rechnungen und Dokumenten.",
+      keywords: [
+        "Post", "Hauptbuch", "Kontoauszug", "Bescheid", "Dokument",
+        "Eingang", "Verarbeitung"
+      ],
+      link: "/module/postbearbeitung",
+    },
+    {
+      titel: "Rechnungsprüfung",
+      text: "Formale und inhaltliche Prüfung von Eingangsrechnungen.",
+      keywords: [
+        "Rechnung", "Prüfung", "Verifyer", "Abweichung",
+        "Freigabe", "Rechnungsprüfung"
+      ],
+      link: "/module/rechnungspruefung",
+    },
+    {
+      titel: "Kontierung",
+      text: "Zuordnung von Sachkonten und Kostenstellen.",
+      keywords: [
+        "Kontierung", "ELO", "Kostenstelle", "Sachkonto",
+        "Kontieren", "Kostenart"
+      ],
+      link: "/module/kontierung",
+    },
+    {
+      titel: "Bankenbuchung",
+      text: "Abgleich von Kontoauszügen und Zahlungen.",
+      keywords: [
+        "Bank", "Zahlung", "Kontoauszug",
+        "Bankbuchung", "Dynamics"
+      ],
+      link: "/module/bankenbuchung",
+    },
+    {
+      titel: "Verbuchung",
+      text: "Buchungsschritte und Dokumentation im System.",
+      keywords: [
+        "Buchen", "Verbuchung", "Dynamics",
+        "Buchung", "Beleg"
+      ],
+      link: "/module/verbuchung",
+    },
+    {
+      titel: "Zahlungsvorschlag",
+      text: "Zahlläufe erstellen und prüfen.",
+      keywords: [
+        "Zahlung", "Zahllauf", "Fälligkeit",
+        "Skonto", "Überweisung"
+      ],
+      link: "/module/zahlungsvorschlag",
+    },
+    {
+      titel: "Monatsabschluss",
+      text: "Kontrolle offener Posten und Abschlussarbeiten.",
+      keywords: [
+        "Monatsabschluss", "Abschluss",
+        "Kreditkarte", "OP-Liste"
+      ],
+      link: "/module/monatsabschluss",
+    },
+    {
+      titel: "Praxisstandorte",
+      text: "Überblick über Standorte und Qualitätsprinzipien.",
+      keywords: ["Standorte", "Praxis", "Netzwerk"],
+      link: "/praxisstandorte",
+    },
+    {
+      titel: "Kreditorenprozesse",
+      text: "Abläufe vom Rechnungseingang bis zur Zahlung.",
+      keywords: [
+        "Prozess", "Kreditor", "Workflow",
+        "Rechnung", "Zahlung"
+      ],
+      link: "/kreditorenprozesse",
+    },
+    {
+      titel: "Einarbeitung",
+      text: "Einführung in die Kreditorenbuchhaltung.",
+      keywords: ["Einarbeitung", "Einführung", "Start"],
+      link: "/einarbeitung",
+    },
+    {
+      titel: "Zusammenarbeit",
+      text: "Kommunikation und abgestimmte Prozesse.",
+      keywords: ["Team", "Kommunikation", "Abstimmung"],
+      link: "/zusammenarbeit",
+    },
+  ],
+  []
+);
 
   // 1) Module/Seiten Treffer
   const trefferSeiten = useMemo(() => {
-    if (!query) return [];
-    return inhalte.filter(
-      (item) =>
-        item.titel.toLowerCase().includes(query) ||
-        item.text.toLowerCase().includes(query)
-    );
-  }, [query, inhalte]);
+  if (!query) return [];
+
+  return inhalte.filter((item) => {
+    const inTitle = item.titel.toLowerCase().includes(query);
+    const inText = item.text.toLowerCase().includes(query);
+    const inKeywords =
+      item.keywords &&
+      item.keywords.some((k) =>
+        k.toLowerCase().includes(query)
+      );
+
+    return inTitle || inText || inKeywords;
+  });
+}, [query, inhalte]);
 
   // 2) Texttreffer: ALLE Zeilen/Sätze aus GLOBAL_SEARCH_TEXT
   const textZeilen = useMemo(() => {
@@ -117,8 +159,17 @@ function Suche() {
               Gib oben in der Suche einen Begriff ein (z. B. „Postbearbeitung“, „ISO“, „Zahlungsvorschlag“…).
             </p>
           ) : total === 0 ? (
-            <p className="step-task">Keine Treffer gefunden.</p>
-          ) : (
+  <div className="step-callout danger">
+    <p>Keine direkten Treffer gefunden.</p>
+    <p>Versuche einen anderen Begriff oder frage den KI-Assistenten.</p>
+    <button
+      className="primary-button"
+      onClick={() => window.dispatchEvent(new Event("open-ki"))}
+    >
+      KI-Assistent öffnen
+    </button>
+  </div>
+): (
             <>
               {/* Seiten/Module */}
               {trefferSeiten.length > 0 && (
