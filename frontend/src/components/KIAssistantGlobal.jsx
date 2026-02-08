@@ -10,7 +10,7 @@ function KIAssistantGlobal() {
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 🔥 Öffnen über Navbar-Button
+  //  Öffnen über Navbar-Button
   useEffect(() => {
     function handleOpen() {
       setOpen(true);

@@ -287,14 +287,14 @@ p {
 }
 .primary-button {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  color: #ffffff;                 /* ✅ weißer Text */
+  color: #ffffff;                 /*  weißer Text */
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 700;
 
-  display: flex;                  /* ✅ Text zentrieren */
+  display: flex;                  /*  Text zentrieren */
   align-items: center;            /* vertikal mittig */
   justify-content: center;        /* horizontal mittig */
 

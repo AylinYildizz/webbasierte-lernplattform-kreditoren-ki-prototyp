@@ -1,5 +1,4 @@
-// Auto-generated from project content (ZIP scan)
-// Hinweis: Du kannst den Text jederzeit erweitern oder neu generieren.
+
 
 export const GLOBAL_SEARCH_TEXT = `GLOBAL SEARCH INDEX — automatisch aus dem Projekttext erzeugt.
 Enthält Begriffe, Überschriften, Aufgaben, Ergebnisse, Quizfragen und typische Prozesswörter aus allen Seiten/Modulen.

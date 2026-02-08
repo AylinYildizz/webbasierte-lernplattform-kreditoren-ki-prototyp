@@ -541,7 +541,7 @@ const [shuffledOptions, setShuffledOptions] = useState(
     setQuizAnswer(null);
     setQuizChecked(false);
   } else {
-    // 🔁 Wiederholungsrunde starten
+    //  Wiederholungsrunde starten
     if (!isRetry && wrongQuestions.length > 0) {
       setIsRetry(true);
       setQuizStep(0);
@@ -549,7 +549,7 @@ const [shuffledOptions, setShuffledOptions] = useState(
       setQuizAnswer(null);
       setQuizChecked(false);
     } else {
-      // ✅ Alles richtig → Modul fertig
+      //  Alles richtig → Modul fertig
       setShowQuiz(false);
       setFinished(true);
     }

@@ -9,9 +9,7 @@ import praxis4 from "../assets/modules/praxisstandorte/praxis4.png";
 function Praxisstandorte() {
   const [query, setQuery] = useState("");
 
-  // Standorte (aus der Standort-Übersicht übernommen)
-  // Hinweis: Wenn du später ALLE Detail-Standorte (z.B. Stadtteile) brauchst,
-  // können wir das auch als externe JSON / API lösen.
+ 
   const standorte = [
     {
       bundesland: "Baden-Württemberg",

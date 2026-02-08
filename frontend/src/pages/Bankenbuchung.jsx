@@ -479,7 +479,7 @@ Nach Abschluss dieses Moduls bist du in der Lage, Bankbuchungen in Microsoft Dyn
     setQuizAnswer(null);
     setQuizChecked(false);
   } else {
-    // 🔁 Wiederholungsrunde starten
+    //  Wiederholungsrunde starten
     if (!isRetry && wrongQuestions.length > 0) {
       setIsRetry(true);
       setQuizStep(0);
@@ -487,7 +487,7 @@ Nach Abschluss dieses Moduls bist du in der Lage, Bankbuchungen in Microsoft Dyn
       setQuizAnswer(null);
       setQuizChecked(false);
     } else {
-      // ✅ Alles richtig → Modul fertig
+      //  Alles richtig → Modul fertig
       setShowQuiz(false);
       setFinished(true);
     }
