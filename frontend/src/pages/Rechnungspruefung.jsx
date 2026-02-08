@@ -25,168 +25,285 @@ function Rechnungspruefung() {
 
 
   /* ---------------- STEPS ---------------- */
-  const steps = [
-    {
-      title: "Schritt 1: Im Verifier einloggen",
-      task: "Melde dich im Verifier-System an.",
-      image: imgLogin,
-      points: [
-        "Verifier im Browser öffnen",
-        "Weitere Optionen wählen",
-        "Benutzername eingeben",
-        "Passwort eingeben"
-      ],
-      result: "Du bist erfolgreich eingeloggt."
-    },
-    {
-      title: "Schritt 2: Übersicht korrekt einstellen",
-      task: "Konfiguriere die Übersicht korrekt.",
-      image: imgUebersicht,
-      points: [
-        "Buchungskreis: Alle",
-        "Anzahl: 2000",
-        "Priorität auswählen & übernehmen"
-      ],
-      result: "Alle relevanten Vorgänge sind sichtbar.",
-      consequence:
-        "Falsche Einstellungen können dazu führen, dass wichtige Rechnungen fehlen."
-    },
-    {
-      title: "Schritt 3: Überblick verschaffen",
-      task: "Vorgang öffnen und prüfen.",
-      image: img01,
-      points: [
-        "Rechnungsempfänger korrekt erfassen",
-        "Kreditor der Rechnung korrekt zuordnen",
-        "Rechnungsdatum und Rechnungsnummer prüfen",
-        "Leistungsdatum überprüfen",
-        "Rechnungsbetrag prüfen sowie ggf. Rechnungskorrekturen und Mahnstufe berücksichtigen "
-      ],
-      result: "Der Vorgang ist vollständig erfasst."
-    },
-    {
-      title: "Schritt 4: Blaue Felder prüfen",
-      task: "Pflichtfelder kontrollieren.",
-      image: img03,
-      points: [
-        "Blaue Felder prüfen sowie Daten ergänzen oder bestätigen ",
-        "Grüne Felder sorgfältig gegenlesen",
-        "Rechnungsnummer und Rechnungsbetrag besonders sorgfältig prüfen"
-      ],
-      result: "Pflichtfelder sind korrekt.",
-      consequence:
-        "Automatisch erkannte Daten können fehlerhaft sein."
-    },
-    {
-      title: "Schritt 5: Rote Felder korrigieren",
-      task: "Alle Fehler beheben.",
-      image: img04,
-      points: [
-        "Rote Felder prüfen und korrigieren",
-        "Ohne Korrektur ist kein Abschluss möglich"
-      ],
-      result: "Alle Fehler wurden erfolgreich korrigiert."
-    },
-    {
-      title: "Schritt 6: Vorgang fortsetzen",
-      task: "Vorgang bestätigen.",
-      image: img05,
-      points: [
-        "Systemhinweis lesen",
-        "Bei Pflichtfehlern den Vorgang mit STRG + ENTER bestätigen"
-      ],
-      result: "Der Vorgang wurde fortgesetzt."
-    },
-    {
-      title: "Schritt 7: Mahnstufe prüfen",
-      task: "Dringlichkeit der Rechnung bewerten.",
-      image: img06,
-      points: [
-        "Mahnstufe erkennen",
-        "PBearbeitungspriorität festlegen",
-        "Es können nur Mahnstufen bis einschließlich Stufe 2 erfasst werden"
-      ],
-      result: "Die Dringlichkeit wurde korrekt eingeschätzt."
-    },
-    {
-      title: "Schritt 8: Rechnung korrigieren",
-      task: " Erforderliche Korrekturen durchführen.",
-      image: img07,
-      points: [
-        "Rechnungskorrektur aktivieren",
-        "Betrag positiv darstellen",
-        "Minuszeichen entfernen"
-      ],
-      result: "Rechnung wurde korrekt angepasst."
-    },
-    {
-      title: "Schritt 9: Zusätzliche Felder prüfen",
-      task: "Zusatzinformationen prüfen und ergänzen.",
-      image: img08,
-      points: [
-        "Zusatzfelder öffnen",
-        "Liefermonat ggf. in Liefer-KW ändern ",
-        "Mehrwertsteuer anpassen (z.B. 7 % und 19 %",
-        "Rabatte prüfen und korrekt erfassen",
-        "Pflichtangaben prüfen"
-      ],
-      result: "Zusatzfelder wurden korrekt geprüft und angepasst."
-    },
-    {
-      title: "Schritt 10: Dokumente aussteuern",
-      task: "Nicht relevante Dokumente identifizieren und aussteuern.",
-      image: img09,
-      points: [
-        "Dokumente, die ausgesteuert werden: Angebote, Bestellbestätigungen, Nutzungsbedigungen",
-        "Vorgehen: oben rechts auf die drei Balken klicken und 'Aussteuern' auswählen und bestätigen"
-        
-      ],
-      result: "Nicht relevante Dokumente wurden erfolgreich ausgesteuert."
-    }
-  ];
+ const steps = [
+  {
+    title: "Schritt 1: Im Verifier einloggen",
+    task: "Melde dich im Verifier-System an.",
+    image: imgLogin,
+    points: [
+      "Verifier im Browser öffnen",
+      "Weitere Optionen wählen",
+      "Benutzername eingeben",
+      "Passwort eingeben"
+    ],
+    example:
+      "Du öffnest morgens den Verifier, meldest dich mit deinen Zugangsdaten an und gelangst zur Übersicht der offenen Rechnungen.",
+    mistake:
+      "Falscher Benutzer oder falsche Mandantenauswahl führt dazu, dass du Rechnungen einer anderen Gesellschaft siehst.",
+    checklist: [
+      "Richtiger Benutzer angemeldet",
+      "System ohne Fehlermeldung gestartet",
+      "Übersicht mit offenen Vorgängen sichtbar"
+    ],
+    result: "Du bist erfolgreich eingeloggt."
+  },
+
+  {
+    title: "Schritt 2: Übersicht korrekt einstellen",
+    task: "Konfiguriere die Übersicht korrekt.",
+    image: imgUebersicht,
+    points: [
+      "Buchungskreis: Alle",
+      "Anzahl: 2000",
+      "Priorität auswählen & übernehmen"
+    ],
+    example:
+      "Nach dem Login stellst du den Buchungskreis auf ‚Alle‘ und erhöhst die Anzahl auf 2000, damit alle offenen Rechnungen sichtbar sind.",
+    mistake:
+      "Zu geringe Anzahl oder falscher Buchungskreis führt dazu, dass wichtige Rechnungen nicht angezeigt werden.",
+    consequence:
+      "Rechnungen bleiben unbearbeitet und können in Mahnstufen laufen.",
+    checklist: [
+      "Buchungskreis korrekt eingestellt",
+      "Anzahl auf 2000 gesetzt",
+      "Priorität übernommen",
+      "Alle relevanten Vorgänge sichtbar"
+    ],
+    result: "Alle relevanten Vorgänge sind sichtbar."
+  },
+
+  {
+    title: "Schritt 3: Überblick verschaffen",
+    task: "Vorgang öffnen und die wichtigsten Rechnungsdaten prüfen.",
+    image: img01,
+    points: [
+      "Rechnungsempfänger prüfen",
+      "Kreditor korrekt zuordnen",
+      "Rechnungsdatum und Rechnungsnummer prüfen",
+      "Leistungsdatum prüfen",
+      "Betrag und Mahnstufe beachten"
+    ],
+    example:
+      "Du öffnest eine Rechnung und stellst fest, dass der Rechnungsempfänger korrekt ist, der Betrag mit dem Beleg übereinstimmt und keine Mahnstufe vorliegt.",
+    mistake:
+      "Falscher Kreditor oder falsches Rechnungsdatum wird nicht erkannt.",
+    consequence:
+      "Fehlerhafte Buchungen, falsche Zahlungen oder Probleme im Monatsabschluss.",
+    checklist: [
+      "Rechnungsempfänger korrekt",
+      "Kreditor stimmt",
+      "Rechnungsnummer eindeutig",
+      "Betrag plausibel",
+      "Mahnstufe geprüft"
+    ],
+    result: "Der Vorgang ist vollständig überblickt."
+  },
+
+  {
+    title: "Schritt 4: Blaue Felder prüfen",
+    task: "Pflichtfelder kontrollieren und bestätigen.",
+    image: img03,
+    points: [
+      "Blaue Felder prüfen",
+      "Grüne Felder gegenlesen",
+      "Rechnungsnummer und Betrag besonders prüfen"
+    ],
+    example:
+      "Das System hat die Rechnungsnummer automatisch erkannt. Du vergleichst sie mit dem Beleg und bestätigst den Wert.",
+    mistake:
+      "Automatisch erkannte Daten werden ungeprüft übernommen.",
+    consequence:
+      "Falsche Rechnungsnummern oder Beträge führen zu Fehlbuchungen.",
+    checklist: [
+      "Alle Pflichtfelder geprüft",
+      "Rechnungsnummer korrekt",
+      "Betrag stimmt mit Beleg überein",
+      "Keine unplausiblen Werte"
+    ],
+    result: "Pflichtfelder sind korrekt geprüft."
+  },
+
+  {
+    title: "Schritt 5: Rote Felder korrigieren",
+    task: "Alle vom System erkannten Fehler korrigieren.",
+    image: img04,
+    points: [
+      "Rote Felder prüfen",
+      "Fehler korrigieren",
+      "Ohne Korrektur kein Abschluss möglich"
+    ],
+    example:
+      "Das System markiert den Betrag als fehlerhaft. Du korrigierst den Wert entsprechend der Rechnung.",
+    mistake:
+      "Rote Felder werden übersehen oder nicht korrekt bearbeitet.",
+    consequence:
+      "Der Vorgang kann nicht abgeschlossen werden.",
+    checklist: [
+      "Alle roten Felder geprüft",
+      "Fehler korrigiert",
+      "Keine Fehlermeldung mehr sichtbar"
+    ],
+    result: "Alle Fehler wurden korrigiert."
+  },
+
+  {
+    title: "Schritt 6: Vorgang fortsetzen",
+    task: "Vorgang bestätigen und fortsetzen.",
+    image: img05,
+    points: [
+      "Systemhinweis lesen",
+      "Vorgang mit STRG + ENTER bestätigen"
+    ],
+    example:
+      "Nach der Prüfung bestätigst du den Vorgang und leitest ihn zur nächsten Stufe weiter.",
+    mistake:
+      "Hinweise werden ignoriert oder falsch bestätigt.",
+    checklist: [
+      "Systemhinweis gelesen",
+      "Keine offenen Fehler",
+      "Vorgang korrekt bestätigt"
+    ],
+    result: "Der Vorgang wurde fortgesetzt."
+  },
+
+  {
+    title: "Schritt 7: Mahnstufe prüfen",
+    task: "Dringlichkeit der Rechnung bewerten.",
+    image: img06,
+    points: [
+      "Mahnstufe erkennen",
+      "Priorität festlegen",
+      "Nur Mahnstufen bis Stufe 2 erfassen"
+    ],
+    example:
+      "Eine Rechnung mit Mahnstufe 1 wird priorisiert bearbeitet.",
+    mistake:
+      "Mahnstufe wird übersehen oder falsch eingestuft.",
+    consequence:
+      "Verzugszinsen oder weitere Mahnstufen entstehen.",
+    checklist: [
+      "Mahnstufe erkannt",
+      "Priorität angepasst",
+      "Dringliche Fälle zuerst bearbeitet"
+    ],
+    result: "Die Dringlichkeit wurde korrekt eingeschätzt."
+  },
+
+  {
+    title: "Schritt 8: Rechnung korrigieren",
+    task: "Erforderliche Korrekturen durchführen.",
+    image: img07,
+    points: [
+      "Rechnungskorrektur aktivieren",
+      "Betrag positiv darstellen",
+      "Minuszeichen entfernen"
+    ],
+    example:
+      "Eine Rechnung wurde mit negativem Betrag erfasst. Du korrigierst die Darstellung auf den korrekten positiven Wert.",
+    mistake:
+      "Minuszeichen wird nicht entfernt.",
+    consequence:
+      "Falsche Buchung oder Ablehnung im System.",
+    checklist: [
+      "Rechnungskorrektur aktiviert",
+      "Betrag korrekt dargestellt",
+      "Keine negativen Werte bei Standardrechnungen"
+    ],
+    result: "Rechnung wurde korrekt angepasst."
+  },
+
+  {
+    title: "Schritt 9: Zusätzliche Felder prüfen",
+    task: "Zusatzinformationen prüfen und ergänzen.",
+    image: img08,
+    points: [
+      "Zusatzfelder öffnen",
+      "Liefermonat prüfen",
+      "Mehrwertsteuer prüfen",
+      "Rabatte erfassen"
+    ],
+    example:
+      "Die Rechnung enthält zwei Steuersätze. Du prüfst und korrigierst die Zuordnung im Zusatzfeld.",
+    mistake:
+      "Falscher Steuersatz oder falscher Liefermonat.",
+    consequence:
+      "Falsche Steuerbuchung oder Periodenverschiebung.",
+    checklist: [
+      "Zusatzfelder geprüft",
+      "Steuersatz korrekt",
+      "Liefermonat korrekt",
+      "Rabatte erfasst"
+    ],
+    result: "Zusatzfelder wurden korrekt geprüft."
+  },
+
+  {
+    title: "Schritt 10: Dokumente aussteuern",
+    task: "Nicht relevante Dokumente identifizieren und aussteuern.",
+    image: img09,
+    points: [
+      "Nicht relevante Dokumente erkennen",
+      "Aussteuern über Menü auswählen",
+      "Vorgang bestätigen"
+    ],
+    example:
+      "Eine Bestellbestätigung wurde fälschlich importiert. Du steuerst sie aus.",
+    mistake:
+      "Nicht relevante Dokumente bleiben im System.",
+    consequence:
+      "Unnötige Vorgänge im System und erhöhter Bearbeitungsaufwand.",
+    checklist: [
+      "Dokumentart geprüft",
+      "Nicht relevante Dokumente erkannt",
+      "Aussteuerung korrekt durchgeführt"
+    ],
+    result: "Nicht relevante Dokumente wurden entfernt."
+  }
+];
 
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
- const quiz = [
-    {
-      question: "Was ist der erste Schritt im Prozess?",
-      options: [
-        "Rechnung öffnen",
-        "Im Verifier einloggen",
-        "Mahnstufe prüfen"
-      ],
-      correctAnswer: "Im Verifier einloggen"
-    },
-    {
-      question: "Welche Übersichtseinstellungen sind korrekt?",
-      options: [
-        "Buchungskreis einzeln, Anzahl 100",
-        "Buchungskreis alle, Anzahl 2000, Priorität übernehmen",
-        "Nur Priorität auswählen"
-      ],
-      correctAnswer: "Buchungskreis alle, Anzahl 2000, Priorität übernehmen"
-    },
-    {
-      question: "Was bedeuten blaue Felder?",
-      options: [
-        "Optionale Felder",
-        "Pflichtfelder",
-        "Bereits geprüfte Daten"
-      ],
-      correctAnswer: "Pflichtfelder"
-    },
-    {
-      question: "Welche Dokumente müssen ausgesteuert werden?",
-      options: [
-        "Rechnungen mit Fehlern",
-        "Angebote & Bestellbestätigungen",
-        "Mahnungen"
-      ],
-      correctAnswer: "Angebote & Bestellbestätigungen"
-    }
-  ];
+const quiz = [
+  {
+    question: "Was ist der erste Schritt im Prozess?",
+    options: ["Rechnung öffnen", "Im Verifier einloggen", "Mahnstufe prüfen"],
+    correctAnswer: "Im Verifier einloggen",
+    explanation:
+      "Ohne Login in das System können keine Rechnungen geprüft oder bearbeitet werden."
+  },
+  {
+    question: "Welche Übersichtseinstellungen sind korrekt?",
+    options: [
+      "Buchungskreis einzeln, Anzahl 100",
+      "Buchungskreis alle, Anzahl 2000, Priorität übernehmen",
+      "Nur Priorität auswählen"
+    ],
+    correctAnswer:
+      "Buchungskreis alle, Anzahl 2000, Priorität übernehmen",
+    explanation:
+      "Nur mit diesen Einstellungen sind alle relevanten Rechnungen sichtbar."
+  },
+  {
+    question: "Was bedeuten blaue Felder?",
+    options: ["Optionale Felder", "Pflichtfelder", "Bereits geprüfte Daten"],
+    correctAnswer: "Pflichtfelder",
+    explanation:
+      "Blaue Felder enthalten Pflichtangaben, die geprüft oder ergänzt werden müssen."
+  },
+  {
+    question: "Welche Dokumente müssen ausgesteuert werden?",
+    options: [
+      "Rechnungen mit Fehlern",
+      "Angebote & Bestellbestätigungen",
+      "Mahnungen"
+    ],
+    correctAnswer: "Angebote & Bestellbestätigungen",
+    explanation:
+      "Diese Dokumente sind keine buchungsrelevanten Rechnungen und müssen entfernt werden."
+  }
+];
 
 const [shuffledOptions, setShuffledOptions] = useState(
     shuffleArray(quiz[0].options)
@@ -354,8 +471,8 @@ const [shuffledOptions, setShuffledOptions] = useState(
             style={{ marginTop: "1rem" }}
           >
             {quizAnswer === activeQuiz[quizStep].correctAnswer
-              ? " Richtig! Gut gemacht."
-              : " Nicht ganz. Versuche es beim nächsten Mal noch einmal."}
+  ? `Richtig. ${activeQuiz[quizStep].explanation || ""}`
+  : `Nicht ganz. ${activeQuiz[quizStep].explanation || ""}`}
           </div>
         )}
       </div>
@@ -456,7 +573,16 @@ const [shuffledOptions, setShuffledOptions] = useState(
     {steps[current].consequence}
   </div>
 )}
-
+{steps[current].checklist && (
+  <div className="step-callout">
+    <strong>Checkliste:</strong>
+    <ul className="step-points" style={{ marginTop: "0.8rem" }}>
+      {steps[current].checklist.map((c, i) => (
+        <li key={i}>{c}</li>
+      ))}
+    </ul>
+  </div>
+)}
               <div className="step-callout success">
                 <strong>Ergebnis:</strong> {steps[current].result}
               </div>

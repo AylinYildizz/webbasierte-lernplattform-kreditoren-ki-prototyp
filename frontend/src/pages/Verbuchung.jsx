@@ -21,137 +21,253 @@ function Verbuchung() {
 
 
   /* ---------------- STEPS ---------------- */
-  /* ---------------- STEPS ---------------- */
  const steps = [
   {
     title: "Schritt 1: Microsoft Dynamics öffnen und Gesellschaft auswählen",
-    task: "Starte Microsoft Dynamics und wähle die Gesellschaft aus, in der die Verbuchung durchgeführt werden soll. Dieser Schritt ist entscheidend, um sicherzustellen, dass alle Buchungen im richtigen Mandanten erfolgen",
+    task:
+      "Starte Microsoft Dynamics und wähle die Gesellschaft (Mandant) aus, in der die Verbuchung durchgeführt wird. Dieser Schritt ist entscheidend, um Fehlbuchungen im falschen Mandanten zu verhindern.",
     images: [imgV1, imgV2],
     points: [
       "Microsoft Dynamics starten",
-      "Die richtige Gesellschaft auswählen",
+      "Oben prüfen, welche Gesellschaft/Mandant aktiv ist",
+      "Falls notwendig: Gesellschaft wechseln",
+      "Erst danach mit der Verbuchung beginnen"
     ],
     result:
-      "Die richtige Gesellschaft ist geöffnet und das System ist für die Verbuchung vorbereitet."
+      "Die richtige Gesellschaft ist aktiv. Du arbeitest im korrekten Mandanten.",
+    example:
+      "Du sollst Rechnungen für Gesellschaft A verbuchen, siehst aber, dass Gesellschaft B aktiv ist. Du wechselst zuerst den Mandanten, bevor du weiterarbeitest.",
+    mistake:
+      "Gesellschaft nicht geprüft oder im falschen Mandanten gearbeitet.",
+    consequence:
+      "Buchungen landen im falschen Mandanten → falsche Auswertungen, Korrekturbuchungen, hoher Abstimmungsaufwand.",
+    checklist: [
+      "Dynamics geöffnet?",
+      "Richtige Gesellschaft aktiv?",
+      "Mandant oben sichtbar kontrolliert?",
+      "Erst dann weiter?"
+    ]
   },
 
   {
     title: "Schritt 2: ELO FiBu-Zeilenverteilung aufrufen und in die Mandanten verteilen",
     task:
-      "Rufe die ELO FiBu-Zeilenverteilung auf und verteile die buchungsrelevanten Zeilen auf die entsprechenden Mandanten.",
+      "Rufe die ELO FiBu-Zeilenverteilung auf und verteile buchungsrelevante Zeilen in die passenden Mandanten. Damit stellst du sicher, dass die Buchungszeilen in Dynamics korrekt zugeordnet sind.",
     image: imgV3,
     points: [
-      "Reiter 'ELO FiBu-Zeilenverteilung' öffnen",
-      "Funktion 'in die Mandanten verteilen' auswählen",
-      "Sicherstellen, dass alle Zeilen dem richtigen Mandanten zugeordnet sind"
+      "Reiter „ELO FiBu-Zeilenverteilung“ öffnen",
+      "Funktion „In die Mandanten verteilen“ auswählen",
+      "Kurz prüfen, ob die Zeilen plausibel zugeordnet sind"
     ],
     result:
-      "Die FiBu-Zeilen sind korrekt auf die Mandanten verteilt und bereit für die weitere Verarbeitung."
-    
+      "Buchungszeilen sind korrekt verteilt und für die weitere Verarbeitung vorbereitet.",
+    example:
+      "Du verteilst Zeilen aus ELO auf mehrere Mandanten. Danach können diese Zeilen in den jeweiligen Gesellschaften korrekt weiterverarbeitet werden.",
+    mistake:
+      "Mandantenverteilung nicht durchgeführt oder ohne Plausibilitätscheck bestätigt.",
+    consequence:
+      "Zeilen fehlen später in der Gesellschaft oder werden falsch zugeordnet → Buchungsprozess stockt.",
+    checklist: [
+      "ELO FiBu-Zeilenverteilung geöffnet?",
+      "„In die Mandanten verteilen“ ausgeführt?",
+      "Plausibilität kurz geprüft?"
+    ]
   },
 
   {
-    title: "Schritt 3: ELO FiBu Buch.-Blattzeile prüfen",
-    task: "Öffne die ELO FiBu Buch.-Blattzeile und filtere alle noch nicht behandelten Zeilen.",
+    title: "Schritt 3: ELO FiBu Buch.-Blattzeile prüfen und offene Zeilen filtern",
+    task:
+      "Öffne die ELO FiBu Buch.-Blattzeile und filtere gezielt alle offenen (nicht behandelten) Zeilen, damit du nur aktuelle, noch nicht verbuchte Vorgänge bearbeitest.",
     image: imgV4,
     points: [
-      "Reiter 'ELO FiBu Buch.-Blattzeile' öffnen",
-      "Filter 'Keine behandelten Zeilen' setzen",
-      "Nur offene, noch nicht verbuchte Zeilen anzeigen lassen"
+      "Reiter „ELO FiBu Buch.-Blattzeile“ öffnen",
+      "Filter „Keine behandelten Zeilen“ setzen",
+      "Sicherstellen, dass nur offene Zeilen angezeigt werden"
     ],
     result:
-      "Es werden ausschließlich offene Buchungszeilen angezeigt."
+      "Du siehst ausschließlich offene, noch nicht verbuchte Buchungszeilen.",
+    example:
+      "Du filterst nach offenen Zeilen und vermeidest dadurch, bereits bearbeitete Vorgänge doppelt zu verbuchen.",
+    mistake:
+      "Ohne Filter gearbeitet und versehentlich bereits behandelte Zeilen erneut verarbeitet.",
+    consequence:
+      "Doppelverbuchungen oder unnötige Korrekturen/Abstimmungen.",
+    checklist: [
+      "Reiter geöffnet?",
+      "Filter „Keine behandelten Zeilen“ aktiv?",
+      "Nur offene Zeilen sichtbar?"
+    ]
   },
 
   {
     title: "Schritt 4: Sachkonten und Beschreibungen kontrollieren",
-    task: "Prüfe alle offenen Buchungszeilen sorgfältig auf fachliche Richtigkeit und Vollständigkeit.",
+    task:
+      "Prüfe jede offene Buchungszeile fachlich. Ziel ist es, vor der Belegerzeugung falsche Sachkonten, unklare Texte oder unplausible Beträge zu erkennen und zu korrigieren.",
     points: [
-      "Sachkonten auf fachliche Richtigkeit prüfen",
-      "Buchungstexte und Beschreibungen kontrollieren",
-      "Falls erforderlich, Korrekturen oder Verbesserungen vornehmen"
+      "Sachkonto fachlich plausibel?",
+      "Buchungstext/Beschreibung verständlich und eindeutig?",
+      "Beträge plausibel (Netto/Steuer/Brutto)?",
+      "Bei Auffälligkeiten: Korrektur/Abklärung vor der Verbuchung"
     ],
-    consequence:
-      "Falsch gepflegte Sachkonten oder Beschreibungen führen zu fehlerhaften Buchungen und Abstimmungsproblemen.",
     result:
-      "Alle Buchungszeilen sind fachlich korrekt vorbereitet."
+      "Alle offenen Buchungszeilen sind fachlich korrekt vorbereitet.",
+    example:
+      "Du erkennst ein falsches Sachkonto (z. B. Material statt Dienstleistung) und klärst/korrigierst dies, bevor Rechnungen erzeugt werden.",
+    mistake:
+      "Sachkonten/Beschreibungen ungeprüft lassen („wird schon passen“).",
+    consequence:
+      "Fehlbuchungen führen zu Abstimmungsproblemen, falschen Kostenstellen-Auswertungen und Fehlern im Monatsabschluss.",
+    checklist: [
+      "Sachkonto geprüft?",
+      "Text/Beschreibung nachvollziehbar?",
+      "Beträge plausibel?",
+      "Auffälligkeiten vor Erzeugung geklärt?"
+    ]
   },
 
   {
     title: "Schritt 5: EK-Rechnungen und Gutschriften erstellen",
-    task: "Erstelle aus den geprüften Buchungszeilen die Einkaufsrechnungen und Gutschriften.",
+    task:
+      "Erzeuge aus den vorbereiteten Buchungszeilen die Einkaufsrechnungen und Einkaufsgutschriften. Dadurch entstehen die buchbaren Belege in Dynamics.",
     image: imgV5,
     points: [
-      "Auf die drei Punkte (Weitere Optionen) klicken",
-      "Funktion 'Erstelle EK-Rechnung und Gutschriften' auswählen",
-      "System erzeugt automatisch die entsprechenden Einkaufsbelege"
+      "Drei Punkte/Weitere Optionen öffnen",
+      "„Erstelle EK-Rechnung und Gutschriften“ auswählen",
+      "Systemmeldung prüfen (Erfolg/Fehler)"
     ],
     result:
-      "Die EK-Rechnungen und Gutschriften wurden erfolgreich erstellt."
+      "Einkaufsrechnungen und Gutschriften wurden aus den Zeilen erzeugt.",
+    example:
+      "Nach dem Klick erzeugt Dynamics automatisch die Einkaufsrechnungen, die du anschließend im Reiter „Einkaufsrechnung“ prüfst.",
+    mistake:
+      "Belege erzeugen, obwohl Zeilen vorher nicht geprüft wurden.",
+    checklist: [
+      "Vorher Schritt 4 geprüft?",
+      "Funktion korrekt ausgeführt?",
+      "Erfolgsmeldung erhalten?"
+    ]
   },
 
   {
-    title: "Schritt 6: SHS FiBu Buch.-Blattzeile (Comed-Rechnungen) öffnen",
-    task: "Wechsle zur SHS FiBu Buch-Blattzeile, um die Comed-Rechnungen zu bearbeiten.",
+    title: "Schritt 6: SHS FiBu Buch.-Blattzeile öffnen (Comed-Rechnungen)",
+    task:
+      "Wechsle zur SHS FiBu Buch.-Blattzeile und filtere auch dort offene Zeilen. Diese Ansicht enthält die Comed-Rechnungen aus dem Vorsystem.",
     image: imgV6,
     points: [
-      "Reiter 'SHS FiBu Buch-Blattzeile' öffnen",
-      "Diese Ansicht enthält alle Comed-Rechnungen",
-      "Filter 'Keine behandelten Zeilen' setzen"
+      "Reiter „SHS FiBu Buch.-Blattzeile“ öffnen",
+      "Filter „Keine behandelten Zeilen“ setzen",
+      "Nur offene Comed-Zeilen anzeigen"
     ],
     result:
-      "Alle offenen ComeD-Rechnungen sind sichtbar."
+      "Alle offenen Comed-Buchungszeilen sind sichtbar.",
+    example:
+      "Du filterst offene Zeilen, um nur neue Comed-Vorgänge zu erstellen und nicht alte erneut anzustoßen.",
+    mistake:
+      "Comed-Zeilen ohne Filter oder ohne Prüfung erzeugen.",
+    checklist: [
+      "Reiter SHS FiBu geöffnet?",
+      "Filter „Keine behandelten Zeilen“ aktiv?",
+      "Offene Zeilen sichtbar?"
+    ]
   },
 
   {
     title: "Schritt 7: Comed-Rechnungen erstellen",
-    task: "Erstelle auch hier die EK-Rechnungen und Gutschriften aus den offenen Zeilen.",
+    task:
+      "Erzeuge auch aus den offenen Comed-Zeilen die Einkaufsrechnungen und Gutschriften.",
     image: imgV7,
     points: [
-      "Auf die drei Punkte (Weitere Optionen) klicken",
-      "Funktion 'Erstelle EK-Rechnung und Gutschriften' auswählen",
-      "System erstellt die Einkaufsrechnungen"
+      "Weitere Optionen öffnen",
+      "„Erstelle EK-Rechnung und Gutschriften“ auswählen",
+      "Erfolgsmeldung prüfen"
     ],
     result:
-      "Die Comet-Rechnungen wurden erfolgreich erzeugt."
+      "Comed-Einkaufsrechnungen/Gutschriften wurden erzeugt.",
+    example:
+      "Du erzeugst Comed-Rechnungen, die danach ebenfalls im Einkaufsrechnungs-Reiter geprüft werden müssen.",
+    mistake:
+      "Comed-Belege erzeugen und direkt buchen, ohne sie inhaltlich zu prüfen.",
+    checklist: [
+      "Funktion ausgeführt?",
+      "Erfolgsmeldung geprüft?",
+      "Belege erscheinen in Einkaufsrechnung/Gutschriften?"
+    ]
   },
 
   {
     title: "Schritt 8: Einkaufsrechnungen prüfen",
-    task: "Öffne den Reiter Einkaufsrechnung und prüfe alle erzeugten Rechnungen.",
+    task:
+      "Prüfe die erzeugten Einkaufsrechnungen vor dem finalen Buchen. Ziel ist, falsche Beträge, Sachkonten oder Texte vor der Buchung zu erkennen.",
     image: imgV8,
     points: [
-      "Reiter 'Einkaufsrechnung' öffnen",
-      "Alle Rechnungen inhaltlich prüfen",
-      "Beträge, Sachkonten und Beschreibungen kontrollieren"
+      "Reiter „Einkaufsrechnung“ öffnen",
+      "Beträge prüfen",
+      "Sachkonten prüfen",
+      "Beschreibung/Buchungstext prüfen",
+      "Auffälligkeiten korrigieren oder klären"
     ],
     result:
-      "Alle Einkaufsrechnungen sind geprüft und korrekt."
+      "Alle Einkaufsrechnungen sind fachlich geprüft und korrekt.",
+    example:
+      "Du stellst fest, dass die Beschreibung unvollständig ist und ergänzt sie, bevor du buchst.",
+    mistake:
+      "Rechnungen nur oberflächlich prüfen oder direkt buchen.",
+    consequence:
+      "Fehlerhafte Verbuchung → Korrekturbuchungen und höhere Fehlerquote im Abschluss.",
+    checklist: [
+      "Reiter Einkaufsrechnung geöffnet?",
+      "Beträge geprüft?",
+      "Sachkonten geprüft?",
+      "Texte/Beschreibung geprüft?"
+    ]
   },
 
   {
     title: "Schritt 9: Einkaufsrechnungen markieren und verbuchen",
-    task: "Markiere alle geprüften Einkaufsrechnungen und buche diese im System.",
+    task:
+      "Markiere alle geprüften Einkaufsrechnungen und buche sie. Damit werden die Buchungen im System final geschrieben.",
     image: imgV9,
     points: [
-      "Alle Einkaufsrechnungen markieren",
-      "Auf 'Buchen' klicken",
-      "Buchung erfolgreich abschließen"
+      "Alle geprüften Einkaufsrechnungen markieren",
+      "Auf „Buchen“ klicken",
+      "Buchungsstatus prüfen (Erfolg/Fehler)"
     ],
     result:
-      "Die Einkaufsrechnungen sind verbucht."
+      "Die Einkaufsrechnungen sind erfolgreich verbucht.",
+    example:
+      "Nach dem Buchen sind die Belege im System festgeschrieben und fließen in die Auswertungen ein.",
+    mistake:
+      "Buchen ohne vollständige Prüfung oder falsche Auswahl markiert.",
+    checklist: [
+      "Nur geprüfte Rechnungen markiert?",
+      "Buchung ausgelöst?",
+      "Status/Fehlermeldungen geprüft?"
+    ]
   },
 
   {
     title: "Schritt 10: Einkaufsgutschriften prüfen und verbuchen",
-    task: "Prüfe abschließend alle Einkaufsgutschriften und buche diese.",
+    task:
+      "Prüfe abschließend alle erzeugten Einkaufsgutschriften und buche sie. Gutschriften wirken sich anders auf Salden aus und müssen daher separat geprüft werden.",
     points: [
-      "Reiter 'Einkaufsgutschriften' öffnen",
-      "Alle Gutschriften fachlich prüfen",
-      "Alle markieren und auf 'Buchen' klicken"
+      "Reiter „Einkaufsgutschriften“ öffnen",
+      "Gutschriften fachlich prüfen (Beträge, Sachkonto, Text)",
+      "Alle markieren und „Buchen“ ausführen"
     ],
     result:
-      "Die Einkaufsgutschriften sind korrekt verbucht."
+      "Einkaufsgutschriften sind geprüft und korrekt verbucht.",
+    example:
+      "Eine Gutschrift korrigiert eine vorherige Rechnung. Du stellst sicher, dass Betrag und Bezug korrekt sind, bevor du buchst.",
+    mistake:
+      "Gutschriften mit Rechnungen verwechseln oder ohne Prüfung buchen.",
+    consequence:
+      "Falsche Salden/Abstimmungen und Fehler in Auswertungen.",
+    checklist: [
+      "Reiter Einkaufsgutschriften geöffnet?",
+      "Beträge/Bezug geprüft?",
+      "Sachkonten geprüft?",
+      "Gutschriften gebucht?"
+    ]
   }
 ];
 
@@ -160,113 +276,82 @@ function shuffleArray(array) {
 }
  const quiz = [
   {
-    question: "Warum ist es wichtig, vor der Verbuchung die richtige Gesellschaft in Dynamics auszuwählen?",
+    question: "Warum muss vor der Verbuchung die richtige Gesellschaft in Dynamics ausgewählt werden?",
     options: [
       "Damit Dynamics schneller lädt",
-      "Damit Buchungen nicht in der falschen Gesellschaft erfolgen",
+      "Damit Buchungen nicht im falschen Mandanten erfolgen",
       "Weil sonst keine Rechnungen angezeigt werden"
     ],
-    correctAnswer: "Damit Buchungen nicht in der falschen Gesellschaft erfolgen"
+    correctAnswer: "Damit Buchungen nicht im falschen Mandanten erfolgen",
+    correctFeedback:
+      "Richtig. Nur im richtigen Mandanten sind Buchungen korrekt zugeordnet und auswertbar.",
+    wrongFeedback:
+      "Nicht korrekt. Der wichtigste Grund ist, Fehlbuchungen im falschen Mandanten zu verhindern."
   },
-
   {
-    question: "Wozu dient der Reiter 'ELO FiBu-Zeilenverteilung'?",
+    question: "Wozu dient die ELO FiBu-Zeilenverteilung?",
     options: [
-      "Zur Anzeige von bereits verbuchten Rechnungen",
-      "Zur Vorbereitung und Verteilung buchungsrelevanter Zeilen",
-      "Zur Archivierung von Dokumenten"
+      "Zur Archivierung von Dokumenten",
+      "Zur Vorbereitung/Verteilung buchungsrelevanter Zeilen auf Mandanten",
+      "Zur Anzeige bereits verbuchter Rechnungen"
     ],
-    correctAnswer: "Zur Vorbereitung und Verteilung buchungsrelevanter Zeilen"
+    correctAnswer: "Zur Vorbereitung/Verteilung buchungsrelevanter Zeilen auf Mandanten",
+    correctFeedback:
+      "Richtig. Die Zeilen werden mandantengerecht verteilt und für die Verbuchung vorbereitet.",
+    wrongFeedback:
+      "Nicht korrekt. Die FiBu-Zeilenverteilung dient der Vorbereitung/Verteilung auf Mandanten."
   },
-
   {
-    question: "Warum wird in der ELO FiBu Buch.-Blattzeile der Filter 'Keine behandelten Zeilen' gesetzt?",
+    question: "Warum setzt man in den Buch.-Blattzeilen den Filter „Keine behandelten Zeilen“?",
     options: [
-      "Um nur fehlerhafte Buchungen anzuzeigen",
-      "Um ausschließlich offene, noch nicht verbuchte Zeilen zu sehen",
+      "Um nur fehlerhafte Buchungen zu sehen",
+      "Um ausschließlich offene, noch nicht verbuchte Zeilen anzuzeigen",
       "Um alle Buchungen auszublenden"
     ],
-    correctAnswer: "Um ausschließlich offene, noch nicht verbuchte Zeilen zu sehen"
+    correctAnswer: "Um ausschließlich offene, noch nicht verbuchte Zeilen anzuzeigen",
+    correctFeedback:
+      "Richtig. So bearbeitest du nur aktuelle Vorgänge und vermeidest Doppelverarbeitung.",
+    wrongFeedback:
+      "Nicht korrekt. Der Filter dient dazu, nur offene/nicht behandelte Zeilen zu sehen."
   },
-
   {
-    question: "Welche Prüfung ist vor dem Erstellen von EK-Rechnungen zwingend erforderlich?",
+    question: "Welche Prüfung ist vor dem Erstellen von EK-Rechnungen zwingend notwendig?",
     options: [
-      "Druck der Buchungszeilen",
-      "Kontrolle der Sachkonten und Beschreibungen",
-      "Neustart von Dynamics"
+      "Neustart von Dynamics",
+      "Kontrolle von Sachkonten und Beschreibungen",
+      "Ausdruck aller Zeilen"
     ],
-    correctAnswer: "Kontrolle der Sachkonten und Beschreibungen"
+    correctAnswer: "Kontrolle von Sachkonten und Beschreibungen",
+    correctFeedback:
+      "Richtig. Fachliche Prüfungen müssen vor der Belegerzeugung erfolgen, sonst entstehen Fehlbuchungen.",
+    wrongFeedback:
+      "Nicht korrekt. Entscheidend ist die Kontrolle von Sachkonten und Beschreibungen."
   },
-
   {
-    question: "Was kann passieren, wenn falsche Sachkonten verbucht werden?",
+    question: "Was kann passieren, wenn Sachkonten fehlerhaft verbucht werden?",
     options: [
       "Keine Auswirkungen",
-      "Fehlerhafte Abschlüsse und Abstimmungsprobleme",
-      "Die Rechnung wird automatisch korrigiert"
+      "Abstimmungsprobleme und fehlerhafte Abschlüsse",
+      "Automatische Korrektur durch das System"
     ],
-    correctAnswer: "Fehlerhafte Abschlüsse und Abstimmungsprobleme"
+    correctAnswer: "Abstimmungsprobleme und fehlerhafte Abschlüsse",
+    correctFeedback:
+      "Richtig. Falsche Sachkonten verfälschen Auswertungen und erschweren Monats-/Jahresabschluss.",
+    wrongFeedback:
+      "Nicht korrekt. Fehlerhafte Sachkonten führen zu Abstimmungsproblemen und fehlerhaften Abschlüssen."
   },
-
-  {
-    question: "Welche Funktion wird genutzt, um aus Buchungszeilen Einkaufsrechnungen zu erzeugen?",
-    options: [
-      "Buchen",
-      "Erstelle EK-Rechnung und Gutschriften",
-      "Rechnung importieren"
-    ],
-    correctAnswer: "Erstelle EK-Rechnung und Gutschriften"
-  },
-
-  {
-    question: "Was sind SHS FiBu Buch.-Blattzeilen?",
-    options: [
-      "Manuelle Korrekturbuchungen",
-      "Comed-Rechnungen aus dem Vorsystem",
-      "Bereits verbuchte Rechnungen"
-    ],
-    correctAnswer: "Comed-Rechnungen aus dem Vorsystem"
-  },
-
-  {
-    question: "Warum müssen auch Comed-Rechnungen gefiltert nach 'Keine behandelten Zeilen' geprüft werden?",
-    options: [
-      "Damit nur neue, noch nicht verbuchte Rechnungen verarbeitet werden",
-      "Weil sonst keine Rechnungen angezeigt werden",
-      "Damit alte Rechnungen gelöscht werden"
-    ],
-    correctAnswer: "Damit nur neue, noch nicht verbuchte Rechnungen verarbeitet werden"
-  },
-
-  {
-    question: "Was ist vor dem finalen Buchen der Einkaufsrechnungen unbedingt zu tun?",
-    options: [
-      "Alle Rechnungen ausdrucken",
-      "Alle Rechnungen nochmals vollständig prüfen",
-      "Dynamics schließen"
-    ],
-    correctAnswer: "Alle Rechnungen nochmals vollständig prüfen"
-  },
-
   {
     question: "Warum werden Einkaufsrechnungen und Einkaufsgutschriften getrennt geprüft und verbucht?",
     options: [
       "Weil sie unterschiedliche buchhalterische Auswirkungen haben",
-      "Weil Dynamics das so erzwingt",
+      "Weil Dynamics das erzwingt",
       "Weil Gutschriften automatisch verbucht werden"
     ],
-    correctAnswer: "Weil sie unterschiedliche buchhalterische Auswirkungen haben"
-  },
-
-  {
-    question: "Was ist die größte Gefahr, wenn Rechnungen ohne Prüfung direkt gebucht werden?",
-    options: [
-      "Langsamere Systemleistung",
-      "Falsche Buchungen und fehlerhafte Abschlüsse",
-      "Keine Anzeige im Archiv"
-    ],
-    correctAnswer: "Falsche Buchungen und fehlerhafte Abschlüsse"
+    correctAnswer: "Weil sie unterschiedliche buchhalterische Auswirkungen haben",
+    correctFeedback:
+      "Richtig. Gutschriften wirken anders auf Salden und müssen daher separat geprüft werden.",
+    wrongFeedback:
+      "Nicht korrekt. Rechnungen und Gutschriften haben unterschiedliche Auswirkungen und werden deshalb getrennt geprüft."
   }
 ];
 
@@ -322,10 +407,15 @@ const [shuffledOptions, setShuffledOptions] = useState(
 
       <h2>Verbuchung</h2>
 
-      <p className="step-task">
-        <strong>Ziel des Moduls:</strong>{" "}
-        Nach Abschluss dieses Moduls bist du in der Lage, buchhalterische Verbuchungsprozesse in Microsoft Dynamics selbstständig, strukturiert und regelkonform durchzuführen.
-      </p>
+     <p className="step-task">
+  <strong>Ziel des Moduls:</strong>{" "}
+  Nach Abschluss dieses Moduls kannst du den Verbuchungsprozess in Microsoft Dynamics
+  strukturiert und regelkonform durchführen. Du bist in der Lage, offene Buchungszeilen
+  systematisch zu filtern, sachlich zu prüfen (Sachkonto/Beschreibung/Beträge),
+  Einkaufsrechnungen sowie Einkaufsgutschriften zu erzeugen und anschließend korrekt zu buchen.
+  Du erkennst typische Fehlerquellen (z. B. falsche Gesellschaft, offene Zeilen, fehlerhafte Sachkonten)
+  und verhinderst dadurch Fehlbuchungen und Abstimmungsprobleme.
+</p>
 
       <div className="step-actions center">
         <button
@@ -432,9 +522,9 @@ const [shuffledOptions, setShuffledOptions] = useState(
             }`}
             style={{ marginTop: "1rem" }}
           >
-            {quizAnswer === activeQuiz[quizStep].correctAnswer
-              ? " Richtig! Gut gemacht."
-              : " Nicht ganz. Versuche es beim nächsten Mal noch einmal."}
+         {quizAnswer === activeQuiz[quizStep].correctAnswer
+  ? activeQuiz[quizStep].correctFeedback
+  : activeQuiz[quizStep].wrongFeedback}
           </div>
         )}
       </div>
@@ -550,6 +640,17 @@ const [shuffledOptions, setShuffledOptions] = useState(
   <div className="step-callout danger">
     <strong>Konsequenzen bei falscher Bearbeitung:</strong><br />
     {steps[current].consequence}
+  </div>
+)}
+
+{steps[current].checklist && (
+  <div className="step-callout">
+    <strong>Checkliste:</strong>
+    <ul className="step-points" style={{ marginTop: "0.8rem" }}>
+      {steps[current].checklist.map((c, i) => (
+        <li key={i}>{c}</li>
+      ))}
+    </ul>
   </div>
 )}
 

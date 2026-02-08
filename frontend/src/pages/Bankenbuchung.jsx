@@ -20,124 +20,201 @@ function Bankenbuchung() {
 
 
   /* ---------------- STEPS ---------------- */
-  const steps = [
+const steps = [
   {
     title: "Schritt 1: Dynamics öffnen und Gesellschaft auswählen",
-    task: "Öffne Microsoft Dynamics und wähle die Gesellschaft aus, in der du die Bankbuchung durchführen willst.",
+    task:
+      "Öffne Microsoft Dynamics und wähle die Gesellschaft aus, in der du die Bankbuchung durchführen willst.",
     image: imgB1,
     points: [
       "Microsoft Dynamics starten",
-      "Oben prüfen, in welcher Gesellschaft du gerade bist",
-      "Falls falsch: Gesellschaft wechseln und die korrekte auswählen",
-      "Erst fortfahren, wenn die Gesellschaft eindeutig korrekt ist"
+      "Oben prüfen, welche Gesellschaft aktiv ist",
+      "Falls falsch: Gesellschaft wechseln",
+      "Erst fortfahren, wenn die richtige Gesellschaft eingestellt ist"
     ],
     result:
       "Die richtige Gesellschaft ist ausgewählt und du arbeitest im korrekten Mandanten.",
-    consequence:"Wenn in der falschen Gesellschaft gebucht wird, entstehen fehlerhafte Buchungen im Hauptbuch und ein hoher Korrekturaufwand"
+    example:
+      "Du sollst Bankbuchungen für Gesellschaft A durchführen, siehst aber, dass Gesellschaft B aktiv ist. Du wechselst zuerst die Gesellschaft, bevor du weiterarbeitest.",
+    mistake:
+      "Gesellschaft nicht geprüft oder im falschen Mandanten gearbeitet.",
+    consequence:
+      "Fehlbuchungen im falschen Mandanten und hoher Korrekturaufwand.",
+    checklist: [
+      "Dynamics geöffnet?",
+      "Richtige Gesellschaft aktiv?",
+      "Mandant oben geprüft?",
+      "Erst danach weitergearbeitet?"
+    ]
   },
 
   {
-    title: "Schritt 2: Reiter offene Zlg. mportjournale öffnen",
-    task: "Navigiere in Microsoft Dynamics zum Reiter 'offene Zlg. Importjournale', in dem die noch nicht verarbeiteten Zahlungen angezeigt werden.",
+    title: "Schritt 2: Reiter offene Zlg. Importjournale öffnen",
+    task:
+      "Navigiere zum Reiter mit den offenen Zahlungsimportjournalen, um die noch nicht verarbeiteten Zahlungseingänge zu sehen.",
     image: imgB2,
     points: [
-      "Reiter 'offen Zlg. Importjournale' öffnen",
-  
+      "Reiter „offene Zlg. Importjournale“ öffnen",
+      "Übersicht der vorhandenen Bankjournale prüfen"
     ],
     result:
-      "Du befindest dich in der Übersicht der Importjournale",
-    consequence:
-  []
+      "Du befindest dich in der Übersicht der offenen Importjournale.",
+    example:
+      "Du öffnest den Reiter und siehst mehrere Bankjournale für unterschiedliche Banken.",
+    mistake:
+      "Im falschen Reiter arbeiten oder falsches Journal auswählen.",
+    checklist: [
+      "Reiter korrekt geöffnet?",
+      "Importjournale sichtbar?",
+      "Richtige Ansicht aktiv?"
+    ]
   },
 
   {
     title: "Schritt 3: Bank anhand der Banknummer auswählen",
-    task: "Suche die Bank, die du buchen willst, anhand ihrer Banknummer und markiere die richtige Zeile.",
+    task:
+      "Wähle die richtige Bank anhand der Banknummer aus.",
     points: [
-      "In der Importjournal-Liste nach der Bank suchen",
+      "Bank in der Liste suchen",
       "Jede Bank hat eine eigene Banknummer",
       "Beispiel: Centro = Banknummer 60",
-      "Klicke genau auf die Zeile, in der die Banknummer der gewünschten Bank steht",
-      "Kurz kontrollieren: Bankname + Banknummer müssen zusammenpassen"
+      "Bankname und Nummer abgleichen"
     ],
     result:
-      "Die richtige Bankzeile (z. B. Banknummer 60 für Centro) ist ausgewählt.",
+      "Die richtige Bankzeile ist ausgewählt.",
+    example:
+      "Du suchst die Bank mit Nummer 60 und wählst die passende Zeile aus.",
+    mistake:
+      "Falsche Bank ausgewählt.",
     consequence:
-      "Wenn du die falsche Bank auswählst, importierst und buchst du Zahlungseingänge der falschen Bank, das führt zu Fehlbuchungen."
+      "Zahlungen der falschen Bank werden importiert und gebucht.",
+    checklist: [
+      "Banknummer geprüft?",
+      "Bankname stimmt?",
+      "Richtige Zeile markiert?"
+    ]
   },
-
 
   {
     title: "Schritt 4: In Erw. Zahlungseingang importieren",
-    task: "Importiere aus den Importjournalen in den Erw. Zahlungseingang.",
+    task:
+      "Importiere die offenen Zahlungen aus dem Importjournal in den erweiterten Zahlungseingang.",
     image: imgB3,
     points: [
-      "Im Erw. Zahlungseingang auf 'In ERW Zahlungseingang importieren' klicken",
-      "Dadurch werden die offenen Zlg. aus dem Importjournal in die ERW-Ansicht übernommen",
-      "Nach dem Import kurz prüfen, ob Datensätze geladen wurden (Liste füllt sich)",
-      "Wenn keine Datensätze erscheinen: prüfen, ob die richtige Bankzeile gewählt wurde"
+      "Auf „In Erw. Zahlungseingang importieren“ klicken",
+      "Liste prüfen, ob Datensätze geladen wurden",
+      "Bei leerer Liste: Bankauswahl kontrollieren"
     ],
     result:
-      "Die offenen Zlg. wurden erfolgreich in den Erw. Zahlungseingang importiert und sind sichtbar.",
+      "Die offenen Zahlungen sind im erweiterten Zahlungseingang sichtbar.",
+    example:
+      "Nach dem Import erscheinen mehrere Zahlungseingänge in der Liste.",
+    mistake:
+      "Import nicht durchgeführt oder falsche Bank ausgewählt.",
     consequence:
-      "Wenn du nicht importierst, buchst du nichts."
+      "Es werden keine Zahlungen gebucht.",
+    checklist: [
+      "Import ausgeführt?",
+      "Datensätze sichtbar?",
+      "Richtige Bank gewählt?"
+    ]
   },
 
   {
     title: "Schritt 5: Erw. Zahlungseingang öffnen",
-    task: "Öffne den erweiterten Zahlungseingang vollständig, um die Details prüfen zu können.",
+    task:
+      "Öffne den erweiterten Zahlungseingang, um alle Details der Zahlungseingänge zu prüfen.",
     image: imgB3,
     points: [
-      "Jetzt den Button 'Erw. Zahlungseingang öffnen' auswählen",
+      "Button „Erw. Zahlungseingang öffnen“ auswählen",
+      "Detailansicht prüfen"
     ],
     result:
-      "Der Erw. Zahlungseingang ist vollatändig geöffnet und alle Details sind sichtbar.",
-    consequence:
-      "Wenn du nicht korrekt öffnest, übersiehst du möglicherweise Details oder kannst Positionen nicht korrekt prüfen/bearbeiten."
+      "Alle Zahlungseingänge sind vollständig sichtbar.",
+    example:
+      "Du öffnest den erweiterten Zahlungseingang und siehst alle Details zu Beträgen und Buchungen.",
+    mistake:
+      "Nicht vollständig geöffnet und Details übersehen.",
+    checklist: [
+      "Erweiterter Zahlungseingang geöffnet?",
+      "Details sichtbar?",
+      "Liste vollständig geladen?"
+    ]
   },
 
   {
     title: "Schritt 6: Zahlungseingänge prüfen und vergleichen",
-    task: "Prüfe die importierten Zahlungseingänge sorgfältig, bevor du buchst.",
+    task:
+      "Prüfe alle Zahlungseingänge sorgfältig auf Plausibilität.",
     image: imgB4,
     points: [
-      "Beträge und Buchungsinformationen kontrollieren",
-      "Zahlungseingänge mit vorhandenen Informationen vergleichen (Plausibilität)",
-      "Achten auf Auffälligkeiten: doppelte Positionen, falsche Beträge, falscher Zeitraum",
-      "Bei Unklarheiten: nicht buchen, sondern erst klären"
+      "Beträge prüfen",
+      "Doppelte Positionen erkennen",
+      "Unplausible Beträge oder Zeiträume prüfen",
+      "Bei Unklarheiten nicht buchen"
     ],
     result:
-      "Die Zahlungseingänge wurden geprüft und sind plausibel für die Buchung vorbereitet.",
+      "Alle Zahlungseingänge sind geprüft und plausibel.",
+    example:
+      "Du entdeckst eine doppelte Zahlung und klärst den Vorgang, bevor du buchst.",
+    mistake:
+      "Zahlungen ungeprüft buchen.",
     consequence:
-      "Wenn du ungeprüft buchst, können falsche Salden, Doppelbuchungen und Abstimmungsprobleme im Hauptbuch entstehen."
+      "Falsche Salden und Abstimmungsprobleme im Hauptbuch.",
+    checklist: [
+      "Beträge plausibel?",
+      "Keine Doppelbuchungen?",
+      "Keine Auffälligkeiten?"
+    ]
   },
 
   {
-    title: "Schritt 7: Fehlerhafte Positionen löschen (falls nötig)",
-    task: "Wenn Positionen nicht stimmen, lösche diese konsequent, bevor gebucht wird.",
+    title: "Schritt 7: Fehlerhafte Positionen löschen",
+    task:
+      "Entferne fehlerhafte oder unklare Zahlungseingänge vor der Buchung.",
     image: imgB5,
     points: [
-      "Unstimmige/fehlerhafte Zahlungseingänge identifizieren",
-      "Wenn etwas nicht stimmt: Position(en) löschen",
-      "Danach erneut prüfen, ob nur korrekte Positionen übrig sind",
-      "Erst weitergehen, wenn alles korrekt ist"
+      "Unstimmige Positionen identifizieren",
+      "Positionen löschen",
+      "Liste erneut prüfen"
     ],
     result:
-      "Fehlerhafte Positionen wurden entfernt, die verbleibenden Datensätze sind korrekt.",
+      "Nur korrekte Zahlungseingänge bleiben zur Buchung übrig.",
+    example:
+      "Eine falsche Position wird gelöscht, damit sie nicht mitgebucht wird.",
+    mistake:
+      "Fehlerhafte Positionen nicht entfernen.",
     consequence:
-      "Wenn falsche Positionen nicht gelöscht werden, werden sie mitgebucht → es entstehen Fehlbuchungen."
+      "Falsche Zahlungen werden gebucht.",
+    checklist: [
+      "Fehlerhafte Positionen erkannt?",
+      "Gelöscht?",
+      "Liste nochmals geprüft?"
+    ]
   },
 
   {
-    title: "Schritt 8: Buchen",
-    task: "Buche die Zahlungseingänge.",
+    title: "Schritt 8: Zahlungseingänge buchen",
+    task:
+      "Buche die geprüften Zahlungseingänge im System.",
     points: [
-      "Wenn alle Positionen korrekt sind: Button 'Buchen' auswählen",
-      "Warten, bis die Buchung erfolgreich abgeschlossen ist",
+      "Button „Buchen“ auswählen",
+      "Auf Abschluss der Buchung warten",
+      "Status prüfen"
     ],
     result:
       "Die Zahlungseingänge wurden erfolgreich gebucht.",
-   
+    example:
+      "Nach dem Buchen sind die Zahlungen im Hauptbuch sichtbar.",
+    mistake:
+      "Buchen ohne vorherige Prüfung.",
+    consequence:
+      "Fehlbuchungen im Hauptbuch und Abstimmungsprobleme.",
+    checklist: [
+      "Alle Positionen geprüft?",
+      "Nur korrekte Einträge vorhanden?",
+      "Buchung erfolgreich?"
+    ]
   }
 ];
 
@@ -146,45 +223,83 @@ function shuffleArray(array) {
 }
 const quiz = [
   {
-    question: "Warum muss vor der Bankbuchung zuerst die richtige Gesellschaft in Dynamics ausgewählt werden?",
+    question: "Warum muss vor der Bankbuchung die richtige Gesellschaft ausgewählt werden?",
     options: [
-      "Damit das Layout korrekt angezeigt wird",
-      "Weil Buchungen immer gesellschaftsbezogen erfolgen",
+      "Damit das Layout stimmt",
+      "Weil Buchungen mandantenbezogen erfolgen",
       "Weil sonst keine Banken angezeigt werden"
     ],
-    correctAnswer: "Weil Buchungen immer gesellschaftsbezogen erfolgen"
+    correctAnswer: "Weil Buchungen mandantenbezogen erfolgen",
+    correctFeedback:
+      "Richtig! Buchungen erfolgen immer in der aktuell ausgewählten Gesellschaft. Eine falsche Auswahl führt zu Fehlbuchungen im falschen Mandanten.",
+    wrongFeedback:
+      "Nicht ganz. Buchungen sind immer mandantenbezogen. Wird die falsche Gesellschaft gewählt, entstehen Fehlbuchungen."
   },
-
   {
-    question: "In welchem Reiter befinden sich die offenen Zahlungseingänge, die noch nicht verarbeitet wurden?",
+    question: "Wo befinden sich die offenen Zahlungseingänge?",
     options: [
-      "Hauptbuch",
-      "Importjournale",
-      "Debitorenliste"
+      "Im Hauptbuch",
+      "In den Importjournalen",
+      "In der Debitorenliste"
     ],
-    correctAnswer: "Importjournale"
+    correctAnswer: "In den Importjournalen",
+    correctFeedback:
+      "Richtig! Offene Zahlungseingänge befinden sich zunächst in den Importjournalen und werden von dort weiterverarbeitet.",
+    wrongFeedback:
+      "Nicht korrekt. Die offenen Zahlungseingänge liegen zuerst in den Importjournalen, bevor sie gebucht werden."
   },
-
   {
-    question: "Warum ist es wichtig, die Bank anhand der Banknummer auszuwählen?",
+    question: "Warum wird die Bank über die Banknummer ausgewählt?",
     options: [
       "Weil jede Bank eigene Zahlungseingänge hat",
       "Weil die Banknummer optional ist",
-      "Weil die Bank sonst automatisch gewählt wird"
+      "Weil das System die Bank sonst automatisch wählt"
     ],
-    correctAnswer: "Weil jede Bank eigene Zahlungseingänge hat"
+    correctAnswer: "Weil jede Bank eigene Zahlungseingänge hat",
+    correctFeedback:
+      "Richtig! Jede Bank hat eigene Zahlungseingänge. Deshalb muss die Bank über die korrekte Banknummer ausgewählt werden.",
+    wrongFeedback:
+      "Nicht ganz. Jede Bank hat eigene Zahlungseingänge. Wird die falsche Bank gewählt, entstehen Fehlbuchungen."
   },
-
-
   {
-    question: "Welche Aktion muss durchgeführt werden, damit die offenen Zlg. aus den Importjournalen übernommen werden?",
+    question: "Was passiert, wenn der Import in den erweiterten Zahlungseingang nicht durchgeführt wird?",
     options: [
-      "Erw. Zahlungseingang öffnen",
-      "In Erw. Zahlungseingang importieren",
-      "Direkt buchen"
+      "Die Zahlungen werden automatisch gebucht",
+      "Es werden keine Zahlungen verarbeitet",
+      "Das System bricht ab"
     ],
-    correctAnswer: "In Erw. Zahlungseingang importieren"
+    correctAnswer: "Es werden keine Zahlungen verarbeitet",
+    correctFeedback:
+      "Richtig! Ohne Import befinden sich keine Datensätze im Buchungsbereich und es kann nichts gebucht werden.",
+    wrongFeedback:
+      "Nicht korrekt. Erst durch den Import stehen die Zahlungen zur Buchung bereit."
   },
+  {
+    question: "Warum müssen Zahlungseingänge vor dem Buchen geprüft werden?",
+    options: [
+      "Damit das System schneller arbeitet",
+      "Um Fehlbuchungen zu vermeiden",
+      "Damit die Buchung automatisch erfolgt"
+    ],
+    correctAnswer: "Um Fehlbuchungen zu vermeiden",
+    correctFeedback:
+      "Richtig! Durch die Prüfung werden falsche Beträge oder doppelte Buchungen erkannt.",
+    wrongFeedback:
+      "Nicht ganz. Die Prüfung dient dazu, Fehlbuchungen und Abstimmungsprobleme zu vermeiden."
+  },
+  {
+    question: "Was ist zu tun, wenn eine Zahlung nicht plausibel ist?",
+    options: [
+      "Trotzdem buchen",
+      "Position löschen oder klären",
+      "System neu starten"
+    ],
+    correctAnswer: "Position löschen oder klären",
+    correctFeedback:
+      "Richtig! Unplausible Positionen dürfen nicht gebucht werden und müssen vorher geklärt oder gelöscht werden.",
+    wrongFeedback:
+      "Nicht korrekt. Unplausible Zahlungen dürfen nicht gebucht werden, sondern müssen geklärt oder gelöscht werden."
+  }
 ];
 
 const [shuffledOptions, setShuffledOptions] = useState(
@@ -337,6 +452,7 @@ Nach Abschluss dieses Moduls bist du in der Lage, Bankbuchungen in Microsoft Dyn
           Antwort prüfen
         </button>
 
+         
         {quizChecked && (
           <div
             className={`step-callout ${
@@ -345,8 +461,8 @@ Nach Abschluss dieses Moduls bist du in der Lage, Bankbuchungen in Microsoft Dyn
             style={{ marginTop: "1rem" }}
           >
             {quizAnswer === activeQuiz[quizStep].correctAnswer
-              ? " Richtig! Gut gemacht."
-              : " Nicht ganz. Versuche es beim nächsten Mal noch einmal."}
+  ? activeQuiz[quizStep].correctFeedback
+  : activeQuiz[quizStep].wrongFeedback}
           </div>
         )}
       </div>
@@ -445,6 +561,18 @@ Nach Abschluss dieses Moduls bist du in der Lage, Bankbuchungen in Microsoft Dyn
   <div className="step-callout danger">
     <strong>Konsequenzen bei falscher Bearbeitung:</strong><br />
     {steps[current].consequence}
+  </div>
+)}
+
+
+{steps[current].checklist && (
+  <div className="step-callout">
+    <strong>Checkliste:</strong>
+    <ul className="step-points" style={{ marginTop: "0.8rem" }}>
+      {steps[current].checklist.map((c, i) => (
+        <li key={i}>{c}</li>
+      ))}
+    </ul>
   </div>
 )}
 

@@ -23,143 +23,233 @@ function Zahlungsvorschlag() {
 
   /* ---------------- STEPS ---------------- */
 const steps = [
-  {
-    title: "Schritt 1: Dynamics öffnen & Bereich finden",
-    task:
-      "Öffne Microsoft Dynamics und navigiere in den Bereich, in dem die Zahlungsvorschläge erstellt werden (Zlg. Export / Zahlungsvorschläge).",
-    image: imgZv1,
-    points: [
-      "Microsoft Dynamics öffnen",
-      "In die richitge Gesellschaft wechseln",
-      "Menüpunkt/Reiter finden: 'Zahlungsvorschläge'",
-    ],
-    result:
-      "Du befindest dich im richtigen Bereich, um Zahlungsvorschläge zu erzeugen."
-  },
+ {
+  title: "Schritt 1: Dynamics öffnen & Bereich finden",
+  task:
+    "Öffne Microsoft Dynamics und navigiere in den Bereich, in dem die Zahlungsvorschläge erstellt werden.",
+  image: imgZv1,
+  points: [
+    "Microsoft Dynamics öffnen",
+    "In die richtige Gesellschaft wechseln",
+    "Menüpunkt 'Zahlungsvorschläge' öffnen"
+  ],
+  result:
+    "Du befindest dich im richtigen Bereich zur Erstellung des Zahlungsvorschlags.",
+  example:
+    "Du wechselst in die Gesellschaft, für die der Zahllauf durchgeführt werden soll, und öffnest den Bereich Zahlungsvorschläge.",
+  mistake:
+    "Im falschen Mandanten arbeiten oder falschen Menüpunkt öffnen.",
+  consequence:
+    "Zahlungsvorschläge werden in der falschen Gesellschaft erzeugt.",
+  checklist: [
+    "Dynamics geöffnet?",
+    "Richtige Gesellschaft aktiv?",
+    "Bereich Zahlungsvorschläge geöffnet?"
+  ]
+},
 
   {
-    title: "Schritt 2: Zahlungsvorschlag erzeugen (WICHTIGER Klickpfad)",
-    task:
-      "Erzeuge den Zahlungsvorschlag über die Aktion-Leiste.",
-    image: imgZv2,
-    points: [
-      "Oben in der Aktion-Leiste auf **Aktion** klicken",
-      "Dann **Vorschlag** wählen",
-      "Dann **Erzeugen** auswählen",
-      "Dann **Kreditor-Zahlungsvorschlag** anklicken",
-      "Damit startest du die Erstellung der Zahlungsvorschläge"
-    ],
-    result:
-      "Das Fenster „Kreditor-Zahlungsvorschlag erstellen“ ist geöffnet."
-  },
+  title: "Schritt 2: Zahlungsvorschlag erzeugen",
+  task:
+    "Erzeuge den Kreditor-Zahlungsvorschlag über die Aktionsleiste.",
+  image: imgZv2,
+  points: [
+    "Aktion auswählen",
+    "Vorschlag wählen",
+    "Erzeugen anklicken",
+    "Kreditor-Zahlungsvorschlag auswählen"
+  ],
+  result:
+    "Das Fenster zur Erstellung des Zahlungsvorschlags ist geöffnet.",
+  example:
+    "Du startest den Vorschlag über die Aktionsleiste, um alle fälligen Rechnungen automatisch zu ermitteln.",
+  mistake:
+    "Falsche Funktion gewählt oder Vorschlag nicht korrekt gestartet.",
+  checklist: [
+    "Aktion geöffnet?",
+    "Vorschlag ausgewählt?",
+    "Kreditor-Zahlungsvorschlag gestartet?"
+  ]
+},
 
   {
-    title: "Schritt 3: Parameter setzen (Fälligkeit, Skonto, Datum)",
-    task:
-      "Setze die Parameter für den Zahlungsvorschlag korrekt, damit nur die gewünschten Posten gezogen werden.",
-    images: [imgZv4, imgZv5],
-    points: [
-      "Fälligkeit / Zeitraum: **bis zum nächsten Donnerstag** auswählen",
-      "Ausnahme beachten: **bei Monatsende** ggf. andere Vorgabe nutzen",
-      "Skonto grundsätzlich berücksichtigen (Generell Skonto)",
-      "Buchungssdatum sinnvoll setzen (der nächste Tag)"
-    ],
-    result:
-      "Die Grundlagen sind korrekt gesetzt, der Vorschlag zieht die richtigen fälligen/Skonto-relevanten Posten."
-  },
+  title: "Schritt 3: Parameter setzen",
+  task:
+    "Setze die Parameter für den Zahlungsvorschlag korrekt.",
+  images: [imgZv4, imgZv5],
+  points: [
+    "Fälligkeit bis nächsten Donnerstag setzen",
+    "Monatsende-Ausnahmen beachten",
+    "Skonto berücksichtigen",
+    "Buchungsdatum auf nächsten Tag setzen"
+  ],
+  result:
+    "Der Vorschlag berücksichtigt nur die relevanten, fälligen Posten.",
+  example:
+    "Du stellst die Fälligkeit bis Donnerstag ein, damit nur die aktuell zu zahlenden Rechnungen im Lauf erscheinen.",
+  mistake:
+    "Falsches Fälligkeitsdatum oder Skonto nicht berücksichtigt.",
+  consequence:
+    "Zu frühe oder zu späte Zahlungen bzw. Skontoverlust.",
+  checklist: [
+    "Fälligkeit korrekt gesetzt?",
+    "Skonto berücksichtigt?",
+    "Buchungsdatum plausibel?"
+  ]
+},
+
+{
+  title: "Schritt 4: Zahlungsvorschlag ausführen",
+  task:
+    "Starte die Erstellung des Vorschlags und prüfe den Status.",
+  image: imgZv6,
+  points: [
+    "Auf OK klicken",
+    "Erstellung abwarten",
+    "Status auf 'Offen' prüfen"
+  ],
+  result:
+    "Der Zahlungsvorschlag ist erstellt und offen zur Bearbeitung.",
+  example:
+    "Nach der Erstellung siehst du den neuen Vorschlag mit Status 'Offen' in der Liste.",
+  mistake:
+    "Falschen Vorschlag auswählen oder Status nicht prüfen.",
+  checklist: [
+    "Vorschlag erstellt?",
+    "Status = Offen?",
+    "Richtigen Vorschlag identifiziert?"
+  ]
+},
 
   {
-    title: "Schritt 4: Zahlungsvorschlag ausführen",
-    task:
-      "Starte die Erstellung und prüfe anschließend, ob der Zahlungsvorschlag erstellt wurde.",
-    image: imgZv6,
-    points: [
-      "Im Assistenten auf **OK** klicken",
-      "Warten bis der Vorschlag erstellt ist",
-      "Danach in 'Zahlungsvorschläge' prüfen: Status sollte **Offen** sein",
-      "Den gerade erstellten Vorschlag identifizieren (Datum/Beschreibung)"
-    ],
-    result:
-      "Ein neuer Zahlungsvorschlag ist erstellt und steht als „Offen“ zur Bearbeitung bereit."
-  },
-
-
-  {
-    title: "Schritt 5: Fachliche Kontrolle bzw. Zahlungszeilen prüfen (Beträge, IBAN, Verwendungszweck, >1000€)",
-    task:
-      "Mache die entscheidenden Qualitätschecks, bevor du den Zahllauf ausführst.",
-    image: imgZv7,
-    points: [
-      "Zahlungsvorschlag markieren",
-      "Auf **Bearbeiten** → **Zahlungszeilen** klicken",
-      "Jede Zeile fachlich prüfen (Beleg, Betrag, Skonto, Fälligkeit)",
-      "Alles über **1.000 €** besonders prüfen",
-      "IBAN kontrollieren (Stammdaten / Bankdaten plausibel?)",
-      "Verwendungszweck prüfen: Rechnungsnummer(n), ggf. Skonto/Skontobetrag, Zahlbetrag",
-      "Skontofrist (Datum) prüfen: wenn Skonto gezogen wird, muss das Zahlungsdatum passen",
-      "Wenn ein Lieferant **mehr als 4 Rechnungen** im Lauf hat: Avise speichern",
-      "Intercompany-Zahlungen, Gutschriften(BergApotheke), Belegart=Zahlungen: falls im Lauf gelandet sind → entfernen"
-    ],
-    result:
-      "Der Vorschlag ist inhaltlich geprüft: keine falschen IBANs, keine falschen Beträge, Skonto korrekt."
-  },
+  title: "Schritt 5: Zahlungszeilen fachlich prüfen",
+  task:
+    "Führe die Qualitätsprüfung der Zahlungszeilen durch.",
+  image: imgZv7,
+  points: [
+    "Zahlungszeilen öffnen",
+    "Beträge prüfen",
+    "IBAN kontrollieren",
+    "Verwendungszweck prüfen",
+    "Beträge über 1.000 € besonders prüfen"
+  ],
+  result:
+    "Der Zahlungsvorschlag ist fachlich geprüft.",
+  example:
+    "Du entdeckst eine falsche IBAN und korrigierst sie vor dem Zahllauf.",
+  mistake:
+    "Zahlungszeilen ungeprüft übernehmen.",
+  consequence:
+    "Falsche Zahlungen oder Fehlüberweisungen.",
+  checklist: [
+    "Beträge korrekt?",
+    "IBAN plausibel?",
+    "Verwendungszweck korrekt?",
+    "Große Beträge geprüft?"
+  ]
+},
 
   {
-    title: "Schritt 6: Mahnliste/Dringlichkeit abgleichen",
-    task:
-      "Stelle sicher, dass dringende Fälle nicht übersehen werden.",
-    image: imgZv8,
-    points: [
-      "Mahnliste prüfen",
-      "Ggf. Prioritäten nochmal abgleichen: Muss etwas unbedingt heute/jetzt mit in den Lauf?",
-      "Wenn nötig: Vorschlag anpassen (Zahlungszeilen) und erneut prüfen"
-    ],
-    result:
-      "Dringliche Posten sind berücksichtigt, keine Mahnungen/Fristen werden übersehen."
-  },
+  title: "Schritt 6: Mahnliste abgleichen",
+  task:
+    "Stelle sicher, dass dringende Posten berücksichtigt werden.",
+  image: imgZv8,
+  points: [
+    "Mahnliste prüfen",
+    "Dringende Rechnungen identifizieren",
+    "Falls nötig: Vorschlag anpassen"
+  ],
+  result:
+    "Dringende Rechnungen sind im Zahllauf enthalten.",
+  example:
+    "Eine Rechnung mit Mahnung wird zusätzlich in den Lauf aufgenommen.",
+  mistake:
+    "Mahnliste nicht geprüft.",
+  consequence:
+    "Mahnung oder Lieferstopp durch nicht bezahlte Rechnungen.",
+  checklist: [
+    "Mahnliste geprüft?",
+    "Dringende Fälle berücksichtigt?"
+  ]
+},
 
   {
-    title: "Schritt 7: Zahlungsvorschlagsliste drucken / dokumentieren (PDF)",
-    task:
-      "Erzeuge die Zahlungsvorschlagsliste als Dokumentation (Ausführlich).",
-    points: [
-      "Im Zahlungsvorschlag auf **Liste drucken** gehen",
-      "Dann **Zahlungsvorschlagsliste drucken** auswählen",
-      "Vorschau öffnen und als PDF speichern (Ablageort nach interner Regel)"
-    ],
-    result:
-      "Die Zahlungsvorschlagsliste ist dokumentiert (PDF) und kann zur Freigabe/Prüfung genutzt werden."
-  },
+  title: "Schritt 7: Zahlungsvorschlagsliste dokumentieren",
+  task:
+    "Erzeuge die Zahlungsvorschlagsliste als PDF.",
+  points: [
+    "Liste drucken auswählen",
+    "Zahlungsvorschlagsliste öffnen",
+    "Vorschau als PDF speichern"
+  ],
+  result:
+    "Die Zahlungsvorschlagsliste ist dokumentiert.",
+  example:
+    "Du speicherst die Liste als PDF im vorgesehenen Ordner.",
+  mistake:
+    "Keine Dokumentation erstellt.",
+  consequence:
+    "Fehlende Nachvollziehbarkeit oder fehlende Freigabegrundlage.",
+  checklist: [
+    "Liste gedruckt?",
+    "PDF gespeichert?",
+    "Richtiger Ablageort?"
+  ]
+},
 
   {
-    title: "Schritt 8: Zahllauf ausführen",
-    task:
-      "Führe den Zahllauf technisch aus",
-    image: imgZv9,
-    points: [
-      "Zahlungsvorschlag markieren",
-      "Menü **Zahlungen** → **Zahlungen durchführen**",
-    ],
-    result:
-      "Die Zahlung ist durchgeführt."
-  },
-
+  title: "Schritt 8: Zahllauf ausführen",
+  task:
+    "Führe den Zahllauf technisch aus.",
+  image: imgZv9,
+  points: [
+    "Zahlungsvorschlag markieren",
+    "Zahlungen durchführen auswählen"
+  ],
+  result:
+    "Die Zahlungen wurden technisch ausgeführt.",
+  example:
+    "Nach dem Zahllauf werden die Zahlungsdateien erstellt.",
+  mistake:
+    "Zahllauf ohne Prüfung starten.",
+  consequence:
+    "Fehlüberweisungen oder falsche Zahlungen.",
+  checklist: [
+    "Vorschlag geprüft?",
+    "Richtigen Vorschlag ausgewählt?",
+    "Zahllauf erfolgreich durchgeführt?"
+  ]
+},
   {
-    title: "Schritt 9: Buchen (Hinweis: erst Montag buchen)",
-      
-    points: [
-      "Zahlung öffen und anschließend buchen"
-    ],
-    result:
-      "Der Zahllauf ist korrekt gebucht."
-  }
+  title: "Schritt 9: Zahllauf buchen",
+  task:
+    "Buche den Zahllauf gemäß interner Regel.",
+  points: [
+    "Zahlung öffnen",
+    "Buchen auswählen",
+    "Interne Regel beachten: Buchung erst am Montag"
+  ],
+  result:
+    "Der Zahllauf ist korrekt verbucht.",
+  example:
+    "Der Zahllauf wird am Montag gebucht, nachdem alle Zahlungen korrekt abgeflossen sind.",
+  mistake:
+    "Zahllauf zu früh buchen.",
+  consequence:
+    "Falsche Bankbestände oder Abstimmungsprobleme.",
+  checklist: [
+    "Zahlung korrekt ausgeführt?",
+    "Richtiger Zeitpunkt für Buchung?",
+    "Buchung erfolgreich?"
+  ]
+}
 ];
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
- const quiz = [
+const quiz = [
   {
     question:
       "Über welchen Klickpfad wird der Kreditor-Zahlungsvorschlag erzeugt?",
@@ -169,30 +259,41 @@ function shuffleArray(array) {
       "Zahlungen → Buchen → Vorschlag erstellen"
     ],
     correctAnswer:
-      "Aktion → Vorschlag → Erzeugen → Kreditor-Zahlungsvorschlag"
+      "Aktion → Vorschlag → Erzeugen → Kreditor-Zahlungsvorschlag",
+    correctFeedback:
+      "Richtig! Über diesen Klickpfad wird der Zahlungsvorschlag technisch erzeugt.",
+    wrongFeedback:
+      "Nicht korrekt. Der richtige Pfad lautet: Aktion → Vorschlag → Erzeugen → Kreditor-Zahlungsvorschlag."
   },
   {
     question:
-      "Welche Prüfung ist besonders wichtig, bevor der Zahllauf ausgeführt wird?",
+      "Welche Prüfung ist besonders wichtig vor dem Zahllauf?",
     options: [
-      "Nur Layout der Liste prüfen",
-      "Beträge über 1.000 € besonders prüfen (inkl. IBAN/Verwendungszweck)",
-      "Nur die Anzahl der Zeilen zählen"
+      "Nur Layout prüfen",
+      "Beträge über 1.000 € besonders prüfen",
+      "Nur Anzahl der Zeilen zählen"
     ],
     correctAnswer:
-      "Beträge über 1.000 € besonders prüfen (inkl. IBAN/Verwendungszweck)"
+      "Beträge über 1.000 € besonders prüfen",
+    correctFeedback:
+      "Richtig! Hohe Beträge müssen besonders geprüft werden, um Fehlüberweisungen zu vermeiden.",
+    wrongFeedback:
+      "Nicht korrekt. Vor allem Beträge über 1.000 € müssen besonders geprüft werden."
   },
- 
   {
     question:
-    " Welche interne Regel ist zur Buchung genannt?",
+      "Welche interne Regel gilt für die Buchung des Zahllaufs?",
     options: [
-      "Zahlläufe immer sofort buchen",
-      "Zahlläufe erst am Montag buchen",
-      "Zahlläufe nur am Monatsende buchen"
+      "Immer sofort buchen",
+      "Erst am Montag buchen",
+      "Nur am Monatsende buchen"
     ],
     correctAnswer:
-      "Zahlläufe erst am Montag buchen"
+      "Erst am Montag buchen",
+    correctFeedback:
+      "Richtig! Der Zahllauf wird gemäß interner Regel erst am Montag gebucht.",
+    wrongFeedback:
+      "Nicht korrekt. Laut interner Regel erfolgt die Buchung erst am Montag."
   }
 ];
 
@@ -351,17 +452,17 @@ const [shuffledOptions, setShuffledOptions] = useState(
           </button>
   
           {quizChecked && (
-            <div
-              className={`step-callout ${
-                quizAnswer === activeQuiz[quizStep].correctAnswer ? "success" : "danger"
-              }`}
-              style={{ marginTop: "1rem" }}
-            >
-              {quizAnswer === activeQuiz[quizStep].correctAnswer
-                ? " Richtig! Gut gemacht."
-                : " Nicht ganz. Versuche es beim nächsten Mal noch einmal."}
-            </div>
-          )}
+  <div
+    className={`step-callout ${
+      quizAnswer === activeQuiz[quizStep].correctAnswer ? "success" : "danger"
+    }`}
+    style={{ marginTop: "1rem" }}
+  >
+    {quizAnswer === activeQuiz[quizStep].correctAnswer
+      ? activeQuiz[quizStep].correctFeedback
+      : activeQuiz[quizStep].wrongFeedback}
+  </div>
+)}
         </div>
   
         <div className="step-actions center">
@@ -475,6 +576,17 @@ const [shuffledOptions, setShuffledOptions] = useState(
       {steps[current].consequence}
     </div>
   )}
+{steps[current].checklist && (
+  <div className="step-callout">
+    <strong>Checkliste:</strong>
+    <ul className="step-points" style={{ marginTop: "0.8rem" }}>
+      {steps[current].checklist.map((c, i) => (
+        <li key={i}>{c}</li>
+      ))}
+    </ul>
+  </div>
+)}
+
   
                 <div className="step-callout success">
                   <strong>Ergebnis:</strong> {steps[current].result}
