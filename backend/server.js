@@ -12,6 +12,7 @@ app.use(express.json());
 
 console.log("✅ server.js loaded");
 
+// Assistant Router
 const assistantRouter = require("./routes/assistant");
 console.log("✅ assistantRouter type:", typeof assistantRouter);
 
@@ -36,7 +37,7 @@ app.get("/modules", (req, res) => {
   ]);
 });
 
-// Evaluation API (Speichert Antworten)
+// Evaluation API (Antworten speichern)
 app.post("/api/evaluation", (req, res) => {
   const { answers } = req.body;
 
@@ -58,8 +59,21 @@ app.post("/api/evaluation", (req, res) => {
   res.json({ success: true });
 });
 
+// Evaluation API (Antworten abrufen)  ← NEU
+app.get("/api/evaluation", (req, res) => {
+  const filePath = path.join(__dirname, "evaluation-results.json");
+
+  if (!fs.existsSync(filePath)) {
+    return res.json([]);
+  }
+
+  const fileContent = fs.readFileSync(filePath, "utf8");
+  res.json(JSON.parse(fileContent));
+});
+
+// Server starten (Render-kompatibel)
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(` Server läuft auf Port ${PORT}`);
+  console.log(`🚀 Server läuft auf Port ${PORT}`);
 });
