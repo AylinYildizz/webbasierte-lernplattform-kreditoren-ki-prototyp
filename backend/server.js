@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
-
 const app = express();
 
 // Middleware
@@ -22,7 +21,6 @@ app.get("/", (req, res) => {
   res.send("Backend läuft erfolgreich!");
 });
 
-
 // Modules API
 app.get("/modules", (req, res) => {
   res.json([
@@ -34,6 +32,18 @@ app.get("/modules", (req, res) => {
     { id: "zahlungsvorschlag", title: "Zahlungsvorschlag" },
     { id: "monatsabschluss", title: "Monatsabschluss" },
   ]);
+});
+
+// Evaluation API
+app.post("/api/evaluation", (req, res) => {
+  const { answers } = req.body;
+
+  console.log("📊 Neue Evaluation erhalten:");
+  console.log(JSON.stringify(answers, null, 2));
+
+  // hier könntest du später in Datei oder Datenbank speichern
+
+  res.json({ success: true });
 });
 
 // Server starten
