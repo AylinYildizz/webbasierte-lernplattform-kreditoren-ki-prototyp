@@ -21,13 +21,15 @@ function KIAssistantGlobal() {
   }, []);
 
   async function ask() {
-    if (!question.trim()) return;
+  if (!question.trim()) return;
 
-    setLoading(true);
-    setAnswer("");
+  setLoading(true);
+  setAnswer("");
 
-    try {
-      const res = await fetch("http://localhost:3001/api/assistant", {
+  try {
+    const res = await fetch(
+      "https://webbasierte-lernplattform-kreditoren-ki-ucwn.onrender.com/api/assistant",
+      {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -41,16 +43,17 @@ AKTUELLE SEITE:
 ${contextText || "kein spezifischer Seitenkontext"}
           `,
         }),
-      });
+      }
+    );
 
-      const data = await res.json();
-      setAnswer(data.answer || "Keine Antwort erhalten.");
-    } catch (err) {
-      setAnswer("Fehler bei der KI-Anfrage.");
-    }
-
-    setLoading(false);
+    const data = await res.json();
+    setAnswer(data.answer || "Keine Antwort erhalten.");
+  } catch (err) {
+    setAnswer("Fehler bei der KI-Anfrage.");
   }
+
+  setLoading(false);
+}
 
   return (
     <>
