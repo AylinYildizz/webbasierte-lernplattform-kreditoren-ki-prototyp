@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 
@@ -34,14 +36,24 @@ app.get("/modules", (req, res) => {
   ]);
 });
 
-// Evaluation API
+// Evaluation API (Speichert Antworten)
 app.post("/api/evaluation", (req, res) => {
   const { answers } = req.body;
 
-  console.log("📊 Neue Evaluation erhalten:");
-  console.log(JSON.stringify(answers, null, 2));
+  const filePath = path.join(__dirname, "evaluation-results.json");
 
-  // hier könntest du später in Datei oder Datenbank speichern
+  let data = [];
+
+  if (fs.existsSync(filePath)) {
+    const fileContent = fs.readFileSync(filePath, "utf8");
+    data = JSON.parse(fileContent);
+  }
+
+  data.push(answers);
+
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+
+  console.log("📊 Neue Evaluation gespeichert");
 
   res.json({ success: true });
 });
