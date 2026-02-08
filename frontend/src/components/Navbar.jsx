@@ -15,7 +15,6 @@ function Navbar() {
   }
 
   function openKI() {
-    // globales Event zum Öffnen des KI-Assistenten
     window.dispatchEvent(new Event("open-ki"));
   }
 
@@ -25,7 +24,6 @@ function Navbar() {
         <Link to="/">Start</Link>
         <Link to="/module">Module</Link>
 
-        {/* KI-Assistent Button */}
         <button
           className="navbar-ki-button"
           onClick={openKI}
@@ -33,6 +31,8 @@ function Navbar() {
           <Bot size={18} style={{ marginRight: "6px" }} />
           KI-Assistent
         </button>
+
+        <Link to="/evaluation">Evaluation</Link>
       </div>
 
       <form className="navbar-right" onSubmit={handleSearch}>

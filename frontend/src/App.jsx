@@ -20,6 +20,7 @@ import Suche from "./pages/Suche";
 
 import { KIProvider } from "./context/KIContext";
 import KIAssistantGlobal from "./components/KIAssistantGlobal";
+import Evaluation from "./pages/Evaluation";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/kreditorenprozesse" element={<Kreditorenprozesse />} />
           <Route path="/einarbeitung" element={<Einarbeitung />} />
           <Route path="/zusammenarbeit" element={<Zusammenarbeit />} />
+          <Route path="/evaluation" element={<Evaluation/>}/>
 
           {/* Suche */}
           <Route path="/suche" element={<Suche />} />
