@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "No question provided" });
     }
 
-    // ✅ 1) SYSTEM PROMPT (ausführlich, steuert Verhalten)
+    
     const systemPrompt = `
 Du bist ein KI-Lernassistent für eine interne Lernplattform zur Kreditorenbuchhaltung in einem medizinischen Netzwerk.
 
@@ -111,7 +111,7 @@ SICHERHEIT:
 - Wenn etwas nicht im Kontext steht, bleib allgemein oder frage kurz nach.
 `;
 
-    // ✅ 2) USER PROMPT (liefert Kontext + Frage)
+    //  2) USER PROMPT (liefert Kontext + Frage)
     const userPrompt = `
 MODUL (wenn vorhanden):
 ${contextTitle || "Global"}
@@ -123,7 +123,7 @@ FRAGE:
 ${question}
 `;
 
-    // ✅ 3) OpenAI Call
+    //  3) OpenAI Call
     const response = await client.responses.create({
       model: "gpt-4.1-mini",
       input: [
@@ -132,7 +132,7 @@ ${question}
       ],
     });
 
-    // ✅ stabilster Zugriff
+    //  stabilster Zugriff
     const answer = response.output_text?.trim()
       || response.output?.[0]?.content?.[0]?.text
       || "Keine Antwort erhalten.";
