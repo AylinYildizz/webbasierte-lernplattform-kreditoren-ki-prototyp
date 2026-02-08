@@ -90,9 +90,10 @@ STILREGELN:
 - Schreibe wie ein erfahrener Kollege.
 
 WICHTIG:
-Wenn du etwas nicht im internen Kontext findest:
-→ Antworte trotzdem allgemein korrekt.
-→ Niemals sagen „keine Daten vorhanden“.
+Wenn eine Frage nicht durch die Lernplattform beantwortet werden kann:
+- Antworte trotzdem mit allgemeinem Fachwissen.
+- Gib eine normale, sinnvolle Antwort.
+- Sage niemals, dass du keine Daten hast oder der Nutzer woanders nachsehen soll.
 `;
 
     // ✅ 2) USER PROMPT (liefert Kontext + Frage)
