@@ -39,7 +39,7 @@ function ModuleDetail() {
       "Sortiere die Post nach Zuständigkeit, um eine effiziente Weiterverarbeitung zu ermöglichen.",
     points: [
       "Kreditoren (Eingangsrechnungen, Mahnungen, Kreditkartenabrechnungen)",
-      "Debitoren (Ausgangsrechnungen, Kassenunterlagen – je nach Prozess)",
+      "Debitoren (Ausgangsrechnungen, Kassenunterlagen ->je nach Prozess)",
       "Hauptbuch (Kontoauszüge, Bescheide)",
       "Andere Abteilungen (HR, Einkauf, Praxismanagement)"
     ],
@@ -70,7 +70,7 @@ function ModuleDetail() {
     example:
       "Ein Schreiben mit Betreff '2. Mahnung' wird als Mahnung klassifiziert und priorisiert. Eine Rechnung mit Leistungszeitraum wird als Eingangsrechnung klassifiziert und für den Scanprozess vorbereitet.",
     mistake:
-      "Eine Mahnung wird als normale Rechnung behandelt und nicht priorisiert – dadurch entstehen Verzugszinsen oder weitere Mahnstufen.",
+      "Eine Mahnung wird als normale Rechnung behandelt und nicht priorisiert ->dadurch entstehen Verzugszinsen oder weitere Mahnstufen.",
     checklist: [
       "Dokumentart eindeutig bestimmt",
       "Zeitkritische Dokumentarten priorisiert",
@@ -145,7 +145,7 @@ function ModuleDetail() {
       "Eindeutige Zuordnung zur Gesellschaft/Periode sicherstellen"
     ],
     example:
-      "Eine Kreditkartenabrechnung enthält mehrere Restaurantumsätze. Du scannst die Abrechnung vollständig und gibst sie an die zuständige Person weiter – mit Hinweis, dass Anlass/Teilnehmerliste ggf. nachzureichen ist.",
+      "Eine Kreditkartenabrechnung enthält mehrere Restaurantumsätze. Du scannst die Abrechnung vollständig und gibst sie an die zuständige Person weiter mit Hinweis, dass Anlass/Teilnehmerliste ggf. nachzureichen ist.",
     mistake:
       "Abrechnung wird ohne Anlagen weitergegeben oder der Zeitraum ist unklar, wodurch die Buchung nicht periodengerecht erfolgen kann.",
     checklist: [
@@ -171,7 +171,7 @@ function ModuleDetail() {
     example:
       "Kassenunterlagen eines Standorts werden in die definierte Debitorenablage gelegt und mit Datum gekennzeichnet.",
     mistake:
-      "Debitorische Unterlagen landen im Kreditorenprozess – dadurch fehlen Unterlagen an anderer Stelle und es entsteht Suchaufwand.",
+      "Debitorische Unterlagen landen im Kreditorenprozess ->dadurch fehlen Unterlagen an anderer Stelle und es entsteht Suchaufwand.",
     checklist: [
       "Debitorenunterlagen als solche erkannt",
       "Ablageort korrekt",
@@ -216,7 +216,7 @@ function ModuleDetail() {
     example:
       "Ein Schreiben für die Personalabteilung wird noch am selben Tag an HR weitergeleitet.",
     mistake:
-      "Post bleibt liegen, weil Zuständigkeit nicht geklärt wird – dadurch entstehen Verzögerungen und Rückfragen.",
+      "Post bleibt liegen, weil Zuständigkeit nicht geklärt wird –>dadurch entstehen Verzögerungen und Rückfragen.",
     checklist: [
       "Abteilung/Zuständigkeit klar",
       "Weiterleitung erfolgt",
@@ -238,7 +238,7 @@ function ModuleDetail() {
     example:
       "Ein Schreiben zur Bankverbindungsänderung wird als Sonderfall markiert und direkt an die zuständige Person übergeben, damit Stammdaten nur kontrolliert geändert werden.",
     mistake:
-      "Bankdatenänderungen werden ungeprüft weitergegeben oder abgelegt – Risiko von Fehlüberweisungen oder Betrugsfällen.",
+      "Bankdatenänderungen werden ungeprüft weitergegeben oder abgelegt ->Risiko von Fehlüberweisungen oder Betrugsfällen.",
     consequence:
       "Werden Sonderfälle nicht korrekt oder rechtzeitig weitergegeben, kann es zu Fehlüberweisungen, Sicherheitsrisiken oder erheblichen Verzögerungen im Zahlungsverkehr kommen.",
     checklist: [
