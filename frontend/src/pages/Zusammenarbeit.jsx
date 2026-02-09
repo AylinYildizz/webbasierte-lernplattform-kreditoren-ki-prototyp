@@ -50,7 +50,7 @@ function Zusammenarbeit() {
                   </li>
                   <li>
                     <strong>Verlässliche Kommunikation:</strong>
-                    Rückmeldungen erfolgen rechtzeitig, vollständig
+                     Rückmeldungen erfolgen rechtzeitig, vollständig
                     und nachvollziehbar.
                   </li>
                   <li>
@@ -74,15 +74,15 @@ function Zusammenarbeit() {
                 <ul className="step-points" style={{ marginTop: "0.8rem" }}>
                   <li>
                     <strong>Unklare Zuständigkeiten:</strong>
-                    Verantwortlichkeiten werdem eindeutig geklärt und nicht vorausgesetzt.
+                     Verantwortlichkeiten werdem eindeutig geklärt und nicht vorausgesetzt.
                   </li>
                   <li>
                     <strong>Unvollständige Informationen:</strong>
-                    Relevante Daten werden vollständig übermittelt, um unnötige Rückfragen zu vermeiden.
+                     Relevante Daten werden vollständig übermittelt, um unnötige Rückfragen zu vermeiden.
                   </li>
                   <li>
                     <strong>Nicht dokumentierte Entscheidungen:</strong>
-                    Wichtige Absprachen werden stets festgehalten.
+                     Wichtige Absprachen werden stets festgehalten.
                   </li>
                   <li>
                     <strong>Unterschiedliche Begrifflichkeiten:</strong>

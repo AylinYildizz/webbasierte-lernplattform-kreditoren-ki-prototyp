@@ -22,40 +22,40 @@ function Einarbeitung() {
           <div className="step-callout tip">
             <strong>Aufbau der modularen Einarbeitung</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
-              <li>
-                <strong>1. Orientierung:</strong> Überblick über Organisation, Systeme, Rollen und zentrale Begriffe.
-              </li>
-              <li>
-                <strong>2. Grundlagen:</strong> Verständnis der Standardabläufe und der zugrunde liegenden Qualitätsprinzipien.
-              </li>
-              <li>
-                <strong>3. Praxisfälle:</strong> Bearbeitung typischer Vorgänge anhand konkreter Beispiele und strukturierter Checklisten.
-              </li>
-              <li>
-                <strong>4. Eigenständigkeit:</strong> Schrittweise Übernahme realer Aufgaben unter begleitendem Feedback.
-              </li>
-              <li>
-                <strong>5. Vertiefung:</strong> Behandlung von Sonderfällen, häufigen Fehlerquellen sowie Aufbau von Routine und Prozesssicherheit.
-              </li>
+             <li>
+  <strong>1. Orientierung:</strong> Überblick über das medizinische Netzwerk, die wichtigsten Standorte sowie die Rolle der Kreditorenbuchhaltung im Gesamtprozess.
+</li>
+<li>
+  <strong>2. Prozessverständnis:</strong> Kennenlernen des kompletten Kreditorenprozesses von der Postbearbeitung über Rechnungsprüfung und Kontierung bis zur Verbuchung und Zahlung.
+</li>
+<li>
+  <strong>3. Systemarbeit:</strong> Einführung in die verwendeten Systeme wie Verifier, ELO und Microsoft Dynamics sowie deren Aufgaben im Prozess.
+</li>
+<li>
+  <strong>4. Praxisnahe Module:</strong> Schritt-für-Schritt-Bearbeitung der einzelnen Prozessschritte mit typischen Beispielen, Checklisten und Quizfragen.
+</li>
+<li>
+  <strong>5. Sicherheit im Arbeitsalltag:</strong> Festigung der Abläufe, Vermeidung typischer Fehler und Aufbau von Routine für eine selbstständige Bearbeitung.
+</li>
             </ul>
           </div>
 
           <div className="step-callout tip">
             <strong>Bedeutung der Praxisnähe</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
-              <li>
-                Verknüpfung von theoretischem Wissen mit konkreten Arbeitssituationen.
-              </li>
-              <li>
-                Frühzeitige Erkennen typischer Fehlerquellen.
-              </li>
-              <li>
-                Aufbau von Routine durch wiederholte Bearbeitung realistischer Szenarien.
-              </li>
-              <li>
-                Entwicklung eines Verständnisses dafür, welche Informationen relevant sind und worauf besonders zu achten ist.
-              </li>
-            </ul>
+  <li>
+    Verknüpfung von theoretischem Wissen mit konkreten Arbeitssituationen innerhalb der Kreditorenprozesse.
+  </li>
+  <li>
+    Frühzeitiges Erkennen typischer Fehlerquellen in Postbearbeitung, Rechnungsprüfung, Kontierung und Verbuchung.
+  </li>
+  <li>
+    Aufbau von Routine durch die wiederholte Bearbeitung realistischer Praxisfälle und Prozessschritte.
+  </li>
+  <li>
+    Entwicklung eines sicheren Verständnisses dafür, welche Informationen relevant sind und worauf im Arbeitsalltag besonders zu achten ist.
+  </li>
+</ul>
           </div>
 
           <div className="step-callout tip">
@@ -83,7 +83,7 @@ function Einarbeitung() {
             <strong>Typische Herausforderungen in der Einarbeitung</strong>
             <ul className="step-points" style={{ marginTop: "0.8rem" }}>
               <li>
-                Zu schenlle Bearbeitung vieler Inhalte ohne ausreichendes Verständnis der einzelnen Module.
+                Zu schnelle Bearbeitung vieler Inhalte ohne ausreichendes Verständnis der einzelnen Module.
               </li>
               <li>
                 Reines Ausführen von Arbeitsschritten ohne Verständnis der dahinterliegenden Prozesslogik.
